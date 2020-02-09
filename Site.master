@@ -1,0 +1,747 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title>SKool</title>
+
+    <link href="Ncss/jquery-ui.css" rel="stylesheet" />    
+    <link href="NgridCss/dataTables.jqueryui.min.css" rel="stylesheet" />    
+    <link href="NgridCss/buttons.jqueryui.min.css" rel="stylesheet" />
+  
+    <script src="NgridJs/jquery-1.12.0.min.js" type="text/javascript"></script>  
+    <script src="NgridJs/jquery.dataTables.min.js" type="text/javascript"></script>  
+    <script src="NgridJs/dataTables.jqueryui.min.js" type="text/javascript"></script>     
+    <script src="NgridJs/dataTables.buttons.min.js" type="text/javascript"></script>     
+    <script src="NgridJs/buttons.jqueryui.min.js" type="text/javascript"></script>    
+    <script src="NgridJs/jszip.min.js" type="text/javascript"></script>    
+    <script src="NgridJs/pdfmake.min.js" type="text/javascript"></script>
+    <script src="NgridJs/vfs_fonts.js" type="text/javascript"></script>    
+    <script src="NgridJs/buttons.html5.min.js" type="text/javascript"></script>    
+    <script src="NgridJs/buttons.print.min.js" type="text/javascript"></script>
+
+
+
+    <link rel="stylesheet" type="text/css" href="CSS/basic.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/Format.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/demo.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/sidemenu.css" />
+    
+    <script src="NScripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="NScripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery.min.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery-ui.js" type="text/javascript"></script>
+    <script src="NScripts/script.js" type="text/javascript"></script>    
+  
+    <!-- jQuery -->
+    <script type="text/javascript" src="JS/slide-show-google-api.js"></script>
+    <!-- FlexSlider -->    
+    <script type="text/javascript" src="JS/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="JS/prototype.js"></script>
+    <script type="text/javascript" src="JS/lightbox.js"></script>  
+    
+   
+   
+    <style type="text/css">
+        
+        .plc::-webkit-input-placeholder
+        {
+            color:#b2cde0;
+        }
+        
+        .btn-success {
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+            color: #fff;
+            
+        }
+        .boxbg5
+        {
+            background-color: #FFF;
+            padding: 1px;
+            height: 50px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            border-radius: 5px;
+            margin-top: -30px;
+        }
+        .btn {
+            -moz-user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857;
+            margin-bottom: 0;
+            padding: 6px 12px;
+            text-align: center;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #607d8b;
+        }
+
+        ul li {
+            float: left;
+            border-right:1px solid #bbb;
+        }
+
+        ul li:last-child {
+            border-right: none;
+        }
+
+        ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        ul li a:hover:not(.active) {
+            background-color: #8dc060;
+        }
+
+        .active {
+            background-color: #8dc060;
+        }
+        
+        #content {
+	        float: left;
+            padding-top: 10px;
+            padding-left: 5px;
+            width: 95.5%;
+        }
+
+        #middle {
+	        width: 580px; /* Account for margins + border values */
+	        float: left;
+	        padding: 5px;	        
+        }
+
+        #sidebar {
+	        width: 97%;
+	        padding-top: 10px;
+	        float: right;
+            padding-right: 5px;
+        }
+        #pagewrap {
+	        padding-top: 5px;
+	        width: 1135px;
+	        margin: -14px auto;
+        }
+        
+        .border-bottom
+        {
+            border-bottom: 1px solid #bbb;
+        }
+        
+        .title{
+            display: inline-block;
+            height: 25px;
+        }
+        
+        .txtColor
+        {
+            border:1px solid #5cb85c;       
+            height:23px;      
+        }
+        
+     </style>
+
+    <script type="text/javascript" charset="utf-8">
+        var $ = jQuery.noConflict();
+        $(document).ready(function () {
+            $('.flexslider').flexslider({
+                animation: "fade"
+            });
+
+            $(function () {
+                $('.show_menu').click(function () {
+                    $('.menu').fadeIn();
+                    $('.show_menu').fadeOut();
+                    $('.hide_menu').fadeIn();
+                });
+                $('.hide_menu').click(function () {
+                    $('.menu').fadeOut();
+                    $('.show_menu').fadeIn();
+                    $('.hide_menu').fadeOut();
+                });
+
+                $('marquee').mouseover(function () {
+                    $(this).attr('scrollamount', 0);
+                }).mouseout(function () {
+                    $(this).attr('scrollamount', 5);
+                });
+            });
+
+
+
+            $("#lnkJob").click(function (e) {
+                e.preventDefault();
+                //$("html, body").animate({ scrollTop: $(document).height() - 20 }, "slow");
+                $('#middle').html('');
+                $('#middle').html("<div style='width:553px;height:auto;margin-top:5px;border:1px solid #4CAF50;padding:5px'>" +
+		                "<h2 style='color:#4caf50;margin-left:80px;'>Join with Us at PRAN-RFL Public School</h2>" +
+                        "<p>" +
+                          "<div style='margin-left:0px;border-redius:5px;'>" +
+		                        "<img width='550' height='325' src='images/job1.jpg'><br/><br/>" +
+                                "<img width='550' height='325' src='images/job2.jpg'><br/><br/>" +
+                                "<img width='550' height='325' src='images/job3.jpg'><br/><br/>" +
+                                "<img width='550' height='325' src='images/job4.jpg'><br/><br/>" +
+                                "<img width='550' height='325' src='images/job5.jpg'><br/><br/>" +
+                                "<img width='550' height='325' src='images/job6.jpg'><br/><br/>" +
+                          "</div>" +
+                        "</p>");
+            });
+
+
+            $("#lnkOnlineExam").click(function (e) {
+                e.preventDefault();
+                //$("html, body").animate({ scrollTop: $(document).height() - 20 }, "slow");
+                $('#middle').html('');
+
+                var row = "<table><tr><td>1.</td><td>বাংলা ভাষার উদ্ভব হয়েছে কোন ভাষা থেকে?</td></tr>"
+                row = row + "<tr><td><input type='radio' value='1' name='fooby' /></td><td>বাংলা ভাষার উদ্ভব হয়েছে কোন ভাষা থেকে?</td></tr>";
+                row = row + "<tr><td><input type='radio' value='0' name='fooby' /></td><td>অপভ্রংশ</td></tr>";
+                row = row + "<tr><td><input type='radio' value='0' name='fooby' /></td><td>বাংলা ভাষার উদ্ভব হয়েছে কোন ভাষা থেকে?</td></tr>";
+                row = row + "<tr><td><input type='radio' value='0' name='fooby' /></td><td>বাংলা ভাষার উদ্ভব হয়েছে কোন ভাষা থেকে?</td></tr>";
+
+                $('#middle').html("<div style='width:553px;height:auto;margin-top:5px;border:1px solid #4CAF50;padding:5px'>" +
+                        "<p>" +
+                          "<div style='margin-left:0px;border-redius:5px;'>" +
+		                         "<img width='550' height='140' src='images/exam.png'><br/><br/>" +
+                                 row +                                  
+                          "</div>" +
+                        "</p>");
+            });
+
+            $("#lnkLogin").click(function (e) {
+                e.preventDefault();
+                //$("html, body").animate({ scrollTop: $(document).height() - 20 }, "slow");
+                $('#dvMiddleContent').html('');
+                $('#dvMiddleContent').html("<div style='width:70%;height:40px;margin-top: 5px;background-color:#4CAF50;text-align:center;color:#fff;font-size:25px;padding-top:10px;margin-top:10px;margin-left:15%;'><span>Login panel</span></div>" +
+                                   "<div style='width:69.8%;height:238px;margin-top: 2px;border:1px solid #4CAF50;padding-top:10px;margin-left:15%;'>" +
+                                      "<table style='padding-top:40px;padding-left:28%'>" +
+                                        "<tr><td>Usser ID :</td><td><input type='text' id='txtUserId' style='border:1px solid #5cb85c;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                        "<tr><td>Password :</td><td><input type='password' id='txtPassword' style='border:1px solid #5cb85c;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                        "<tr><td></td><td style='text-align:right;'> <button type='button' id='btnSignIn' style='background-color: #5cb85c;border-color: #4cae4c;color: #fff;-moz-user-select: none;background-image: none;border: 1px solid transparent;border-radius: 4px;cursor: pointer;display: inline-block;font-size: 14px;font-weight: 400;line-height: 1.42857;margin-bottom: 0;padding: 6px 12px;text-align: center;vertical-align: middle;white-space: nowrap;'>Log In</button> </td></tr>" +
+                                      "</table>" +
+                                    "</div>");
+
+                $("#txtUserId").focus();
+
+                $("#btnSignIn").click(function () {
+
+                    var uid = $("#txtUserId").val();
+                    var pwd = $("#txtPassword").val();
+                    if (uid == "") {
+                        //$('input').addClass('plc');
+                        alert('Enter User Id');
+                        return;
+                    }
+                    else if (pwd == "") {
+                        alert('Enter password');
+                        return;
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        url: "home.aspx/CheckUserData",
+                        data: "{uid:'" + uid + "',pwd:'" + pwd + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            var msg = response.d;
+                            if (msg == "Admin") {
+                                window.location = "operation.aspx";
+                            }
+                            else if (msg == "Student") {
+                                window.location = "study.aspx";
+                            }
+                            else {
+                                alert(msg);
+                                $("#txtUserId").val('');
+                                $("#txtPassword").val('')
+                            }
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+
+
+                });
+            });
+
+            $("#lnkRoutine").click(function (e) {
+                e.preventDefault();
+                $("html, body").animate({ scrollTop: $(document).height() - 20 }, "slow");
+                $('#middle').html('');
+                $('#middle').html("<div style='width:565px;height:40px;margin-top: 5px;background-color:#4CAF50;text-align:center;color:#fff;font-size:25px;padding-top:10px'><span>Routine View Panel</span></div>" +
+                                   "<div style='width:563px;height:238px;margin-top: 2px;border:1px solid #4CAF50;padding-top:10px'>" +
+                                      "<table style='padding-top:40px;padding-left:50px'>" +
+                                        "<tr><td style='padding-left:50px'>Class Name :</td><td style='padding-left:5px;'>" +
+                                        "<select style='height:26px;width:252px;' class='txtColor' id='ddlClassName' name='ddlClassName'>" +
+	                                    "<option value='-1'>...Select...</option>" +
+	                                    "<option value='1'>CLASS - I</option>" +
+	                                    "<option value='2'>CLASS - II</option>" +
+	                                    "<option value='3'>CLASS - III</option>" +
+                                        "<option value='4'>CLASS - IV</option>" +
+	                                    "<option value='5'>CLASS - V</option>" +
+	                                    "<option value='6'>CLASS - VI</option>" +
+                                        "<option value='7'>CLASS - VII</option>" +
+	                                    "<option value='8'>CLASS - VIII</option>" +
+	                                    "<option value='9'>CLASS - IX</option>" +
+                                        "<option value='10'>CLASS - X</option>" +
+                                        "<option value='11'>CLASS - XI</option>" +
+                                        "<option value='12'>CLASS - XII</option>" +
+                                    "</select>" +
+                                    "</td><td></td><td></td><td></td></tr>" +
+                                        "<tr><td style='padding-left:50px'>Routine Type :</td><td style='padding-left:5px;'>" +
+                                        "<select style='height:26px;width:252px;' class='txtColor' id='ddlRoutineType' name='ddlRoutineType'>" +
+	                                    "<option value='-1'>...Select...</option>" +
+	                                    "<option value='1'>Class Routine</option>" +
+	                                    "<option value='2'>Class Test Routine</option>" +
+	                                    "<option value='3'>Exam Routine</option>" +
+                                    "</select>" +
+                                    "</td><td></td><td></td><td></td></tr>" +
+                                        "<tr><td></td><td style='text-align:right;'> <button type='button' id='btnShow' style='background-color: #5cb85c;border-color: #4cae4c;color: #fff;-moz-user-select: none;background-image: none;border: 1px solid transparent;border-radius: 4px;cursor: pointer;display: inline-block;font-size: 14px;font-weight: 400;line-height: 1.42857;margin-bottom: 0;padding: 6px 12px;text-align: center;vertical-align: middle;white-space: nowrap;'>Show</button> </td></tr>" +
+                                      "</table>" +
+                                    "</div>");
+
+                $("#txtUserId").focus();
+
+                $("#btnShow").click(function () {
+
+                    var uid = $("#txtUserId").val();
+                    var pwd = $("#txtPassword").val();
+                    if (uid == "") {
+                        //$('input').addClass('plc');
+                        alert('Enter User Id');
+                        return;
+                    }
+                    else if (pwd == "") {
+                        alert('Enter password');
+                        return;
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        url: "home.aspx/CheckUserData",
+                        data: "{uid:'" + uid + "',pwd:'" + pwd + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            var msg = response.d;
+                            if (msg == "good") {
+                                window.location = "operation.aspx";
+                            }
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+                });
+            });
+
+
+            $("#lnkInformationReports").click(function (e) {
+                e.preventDefault();
+                window.location = "inforeports.aspx";
+            });
+
+            $("#lnkClasswisestudent").click(function (e) {
+                e.preventDefault();
+                $("html, body").animate({ scrollTop: $(document).height() - 20 }, "slow");
+                $('#middle').html('');
+                $('#middle').html("<div style='width:565px;height:40px;margin-top: 5px;background-color:#4CAF50;text-align:center;color:#fff;font-size:25px;padding-top:10px'><span>Routine View Panel</span></div>" +
+                                   "<div style='width:563px;height:238px;margin-top: 2px;border:1px solid #4CAF50;padding-top:10px'>" +
+                                      "<table style='padding-top:40px;padding-left:50px'>" +
+                                        "<tr><td style='padding-left:50px'>Class Name :</td><td style='padding-left:5px;'>" +
+                                        "<select style='height:26px;width:252px;' class='txtColor' id='ddlClassName' name='ddlClassName'>" +
+	                                    "<option value='-1'>...Select...</option>" +
+	                                    "<option value='CLASS01'>CLASS - I</option>" +
+	                                    "<option value='CLASS02'>CLASS - II</option>" +
+	                                    "<option value='CLASS03'>CLASS - III</option>" +
+                                        "<option value='CLASS04'>CLASS - IV</option>" +
+	                                    "<option value='CLASS05'>CLASS - V</option>" +
+	                                    "<option value='CLASS06'>CLASS - VI</option>" +
+                                        "<option value='CLASS07'>CLASS - VII</option>" +
+	                                    "<option value='CLASS08'>CLASS - VIII</option>" +
+	                                    "<option value='CLASS09'>CLASS - IX</option>" +
+                                        "<option value='CLASS10'>CLASS - X</option>" +
+                                        "<option value='CLASS11'>CLASS - XI</option>" +
+                                        "<option value='CLASS12'>CLASS - XII</option>" +
+                                    "</select>" +
+                                    "</td><td></td><td></td><td></td></tr>" +
+
+                                        "<tr><td></td><td style='text-align:right;'> <button type='button' id='btnShow' style='background-color: #5cb85c;border-color: #4cae4c;color: #fff;-moz-user-select: none;background-image: none;border: 1px solid transparent;border-radius: 4px;cursor: pointer;display: inline-block;font-size: 14px;font-weight: 400;line-height: 1.42857;margin-bottom: 0;padding: 6px 12px;text-align: center;vertical-align: middle;white-space: nowrap;'>Show</button> </td></tr>" +
+                                      "</table>" +
+                                    "</div>");
+
+
+                $("#btnShow").click(function () {
+
+                    var className = $("#ddlClassName option:selected").val();
+
+                    if (className == "...Select...") {
+                        alert('Select Class Name');
+                        return;
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        url: "home.aspx/GetStudentInfo",
+                        data: "{className:'" + className + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            var studentInfo = response.d.split(';');
+                            var tbl = "<table id='example' class='display' style='color:#9C27B0' cellspacing='0' width='100%'>";
+                            var thead = "<thead><tr><th>Id</th><th>Student Name</th><th>Picture</th></tr></thead>";
+                            var row = "";
+
+                            for (var i = 1; i < studentInfo.length; i = i + 3) {
+                                var studentId = studentInfo[i];
+                                var studentName = studentInfo[i + 1];
+                                var picLocation = studentInfo[i + 2];
+                                row = row + "<tr><td>'" + studentId + "'</td><td>" + studentName + "</td><td><img width='50' height='55' title='' alt='' src=" + picLocation + "></td><tr>";
+                            }
+                            //var htm = tbl+ <tbody>" + row + "</tbody></table>";
+                            var htm = tbl + thead + "<tbody>" + row + "</tbody></table>";
+                            $("#middle").html("");
+                            $("#middle").html(htm);
+                            var table = $('#example').DataTable({
+                                lengthChange: true,
+                                buttons: true
+                            });
+
+                            table.buttons().container().insertBefore('#example_filter');
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+                });
+            });
+        });
+        
+        
+        //$(window).load(function () {
+//            $('.flexslider').flexslider({
+//                animation: "fade"
+//            });
+
+//            $(function () {
+//                $('.show_menu').click(function () {
+//                    $('.menu').fadeIn();
+//                    $('.show_menu').fadeOut();
+//                    $('.hide_menu').fadeIn();
+//                });
+//                $('.hide_menu').click(function () {
+//                    $('.menu').fadeOut();
+//                    $('.show_menu').fadeIn();
+//                    $('.hide_menu').fadeOut();
+//                });
+//            });
+
+            
+
+       // });
+    </script>
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+ <form runat="server">
+ <div id="bodywrapper">
+   <div id="header">
+      <div><img src="images/header.jpg" width="1147" height="80" title="School Websites Home page"/></div>
+      <div style="padding-top:0px;width:100%;height:300px;background-color:#eeccff">
+           <div class="slider_container">
+		<div class="flexslider">
+	      <ul class="slides">
+          <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/ceo.jpg" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>CEO</h2><p>Founder of PRAN-RFL GROUP.</p></div>
+                </div>
+	    	</li>
+            <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/dmd1.jpg" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>DMD</h2><p>Deputy Managing Director of PRAN-RFL GROUP.</p></div>
+                </div>
+	    	</li>
+            <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/dmd.jpg" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>DMD</h2><p>Deputy Managing Director of PRAN-RFL GROUP.</p></div>
+                </div>
+	    	</li>
+           <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/dmd2.jpg" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>DMD and Others</h2><p>Deputy Managing Director & Others of PRAN-RFL GROUP.</p></div>
+                </div>
+	    	</li>
+	    	<li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/fc-D.jpg" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Director</h2><p>Finance Director of PRAN-RFL GROUP.</p></div>
+                </div>
+	    	</li>  
+            <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/pran-school.jpg" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>PRAN-RFL PUBLIC SCHOOL</h2><p>Hand wash program in PRAN-RFL Public School.</p></div>
+                </div>
+	    	</li> 
+            <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/line.jpg" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Morning work</h2><p>Health is wealth.</p></div>
+                </div>
+	    	</li>           
+	    	 
+	    </ul>
+	  </div>
+   </div>
+      </div>
+   </div>
+   <div style="background:#8dc060; height:49px;">
+    
+        <ul>
+          <li><a class="active" href="home.aspx" id="lnkHome">Home</a></li>
+          <li><a href="#news">About</a></li>
+          <li><a href="#contact">Policies</a></li>
+          <li><a href="#contact">School council</a></li>
+          <li><a href="#contact">Staff profiles</a></li>
+          <li><a href="#contact">Newsletters</a></li>           
+          <li><a href="#contact">Governing body</a></li>
+          <li style="float:right"><a href="#" id="lnkLogin">Log In</a></li>
+        </ul>
+   </div>
+   <div id="contentwrapper">
+       <div style="background:rgba(0,0,0,0.12);width:100%; height:auto;">
+          <div style="border:1px solid #8dc060;width:13.58%; height:auto;float:left;">
+              <section id="content">		                 
+		                 <ul class="rmRootGroup rmVertical">
+                         
+		                    <li class="rmItem rmFirst active border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;"><span class="rmText">Main Menu</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">School day</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Pupils</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Uniform</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Subjects</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Vehicles Facilities</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Gallery</span></a></li>
+                            <li class="rmItem border-bottom"><a id="lnkRoutine" class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Routine & Schedule</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Documents</span></a></li>
+                            <li class="rmItem border-bottom"><a id="lnkOnlineExam" class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Online Exam</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" id="lnkJob" href="#" style="width: 176px;text-align: left;"><span class="rmText">Job Circular</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" id="lnkInformationReports" href="#" style="width: 176px;text-align: left;"><span class="rmText">Informational Reports</span></a></li>
+                            <li class="rmItem rmLast"><a class="rmLink rmRootLink" href="Page.aspx?ID=3235" style="width: 176px;text-align: left;"><span class="rmText">School Clubs</span></a></li>
+	                    </ul>
+	                </section>
+          </div>
+           <div style="width:85.5%; height:auto;float:right;">
+               <div id="dvMiddleContent" style="border:1px solid #8dc060;width:75.2%; height:350px;float:left;">
+
+               </div>
+               <div style="border:1px solid #8dc060;width:23.58%; height:auto;float:right;">
+                   <aside id="sidebar">
+		                <ul class="rmRootGroup rmVertical">
+                         
+		                    <li class="rmItem rmFirst active border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 283px;"><span class="rmText">Notice Board</span></a></li>
+                            <li class="rmItem border-bottom">
+                             
+                              <span class="rmText"> 
+                                <marquee direction="up">
+                                <a class="rmLink rmRootLink" href="#" style="text-align: left;">
+                                06/02/2017</br>
+                                Gallery feature now available!
+                                We are pleased to announce our latest feature, "Gallery".
+                                Any registered school can now add a gallery containing unlimited albums and unlimited photos.
+                                </a></br>
+                                <a class="rmLink rmRootLink" href="#" style="text-align: left;">
+                                01/01/2017</br>
+                                Admission going on!
+                                All new classes admission will be held on the mentioned date schedule.
+                                </a>
+                                </marquee>
+                              </span>
+                            
+                            </li>
+                            <li class="rmItem rmLast"><a class="rmLink rmRootLink" href="#" style="width: 283px;text-align: right;"><span class="rmText">All News>></span></a></li>
+	                                           
+                         </ul>	                
+                     </aside>
+
+                     <aside id="sidebar">
+                      <div id="dvResult" style='height:auto;padding-bottom:10px;'>
+		                <ul class="rmRootGroup rmVertical">
+                         
+		                    <li class="rmItem rmFirst active border-bottom">
+                                <a style="width: 283px;" href="#" class="rmLink rmRootLink"><span class="rmText"><b>Online Exam Result</b><br/>Top 10 Best 														Student </span></a>
+                             </li>
+                            
+                              <li>
+                                <table style='color:#fff;'><thead>
+                                <tr style="background-color:#ddd;" class="border-bottom"><th style="padding-left:5px;color:#4caf50;">Rank</th><th style="width:200px;padding-left:10px;color:#4caf50;">Name</th><th style="width:58px;color:#4caf50;">Marks</th></tr>
+                                <thead>
+                                  <tbody>
+                                    <tr><td style='padding-left:10px;'>1</td><td style='width:200px;padding-left:10px;'>Promitra Roy</td><td style='padding-left:10px;'>50</td></tr>
+                                     <tr><td style='padding-left:10px;'>2</td><td style='width:200px;padding-left:10px;'>Projay Roy</td><td style='padding-left:10px;'>47</td></tr>
+                                     <tr><td style='padding-left:10px;'>3</td><td style='width:200px;padding-left:10px;'>Anuradha Voumik</td><td style='padding-left:10px;'>46</td></tr>
+                                     <tr><td style='padding-left:10px;'>4</td><td style='width:200px;padding-left:10px;'>Arpita Sen Gupta</td><td style='padding-left:10px;'>43</td></tr>
+                                     <tr><td style='padding-left:10px;'>5</td><td style='width:200px;padding-left:10px;'>Nibedita Biswas</td><td style='padding-left:10px;'>42</td></tr>
+                                     <tr><td style='padding-left:10px;'>6</td><td style='width:200px;padding-left:10px;'>Dibendu Mondal</td><td style='padding-left:10px;'>40</td></tr>
+                                     <tr><td style='padding-left:10px;'>7</td><td style='width:200px;padding-left:10px;'>Aritra Bagsi</td><td style='padding-left:10px;'>40</td></tr>
+                                     <tr><td style='padding-left:10px;'>8</td><td style='width:200px;padding-left:10px;'>Sornali Sondha</td><td style='padding-left:10px;'>39</td></tr>
+                                     <tr><td style='padding-left:10px;'>9</td><td style='width:200px;padding-left:10px;'>Ronodip Protap</td><td style='padding-left:10px;'>37</td></tr>
+                                     <tr><td style='padding-left:10px;'>10</td><td style='width:200px;padding-left:10px;'>Rahul Raj Roy</td><td style='padding-left:10px;'>35</td></tr>
+                                  </tbody>
+                                  </table>
+                              </li>     
+	                                           
+                         </ul>	                
+                        </div>
+                     </aside>
+               </div>
+           </div>
+       </div>
+     <%-- <div id="content">                
+           
+                <div id="pagewrap">	
+	                <section id="content">		                 
+		                 <ul class="rmRootGroup rmVertical">
+                         
+		                    <li class="rmItem rmFirst active border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;"><span class="rmText">Main Menu</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">School day</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Pupils</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Uniform</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Subjects</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Vehicles Facilities</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Gallery</span></a></li>
+                            <li class="rmItem border-bottom"><a id="lnkRoutine" class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Routine & Schedule</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Documents</span></a></li>
+                            <li class="rmItem border-bottom"><a id="lnkOnlineExam" class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Online Exam</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" id="lnkJob" href="#" style="width: 176px;text-align: left;"><span class="rmText">Job Circular</span></a></li>
+                            <li class="rmItem border-bottom"><a class="rmLink rmRootLink" id="lnkInformationReports" href="#" style="width: 176px;text-align: left;"><span class="rmText">Informational Reports</span></a></li>
+                            <li class="rmItem rmLast"><a class="rmLink rmRootLink" href="Page.aspx?ID=3235" style="width: 176px;text-align: left;"><span class="rmText">School Clubs</span></a></li>
+	                    </ul>
+	                </section>
+	
+	                <section id="middle">
+                    <div style="width:100%;height:auto;margin-top:5px;border:1px solid #4CAF50;padding:5px">
+		                <h2 style='color:#4caf50;margin-left:80px;'>Welcome to PRAN-RFL Public School</h2>
+                        <p>
+                          <div style='margin-left:16px;border-redius:5px;'>
+		                        <img width="520" height="180" src="images/pranschool.jpg">
+                          </div>  
+                        </p>
+		                <p>At full width all three columns will be displayed side by side. As the page is resized the third column will collapse under the first and second. At the smallest screen size all three columns will be stacked on top of one another.</p>
+		                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+	                </div>
+                    </section>
+
+	                <aside id="sidebar">
+		                <ul class="rmRootGroup rmVertical">
+                         
+		                    <li class="rmItem rmFirst active border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 283px;"><span class="rmText">Notice Board</span></a></li>
+                            <li class="rmItem border-bottom">
+                             
+                              <span class="rmText"> 
+                                <marquee direction="up">
+                                <a class="rmLink rmRootLink" href="#" style="text-align: left;">
+                                06/02/2017</br>
+                                Gallery feature now available!
+                                We are pleased to announce our latest feature, "Gallery".
+                                Any registered school can now add a gallery containing unlimited albums and unlimited photos.
+                                </a></br>
+                                <a class="rmLink rmRootLink" href="#" style="text-align: left;">
+                                01/01/2017</br>
+                                Admission going on!
+                                All new classes admission will be held on the mentioned date schedule.
+                                </a>
+                                </marquee>
+                              </span>
+                            
+                            </li>
+                            <li class="rmItem rmLast"><a class="rmLink rmRootLink" href="#" style="width: 283px;text-align: right;"><span class="rmText">All News>></span></a></li>
+	                                           
+                         </ul>	                
+                     </aside>
+
+                     <aside id="sidebar">
+                      <div id="dvResult" style='height:auto;padding-bottom:10px;'>
+		                <ul class="rmRootGroup rmVertical">
+                         
+		                    <li class="rmItem rmFirst active border-bottom">
+                                <a style="width: 283px;" href="#" class="rmLink rmRootLink"><span class="rmText"><b>Online Exam Result</b><br/>Top 10 Best 														Student </span></a>
+                             </li>
+                            
+                              <li>
+                                <table style='color:#fff;'><thead>
+                                <tr style="background-color:#ddd;" class="border-bottom"><th style="padding-left:5px;color:#4caf50;">Rank</th><th style="width:200px;padding-left:10px;color:#4caf50;">Name</th><th style="width:58px;color:#4caf50;">Marks</th></tr>
+                                <thead>
+                                  <tbody>
+                                    <tr><td style='padding-left:10px;'>1</td><td style='width:200px;padding-left:10px;'>Promitra Roy</td><td style='padding-left:10px;'>50</td></tr>
+                                     <tr><td style='padding-left:10px;'>2</td><td style='width:200px;padding-left:10px;'>Projay Roy</td><td style='padding-left:10px;'>47</td></tr>
+                                     <tr><td style='padding-left:10px;'>3</td><td style='width:200px;padding-left:10px;'>Anuradha Voumik</td><td style='padding-left:10px;'>46</td></tr>
+                                     <tr><td style='padding-left:10px;'>4</td><td style='width:200px;padding-left:10px;'>Arpita Sen Gupta</td><td style='padding-left:10px;'>43</td></tr>
+                                     <tr><td style='padding-left:10px;'>5</td><td style='width:200px;padding-left:10px;'>Nibedita Biswas</td><td style='padding-left:10px;'>42</td></tr>
+                                     <tr><td style='padding-left:10px;'>6</td><td style='width:200px;padding-left:10px;'>Dibendu Mondal</td><td style='padding-left:10px;'>40</td></tr>
+                                     <tr><td style='padding-left:10px;'>7</td><td style='width:200px;padding-left:10px;'>Aritra Bagsi</td><td style='padding-left:10px;'>40</td></tr>
+                                     <tr><td style='padding-left:10px;'>8</td><td style='width:200px;padding-left:10px;'>Sornali Sondha</td><td style='padding-left:10px;'>39</td></tr>
+                                     <tr><td style='padding-left:10px;'>9</td><td style='width:200px;padding-left:10px;'>Ronodip Protap</td><td style='padding-left:10px;'>37</td></tr>
+                                     <tr><td style='padding-left:10px;'>10</td><td style='width:200px;padding-left:10px;'>Rahul Raj Roy</td><td style='padding-left:10px;'>35</td></tr>
+                                  </tbody>
+                                  </table>
+                              </li>     
+	                                           
+                         </ul>	                
+                        </div>
+                     </aside>
+
+                </div>
+                   
+          </div>--%>
+          <div style="clear:both"></div>
+         <div style="line-height:14px; margin-top:15px;">
+            <h2 style="font-size:12px; margin-bottom:2px; padding-bottom:2px;">School Website Design Examples:</h2>
+			<a href="http://www.hspa.nsw.edu.au/" target=_new style="color:#666; text-decoration:none; font-size:10px;">Hunter School of The Performing Arts</a> | <a href="http://www.hspa.nsw.edu.au/" target=_new style="color:#666; text-decoration:none; font-size:10px;">Hunter School of the Performing Arts</a> | <a href="http://www.kingswood.vic.edu.au" target=_new style="color:#666; text-decoration:none; font-size:10px;">Kingswood Primary School </a> | <a href="http://www.oconnorps.wa.edu.au" target=_new style="color:#666; text-decoration:none; font-size:10px;">O'Connor Primary School</a> | <a href="http://www.selbyps.vic.edu.au/" target=_new style="color:#666; text-decoration:none; font-size:10px;">Selby Primary School </a> | <a href="http://www.stjohnsnt.catholic.edu.au" target=_new style="color:#666; text-decoration:none; font-size:10px;">St Johns Catholic College School </a> | <a href="http://www.surfsideps.vic.edu.au" target=_new style="color:#666; text-decoration:none; font-size:10px;">Surfside Primary School </a> | <a href="http://www.wbeachps.sa.edu.au/" target=_new style="color:#666; text-decoration:none; font-size:10px;">West Beach Primary School</a> | <a href="http://www.westbyfordprimaryschool.wa.edu.au/" target=_new style="color:#666; text-decoration:none; font-size:10px;">West Byford Primary School</a> | <a href="http://www.westmeadows.vic.edu.au/" target=_new style="color:#666; text-decoration:none; font-size:10px;">West Meadows Primary School</a> | <a href="http://www.ccsale.catholic.edu.au/" target=_new style="color:#666; text-decoration:none; font-size:10px;">Catholic College Sale School </a> | <a href="http://www.sbc.qld.edu.au" target=_new style="color:#666; text-decoration:none; font-size:10px;">St Brendans College School </a> | <a href="http://www.ccsale.catholic.edu.au/" target=_new style="color:#666; text-decoration:none; font-size:10px;">Catholic College Sale School </a> | <a href="http://www.woodfordps.vic.edu.au/" target=_new style="color:#666; text-decoration:none; font-size:10px;">Woodford Primary School</a> | <a href="http://www.southkalgoorlieps.wa.edu.au/" target=_new style="color:#666; text-decoration:none; font-size:10px;">South Kalgoorlie Primary School</a> | <a href="http://www.sbc.qld.edu.au" target=_new style="color:#666; text-decoration:none; font-size:10px;">St Brendans College school </a> | <a href="http://www.beverlyhillsnorthps.com.au/" target=_new style="color:#666; text-decoration:none; font-size:10px;">Beverly Hills Public School </a> | <a href="http://www.karrathaps.wa.edu.au" target=_new style="color:#666; text-decoration:none; font-size:10px;">Karratha Primary School Website Design</a> | <a href="http://www.spcc.nsw.edu.au/" target=_new style="color:#666; text-decoration:none; font-size:10px;">St Philips Christian College </a> | <a href="http://www.gosfordhigh.com.au/" target=_new style="color:#666; text-decoration:none; font-size:10px;">Gosford High School </a> | <a href="http://www.stpetersbroulee.nsw.edu.au" target=_new style="color:#666; text-decoration:none; font-size:10px;">St Peters Broulee School </a> | <a href="http://www.middleparkps.vic.edu.au/" target=_new style="color:#666; text-decoration:none; font-size:10px;">Middle Park Primary School </a> | <a href="http://www.holyfamilykelso.catholic.edu.au/index.php" target=_new style="color:#666; text-decoration:none; font-size:10px;">Holy Family Primary School </a> | <a href="http://www.harringtonst.org.au/" target=_new style="color:#666; text-decoration:none; font-size:10px;">Harrington Street Public School</a> | <a href="http://www.grg.nsw.edu.au/" target=_new style="color:#666; text-decoration:none; font-size:10px;">Georges River Grammar school </a>         
+         </div>
+      </div>
+   </div>
+
+<div id="footerwrapper">
+   <div id="footer">
+      <a href="home.aspx" style="color:white; text-decoration:none;">Home | </a><a href="" style="color:white; text-decoration:none;"> About us | </a><a href="" style="color:white; text-decoration:none;">Contact us </a>
+      <p>Telephone: (02) 4961 0777&nbsp;&nbsp;&nbsp;&nbsp;Any time: 01710649448<br />
+      Copyright &copy; 2016 Website: www.pranrflgroup.com Email: info@pranrflgroup.com   
+        <div style="text-align:right; margin-top:-14px;"><a href="http://www.pranrflgroup.com" target=_new style="color:white; text-decoration:none;">Design & Developed by Rathindra Nath</a></div>
+   </div>
+</div>
+    </form>
+</body>
+</html>

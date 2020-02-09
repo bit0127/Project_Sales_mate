@@ -1,0 +1,702 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>SR Location Tracking</title>
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidenav a:hover, .offcanvas a:focus {
+                    color: #f1f1f1;
+                }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+                .sidenav a {
+                    font-size: 18px;
+                }
+        }
+    </style>
+    <style type="text/css">
+        .ui-datepicker {
+            width: 17em;
+            padding: .2em .2em 0;
+            display: none;
+            background: #846733;
+        }
+
+            .ui-datepicker .ui-datepicker-title {
+                margin: 0 2.3em;
+                line-height: 1.8em;
+                text-align: center;
+                color: #FFFFFF;
+                background: #846733;
+            }
+
+            .ui-datepicker table {
+                width: 100%;
+                font-size: .7em;
+                border-collapse: collapse;
+                font-family: verdana;
+                margin: 0 0 .4em;
+                color: #000000;
+                background: #FDF8E4;
+            }
+
+            .ui-datepicker td {
+                border: 0;
+                padding: 1px;
+            }
+
+                .ui-datepicker td span, .ui-datepicker td a {
+                    display: block;
+                    padding: .8em;
+                    text-align: right;
+                    text-decoration: none;
+                }
+    </style>
+    <script src="NJavaScript/jquery-1.10.2.js"></script>
+    <script src="NgridJs/jquery-1.12.0.min.js" type="text/javascript"></script> 
+    <link rel="stylesheet" type="text/css" href="CSS/basic.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/Format.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/demo.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/sidemenu.css" />
+
+    <script src="NScripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="NScripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery.min.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery-ui.js" type="text/javascript"></script>
+    <script src="NScripts/script.js" type="text/javascript"></script>
+    <script type="text/javascript" src="JS/slide-show-google-api.js"></script>
+    <script type="text/javascript" src="JS/jquery.flexslider-min.js"></script>
+    <!--<script type="text/javascript" src="JS/prototype.js"></script>-->
+    <!--<script type="text/javascript" src="JS/lightbox.js"></script>-->
+
+
+    <link rel="stylesheet" href="CSS/date-picker-css.css" />
+    <script type="text/javascript" src="JSfordate/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+
+        var markers = [];
+        var geocoder;
+        var map;
+        var $j = jQuery.noConflict();
+
+        $j(document).ready(function () {
+
+            //var srID = '152015';
+            //var date = '05/02/2017';
+            var d = new Date();
+            var month = d.getMonth() + 1;
+            var day = d.getDate();
+            var currentDate = (day < 10 ? '0' : '') + day + '/' + (month < 10 ? '0' : '') + month + '/' + d.getFullYear();
+            $j("#txtDate").val(currentDate);
+            $j("#txtDate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+
+
+            loadCompany();
+            loadGroup();
+            loadDivision();
+            loadZone();
+            loadSR();
+
+            var date = $j("#txtDate").val();
+
+            $j.ajax({
+                type: "POST",
+                url: "Service.asmx/GetInfoFirstTime",
+                data: "{'Date_Time':'" + date + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+
+                    markers = JSON.parse(response.d);
+
+                    //console.log(markers);
+                    SetGoogleMap();
+                    //loadDivision();
+                },
+                failure: function (response) {
+                    alert(response.d);
+                }
+            });
+
+
+            function SetGoogleMap() {
+                var marker = [];
+                var mapOptions = {
+                    center: new google.maps.LatLng(markers[0].LAT, markers[0].LNG),
+                    zoom: 10,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+                var infoWindow = new google.maps.InfoWindow();
+                var lat_lng = new Array();
+                var latlngbounds = new google.maps.LatLngBounds();
+                for (i = 0; i < markers.length; i++) {
+                    var data = markers[i]
+                    var myLatlng = new google.maps.LatLng(data.LAT, data.LNG);
+                    lat_lng.push(myLatlng);
+
+                    if (i == 0) {
+                        marker = new google.maps.Marker({
+                            position: myLatlng,
+                            map: map,
+                            label: {
+                                color: 'black',
+                                fontWeight: 'bold',
+                                text: 'Start',
+                            },
+                            icon: {
+                                labelOrigin: new google.maps.Point(11, 50),
+                                url: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+                                size: new google.maps.Size(22, 40),
+                                origin: new google.maps.Point(0, 0),
+                                animation: google.maps.Animation.DROP,
+                                anchor: new google.maps.Point(11, 40),
+                            },
+                            title: data.TITLE
+                        });
+                    }
+                    else if (i == markers.length - 1) {
+                        marker = new google.maps.Marker({
+                            position: myLatlng,
+                            map: map,
+                            label: {
+                                color: 'black',
+                                fontWeight: 'bold',
+                                text: 'End',
+                            },
+                            icon: {
+                                labelOrigin: new google.maps.Point(11, 50),
+                                url: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+                                size: new google.maps.Size(22, 40),
+                                origin: new google.maps.Point(0, 0),
+                                animation: google.maps.Animation.DROP,
+                                anchor: new google.maps.Point(11, 40),
+                            },
+                            title: data.TITLE
+                        });
+                    }
+
+                    else {
+                        marker = new google.maps.Marker({
+                            position: myLatlng,
+                            map: map,
+                            title: data.TITLE
+                        });
+                    }
+
+
+                    latlngbounds.extend(marker.position);
+                    (function (marker, data) {
+                        google.maps.event.addListener(marker, "click", function (e) {
+                            infoWindow.setContent(data.DESCRIPTION);
+                            infoWindow.open(map, marker);
+                        });
+                    })(marker, data);
+                }
+                map.setCenter(latlngbounds.getCenter());
+                map.fitBounds(latlngbounds);
+
+                //***********ROUTING****************//
+
+                //Intialize the Path Array
+                var path = new google.maps.MVCArray();
+
+                //Intialize the Direction Service
+                var service = new google.maps.DirectionsService();
+
+                //Set the Path Stroke Color
+                var poly = new google.maps.Polyline({ map: map, strokeColor: '#4986E7' });
+
+                //Loop and Draw Path Route between the Points on MAP
+                //for (var i = 0; i < lat_lng.length; i++) {
+                //    if ((i + 1) < lat_lng.length) {
+                //        var src = lat_lng[i];
+                //        var des = lat_lng[i + 1];
+                //        path.push(src);
+                //        poly.setPath(path);
+                //        service.route({
+                //            origin: src,
+                //            destination: des,
+                //            travelMode: google.maps.DirectionsTravelMode.WALKING
+                //        }, function (result, status) {
+                //            if (status == google.maps.DirectionsStatus.OK) {
+                //                for (var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
+                //                    path.push(result.routes[0].overview_path[i]);
+                //                }
+                //            }
+                //        });
+                //    }
+                //}
+            }
+
+            function getUrlParameter(sParam) {
+                var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : sParameterName[1];
+                    }
+                }
+            };
+
+            function loadCompany() {
+
+                $j.ajax({
+                    type: "POST",
+                    url: "Service.asmx/GetCompany",
+                    //data: "{'countryName':'" + countryName + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+
+                        var companyInfo = response.d.split(';');
+                        var opt = "<option value='-1'>...Select...</option>";
+                       
+                        for (var i = 1; i < companyInfo.length; i = i + 2) {
+                            var groupId = companyInfo[i];
+                            var groupName = companyInfo[i + 1];
+                            opt = opt + "<option value='" + groupId + "'>" + groupName + "</option>";
+                        }
+                        $j("#ddlCompany").html('');
+                        $j("#ddlCompany").append(opt);
+
+                    },
+                    failure: function (response) {
+                        alert(response.d);
+                    }
+                });
+            }
+
+            function loadGroup() {
+                $j("#ddlCompany").change(function () {
+                    var ownCompany = $j("#ddlCompany").val();
+                    $j.ajax({
+                        type: "POST",
+                        url: "Service.asmx/GetCompanyGroup",
+                        data: "{ownCompany:'" + ownCompany + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+
+                            var companyInfo = response.d.split(';');
+                            var opt = "<option value='-1'>...Select...</option>";
+                            //opt = opt + "<option value='All'>All</option>";
+                            for (var i = 1; i < companyInfo.length; i = i + 2) {
+                                var groupId = companyInfo[i];
+                                var groupName = companyInfo[i + 1];
+                                opt = opt + "<option value='" + groupId + "'>" + groupName + "</option>";
+                            }
+                            $j("#ddlGroup").html('');
+                            $j("#ddlGroup").append(opt);
+
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+                });
+            }
+
+            function loadDivision() {
+                $j("#ddlGroup").change(function () {
+
+                var countryName = 'Bangladesh';
+                $j.ajax({
+                    type: "POST",
+                    url: "Service.asmx/GetDivision",
+                    data: "{'countryName':'" + countryName + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+
+                        var companyInfo = response.d.split(';');
+                        var opt = "<option value='-1'>...Select...</option>";
+                        //opt = opt + "<option value='All'>All</option>";
+                        for (var i = 1; i < companyInfo.length; i = i + 2) {
+                            var groupId = companyInfo[i];
+                            var groupName = companyInfo[i + 1];
+                            opt = opt + "<option value='" + groupId + "'>" + groupName + "</option>";
+                        }
+                        $j("#ddlDivision").html('');
+                        $j("#ddlDivision").append(opt);
+
+                    },
+                    failure: function (response) {
+                        alert(response.d);
+                    }
+
+                });
+                });
+            }
+
+            function loadZone() {
+                $j("#ddlDivision").change(function () {
+                    var division = $j("#ddlDivision").val();
+                    $j.ajax({
+                        type: "POST",
+                        url: "Service.asmx/GetZone",
+                        data: "{division:'" + division + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+
+                            var companyInfo = response.d.split(';');
+                            var opt = "<option value='-1'>...Select...</option>";
+                            //opt = opt + "<option value='All'>All</option>";
+                            for (var i = 1; i < companyInfo.length; i = i + 2) {
+                                var groupId = companyInfo[i];
+                                var groupName = companyInfo[i + 1];
+                                opt = opt + "<option value='" + groupId + "'>" + groupName + "</option>";
+                            }
+                            $j("#ddlZone").html('');
+                            $j("#ddlZone").append(opt);
+
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+                });
+            }
+
+            function loadSR() {
+                $j("#ddlZone").change(function () {
+                    var zoneID = $j("#ddlZone").val();
+                    var groupID = $j("#ddlGroup").val();
+
+                    $j.ajax({
+                        type: "POST",
+                        url: "Service.asmx/GetSR",
+                        data: "{zone:'" + zoneID + "',group:'" + groupID + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+
+                            var companyInfo = response.d.split(';');
+                            var opt = "<option value='-1'>...Select...</option>";
+                            opt = opt + "<option value='All'>All</option>";
+                            for (var i = 1; i < companyInfo.length; i = i + 2) {
+                                var groupId = companyInfo[i];
+                                var groupName = companyInfo[i + 1];
+                                opt = opt + "<option value='" + groupId + "'>" + groupName + "</option>";
+                            }
+                            $j("#ddlSR").html('');
+                            $j("#ddlSR").append(opt);
+
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+                });
+            }
+
+        });
+
+
+    </script>
+
+
+
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBz0enLv47fb-nW0FNATwVCdOC1UAFWN9s"></script>
+    
+  
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <!--<a href="#">About</a>-->
+
+        <div>
+            <select id='ddlCompany' style='height:32px;width:180px;border:1px solid #4bcf99;' name='ddlCompany'>  </select>
+        </div>
+        <div>
+            <select id='ddlGroup' style='height:32px;width:180px;border:1px solid #4bcf99;' name='ddlGroup'>  </select>
+        </div>
+
+        <div>
+            <select id='ddlDivision' style='height:32px;width:180px;border:1px solid #4bcf99;' name='ddlDivision'> </select>
+        </div>
+        <div>
+            <select id='ddlZone' style='height:32px;width:180px;border:1px solid #4bcf99;' name='ddlZone'></select>
+        </div>
+        <div>
+            <select id='ddlSR' style='height:32px;width:180px;border:1px solid #4bcf99;' name='ddlSR'></select>
+        </div>
+
+        <div><input type='text' id='txtDate' placeholder='DD/MM/YYYY' style='border: 1px solid #4bcf99; width: 177px; height: 32px;' /></div>
+        <div>----</div>
+        <div>
+            <button type='button' id='btnSearchActiveSR' onclick="load_home()" style='background-color: #8dc060;border-color: #4cae4c;color: #fff;-moz-user-select: none;background-image: none;border: 1px solid transparent;border-radius: 4px;cursor: pointer;display: inline-block;font-size: 14px;font-weight: 400;line-height: 1.42857;margin-bottom: 0;padding: 6px 12px;text-align: center;vertical-align: middle;white-space: nowrap;'>Search</button>
+        </div>
+    </div>
+
+    <div id="main">
+        <!--<p>Click on the element below to open the side navigation menu, and push this content to the right.</p>-->
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <div id="dvMap" style="width: 1000px; height: 500px"></div>
+        </div>
+
+    <script type="text/javascript">
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+
+            //var d = new Date();
+            //var month = d.getMonth() + 1;
+            //var day = d.getDate();
+            //var currentDate = (day < 10 ? '0' : '') + day + '/' + (month < 10 ? '0' : '') + month + '/' + d.getFullYear();
+            //$j("#txtDate").val(currentDate);
+            //$j("#txtDate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+        
+        }
+
+        function closeNav()
+        {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+
+
+        function load_home()
+        {
+
+            //document.getElementById("dvMap").innerHTML = '<object type="text/html" data="SrTracking.htm?currentdate=4/5/2017&division=Dhaka" ></object>';
+
+            var date = $j("#txtDate").val();
+            var srID = $j("#ddlSR").val();
+
+            if (srID == "-1")
+            {
+                alert('Select SR');
+                return;
+            }
+
+
+            //alert(date);
+            //alert(srID);
+
+            //var srID = '152015';
+            //var date = '05/02/2017';
+
+
+
+            $j.ajax({
+                type: "POST",
+                url: "Service.asmx/GetInfo",
+                data: "{'SR_ID':'" + srID + "', 'Date_Time':'" + date + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+
+                    markers = JSON.parse(response.d);
+
+                    if (markers.length <= 0)
+                    {
+                        alert("This SR's Location Value didn't upload ! SR mobile should be able to track location ");
+                        return;
+                    }
+
+                    else
+                    {
+                        SetGoogleMap();
+                    }
+
+                    //console.log(markers);
+                    
+                },
+                failure: function (response) {
+                    alert(response.d);
+                }
+            });
+        }
+
+        function SetGoogleMap() {
+            var marker = [];
+            var mapOptions = {
+                center: new google.maps.LatLng(markers[0].LAT, markers[0].LNG),
+                zoom: 10,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+            var infoWindow = new google.maps.InfoWindow();
+            var lat_lng = new Array();
+            var latlngbounds = new google.maps.LatLngBounds();
+            for (i = 0; i < markers.length; i++) {
+                var data = markers[i]
+                var myLatlng = new google.maps.LatLng(data.LAT, data.LNG);
+                lat_lng.push(myLatlng);
+
+                if (i == 0) {
+                    marker = new google.maps.Marker({
+                        position: myLatlng,
+                        map: map,
+                        label: {
+                            color: 'black',
+                            fontWeight: 'bold',
+                            text: 'Start',
+                        },
+                        icon: {
+                            labelOrigin: new google.maps.Point(11, 50),
+                            url: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+                            size: new google.maps.Size(22, 40),
+                            origin: new google.maps.Point(0, 0),
+                            animation: google.maps.Animation.DROP,
+                            anchor: new google.maps.Point(11, 40),
+                        },
+                        title: data.TITLE
+                    });
+                }
+                else if (i == markers.length - 1) {
+                    marker = new google.maps.Marker({
+                        position: myLatlng,
+                        map: map,
+                        label: {
+                            color: 'black',
+                            fontWeight: 'bold',
+                            text: 'End',
+                        },
+                        icon: {
+                            labelOrigin: new google.maps.Point(11, 50),
+                            url: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+                            size: new google.maps.Size(22, 40),
+                            origin: new google.maps.Point(0, 0),
+                            animation: google.maps.Animation.DROP,
+                            anchor: new google.maps.Point(11, 40),
+                        },
+                        title: data.TITLE
+                    });
+                }
+
+                else {
+                    marker = new google.maps.Marker({
+                        position: myLatlng,
+                        map: map,
+                        title: data.TITLE
+                    });
+                }
+
+
+                latlngbounds.extend(marker.position);
+                (function (marker, data) {
+                    google.maps.event.addListener(marker, "click", function (e) {
+                        infoWindow.setContent(data.DESCRIPTION);
+                        infoWindow.open(map, marker);
+                    });
+                })(marker, data);
+            }
+            map.setCenter(latlngbounds.getCenter());
+            map.fitBounds(latlngbounds);
+
+            //***********ROUTING****************//
+
+            //Intialize the Path Array
+            var path = new google.maps.MVCArray();
+
+            //Intialize the Direction Service
+            var service = new google.maps.DirectionsService();
+
+            //Set the Path Stroke Color
+            var poly = new google.maps.Polyline({ map: map, strokeColor: '#4986E7' });
+
+            //Loop and Draw Path Route between the Points on MAP
+            for (var i = 0; i < lat_lng.length; i++) {
+                if ((i + 1) < lat_lng.length) {
+                    var src = lat_lng[i];
+                    var des = lat_lng[i + 1];
+                    path.push(src);
+                    poly.setPath(path);
+                    service.route({
+                        origin: src,
+                        destination: des,
+                        travelMode: google.maps.DirectionsTravelMode.WALKING
+                    }, function (result, status) {
+                        if (status == google.maps.DirectionsStatus.OK) {
+                            for (var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
+                                path.push(result.routes[0].overview_path[i]);
+                            }
+                        }
+                    });
+                }
+            }
+        }
+
+        function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+
+
+    </script>
+
+</body>
+</html>
+

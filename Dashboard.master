@@ -1,0 +1,891 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Dashboard.master.cs" Inherits="Dashboard" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Sales-Mate</title>
+    <link rel="shortcut icon" href="Nimages/logopran.gif" />
+    <link href="Ncss/jquery-ui.css" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="CSS/basic.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/Format.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/demo.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/sidemenu.css" />
+
+    <script src="NScripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="NScripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery.min.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery-ui.js" type="text/javascript"></script>
+    <script src="NScripts/script.js" type="text/javascript"></script>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="JS/slide-show-google-api.js"></script>
+
+
+
+    <link href="NgridCss/dataTables.jqueryui.min.css" rel="stylesheet" />
+    <link href="NgridCss/buttons.jqueryui.min.css" rel="stylesheet" />
+
+    <script src="NgridJs/jquery-1.12.0.min.js" type="text/javascript"></script>
+    <script src="NgridJs/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="NgridJs/dataTables.jqueryui.min.js" type="text/javascript"></script>
+    <script src="NgridJs/dataTables.buttons.min.js" type="text/javascript"></script>
+    <script src="NgridJs/buttons.jqueryui.min.js" type="text/javascript"></script>
+    <script src="NgridJs/jszip.min.js" type="text/javascript"></script>
+    <script src="NgridJs/pdfmake.min.js" type="text/javascript"></script>
+    <script src="NgridJs/vfs_fonts.js" type="text/javascript"></script>
+    <script src="NgridJs/buttons.html5.min.js" type="text/javascript"></script>
+    <script src="NgridJs/buttons.print.min.js" type="text/javascript"></script>
+
+
+
+    <!-- FlexSlider -->
+    <script type="text/javascript" src="JS/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="JS/prototype.js"></script>
+    <script type="text/javascript" src="JS/lightbox.js"></script>
+
+    <link rel="stylesheet" href="CSS/date-picker-css.css" />
+    <script src="JSfordate/jquery-1.10.2.js"></script>
+    <script src="JSfordate/jquery-ui.js"></script>
+
+    <style>
+        .ui-datepicker {
+            width: 17em;
+            padding: .2em .2em 0;
+            display: none;
+            background: #846733;
+        }
+
+            .ui-datepicker .ui-datepicker-title {
+                margin: 0 2.3em;
+                line-height: 1.8em;
+                text-align: center;
+                color: #FFFFFF;
+                background: #846733;
+            }
+
+            .ui-datepicker table {
+                width: 100%;
+                font-size: .7em;
+                border-collapse: collapse;
+                font-family: verdana;
+                margin: 0 0 .4em;
+                color: #000000;
+                background: #FDF8E4;
+            }
+
+            .ui-datepicker td {
+                border: 0;
+                padding: 1px;
+            }
+
+                .ui-datepicker td span, .ui-datepicker td a {
+                    display: block;
+                    padding: .8em;
+                    text-align: right;
+                    text-decoration: none;
+                }
+    </style>
+
+
+    <style type="text/css">
+        .plc::-webkit-input-placeholder {
+            color: #b2cde0;
+        }
+
+        .btn-success {
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+            color: #fff;
+        }
+
+        .boxbg5 {
+            background-color: #FFF;
+            padding: 1px;
+            height: 50px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            border-radius: 5px;
+            margin-top: -30px;
+        }
+
+        .btn {
+            -moz-user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857;
+            margin-bottom: 0;
+            padding: 6px 12px;
+            text-align: center;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #607d8b;
+        }
+
+            ul li {
+                float: left;
+                border-right: 1px solid #bbb;
+            }
+
+                ul li:last-child {
+                    border-right: none;
+                }
+
+                ul li a {
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 14px 16px;
+                    font-size: 14px;
+                    text-decoration: none;
+                }
+
+                    ul li a:hover:not(.active) {
+                        background-color: #8dc060;
+                    }
+
+        .active {
+            background-color: #8dc060;
+        }
+
+        #content {
+            float: left;
+            padding-top: 10px;
+            padding-left: 5px;
+            width: 95.5%;
+        }
+
+        #middle {
+            width: 580px; /* Account for margins + border values */
+            float: left;
+            padding: 5px;
+        }
+
+        #sidebar {
+            width: 97%;
+            padding-top: 10px;
+            float: right;
+            padding-right: 5px;
+        }
+
+        #pagewrap {
+            padding-top: 5px;
+            width: 1135px;
+            margin: -14px auto;
+        }
+
+        .border-bottom {
+            border-bottom: 1px solid #bbb;
+        }
+
+        .title {
+            display: inline-block;
+            height: 25px;
+        }
+
+        .txtColor {
+            border: 1px solid #5cb85c;
+            height: 23px;
+        }
+    </style>
+
+    <script>
+
+        var $j = jQuery.noConflict();
+
+        $j(document).ready(function () {
+
+            $j('#dvMiddleContent').html('');
+            $j('#dvMiddleContent').html("<div style='width:70%;height:36px;margin-top: 5px;background-color:#8dc060;text-align:center;color:#fff;font-size:25px;padding-top:10px;margin-top:10px;margin-left:15%;'><span>Base Selection</span></div>" +
+                               "<div style='width:69.8%;height:auto;margin-top: 2px;border:1px solid #8dc060;padding-top:10px;margin-left:15%;'>" +
+                                  "<table style='padding-top:10px;padding-bottom: 10px;padding-left:16%'>" +
+                                    "<tr><td>Date :</td><td><input type='text' id='txtDate' placeholder='DD/MM/YYYY' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td></td></tr>" +
+                                    "<tr><td>Country Name :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlCountry' name='ddlCountry'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                    "<tr><td>Company Name :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlOwnCompany' name='ddlOwnCompany'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                  "</table>" +
+                                "</div>");
+
+
+            var d = new Date();
+            var month = d.getMonth() + 1;
+            var day = d.getDate();
+            var currentDate = (day < 10 ? '0' : '') + day + '/' + (month < 10 ? '0' : '') + month + '/' + d.getFullYear();
+            $j("#txtDate").val(currentDate);
+            $j("#txtDate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+
+            $j.getScript("JS/loadCountry.js");
+
+            $j("#ddlCountry").change(function (e) {
+                var countryName = $j("#ddlCountry option:selected").text();
+                $j.ajax({
+                    type: "POST",
+                    url: "operation.aspx/GetCompanyByCountry",
+                    data: "{countryName:'" + countryName + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    success: function (response) {
+
+                        var companyInfo = response.d.split(';');
+                        var opt = "<option value='-1'>...Select...</option>";
+                        //opt = opt + "<option value='All'>All Company</option>";
+                        for (var i = 1; i < companyInfo.length; i = i + 2) {
+                            var comId = companyInfo[i];
+                            var comName = companyInfo[i + 1];
+                            opt = opt + "<option value='" + comId + "'>" + comName + "</option>";
+                        }
+                        $j("#ddlOwnCompany").html('');
+                        $j("#ddlOwnCompany").append(opt);
+
+                    },
+                    failure: function (response) {
+                        alert(response.d);
+                    }
+                });
+            });
+
+
+            $j("#txtFromdate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+            //$j("#txtTodate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+
+
+            $j("#lnkLeaveApplication").click(function (e) {
+
+                $j("#dvContent").html('');
+                var tbl = "";
+                var row = "<table id='tblEmp'>" +
+                              "<thead>" +
+                                  "<tr><th>Employee ID</th><th>Employee Name</th><th>Designation</th><th>Department</th><th>Allowed Leave</th><th>Taken</th><th>Balance</th></tr></thead>";
+                var empid = "empid";
+                $j.ajax({
+                    type: "POST",
+                    url: "hrm.aspx/GetEmpInfo",
+                    data: "{empid:'" + empid + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    success: function (response) {
+                        var hosInfo = response.d.split(';');
+
+                        for (var i = 1; i < hosInfo.length; i = i + 7) {
+                            var empId = hosInfo[i];
+                            var empName = hosInfo[i + 1];
+                            var designation = hosInfo[i + 2];
+                            var dept = hosInfo[i + 3];
+                            var allowedLeave = hosInfo[i + 4];
+                            var takenLeave = hosInfo[i + 5];
+                            var balanceLeave = hosInfo[i + 6];
+
+                            row = row + "<tr><td>" + empId + "</td><td>" + empName + "</td><td>" + designation + "</td><td>" + dept + "</td><td>" + allowedLeave + "</td><td>" + takenLeave + "</td><td>" + balanceLeave + "</td></tr>";
+                        }
+
+                        tbl = tbl + "<tbody>" + row + "</tbody></table>";
+
+                    },
+                    failure: function (response) {
+                        alert(response.d);
+                    }
+                });
+
+
+                var tbl2 = "";
+                /*var row2 = "<table>"+
+                              "<thead>"+
+                                  "<tr><th>Year</th><th>From Date</th><th>To Date</th><th>Days</th><th>Leave Type</th><th>Where Stay</th></tr></thead>";
+                var empid = "empid";
+                $j.ajax({
+                    type: "POST",
+                    url: "hrm.aspx/GetEmpInfo",
+                    data: "{empid:'" + empid + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    success: function (response) {
+                        var hosInfo = response.d.split(';');
+
+                        for (var i = 1; i < hosInfo.length; i = i + 12) {
+                            var hosId = hosInfo[i];
+                            var hosName = hosInfo[i + 1];
+                            var pass = hosInfo[i + 2];
+                            var phone = hosInfo[i + 3];
+                            var email = hosInfo[i + 4];
+                            var motherCom = hosInfo[i + 5];
+                            var ownCom = hosInfo[i + 6];
+                            var group = hosInfo[i + 7];
+                            var workingarea = hosInfo[i + 8];
+                            var status = hosInfo[i + 9];
+                            var companyId = hosInfo[i + 10];
+                            var itemGroupId = hosInfo[i + 11];
+
+                            row2 = row2 + "<tr><td>2016</td><td>12/03/2016</td><td>15/03/2016</td><td>Full Days</td><td>Anual</td><td>Dubai</td></tr>";      
+                        }
+
+                        tbl2 = tbl2 + "<tbody>" + row2 + "</tbody></table>";
+
+                    },
+                    failure: function (response) {
+                        alert(response.d);
+                    }
+                });*/
+
+
+                $j("#dvContent").html("<div class='card-block' style='height: 700px; box-shadow: 5px 5px 5px #888888;background-color: #fff;'>" +
+
+                                        "<div class='row row-sm stats-container' style='text-align: center;'>" +
+                                            "<div><span style=''>" +
+                                                "<img id='imgLeave' title='Leave' src='images-base/leave.png' style='height: 60px; width: 180px;' align='left' /></span></div>" +
+                                            "<div><span style='color: #4bcf99; font-size: 28px; float: left; margin-top: 4px;'>&nbsp;&nbsp;Leave Application</span></div>" +
+                                        "</div>" +
+                                        "<hr />" +
+                                        "<div class='title-block' style='text-align: center;'>" +
+                                            tbl +
+                                            "<hr />" +
+                                            "<table>" +
+                                                "<tbody>" +
+                                                    "<tr>" +
+                                                        "<td>Year: " +
+                                                            "<select id='ddlYear' style='height:32px;width:160px;border:1px solid #4bcf99;' name='ddlCountry'>" +
+                                                                "<option value='-1'>...Select...</option>" +
+                                                                "<option value='2016'>2016</option>" +
+                                                                "<option value='2017'>2017</option>" +
+                                                                "<option value='2018'>2018</option>" +
+                                                                "<option value='2019'>2019</option>" +
+                                                                "<option value='2020'>2020</option>" +
+                                                                "<option value='2022'>2022</option>" +
+                                                                "<option value='2023'>2023</option>" +
+                                                                "<option value='2024'>2024</option>" +
+                                                                "<option value='2025'>2025</option>" +
+                                                                "<option value='2026'>2026</option>" +
+                                                                "<option value='2027'>2027</option>" +
+                                                                "<option value='2028'>2028</option>" +
+                                                                "<option value='2029'>2029</option>" +
+                                                                "<option value='2030'>2030</option>" +
+                                                            "</select>" +
+                                                         "</td>" +
+                                    "<td>From Date: <input type='text' id='txtFromdate' style='height:32px;width:160px;border:1px solid #4bcf99;'/></td>" +
+                                    "<td>To Date: <input type='text' id='txtTodate' style='height:32px;width:160px;border:1px solid #4bcf99;'/></td>" +
+                                    "<td>Days: " +
+                                        "<select id='ddlDays' style='height:32px;width:160px;border:1px solid #4bcf99;' name='ddlCountry'>" +
+                                            "<option value='-1'>...Select...</option>" +
+                                            "<option value='Full'>Full Day</option>" +
+                                            "<option value='1stHalf'>1st Half Day</option>" +
+                                            "<option value='2ndHalf'>2nd Half Day</option>" +
+                                        "</select>" +
+                                    "</td>" +
+                                    "<td>Leave Type: " +
+                                        "<select id='ddlLeaveType' style='height:32px;width:160px;border:1px solid #4bcf99;' name='ddlCountry'>" +
+                                            "<option value='-1'>...Select...</option>" +
+                                            "<option value='Casual'>Casual Leve</option>" +
+                                            "<option value='Sick'>Sick Leave</option>" +
+                                            "<option value='Anual'>Anual Leave</option>" +
+                                            "<option value='Festival'>Festival Leave</option>" +
+                                            "<option value='Maternity'>Maternity Leave</option>" +
+                                            "<option value='Weekly'>Weekly Leave</option>" +
+                                        "</select>" +
+                                    "</td>" +
+                                    "<td>Stay: <input type='text' id='txtDuringLeave' style='height:32px;width:160px;border:1px solid #4bcf99;'/></td>" +
+                                    "<td><input type='button' id='btnSubmit' value='Submit' style='height:32px;width:70px;border:1px solid #4bcf99;background-color:#4bcf99;color:#fff;font-weight: bold;'/></td>" +
+                                "</tr>" +
+                            "</tbody>" +
+                        "</table>" +
+                        "<hr />" +
+                        "<br />" +
+                           tbl2 +
+                        "<hr />" +
+                       "</div>" +
+                    "</div>");
+
+                $j("#txtFromdate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+                $j("#txtTodate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+
+                $j("#btnSubmit").click(function () {
+
+                    var fromDate = $j("#txtFromdate").val();
+                    var toDate = $j("#txtTodate").val();
+                    var days = $j("#ddlDays").val();
+                    var leaveType = $j("#ddlLeaveType").val();
+                    var stayWhere = $j("#txtDuringLeave").val();
+                    var leaveYear = $j("#ddlYear").val();
+
+                    if (fromDate == "") {
+                        alert('Enter From Date');
+                        return;
+                    }
+                    else if (toDate == "") {
+                        alert('Enter To Date');
+                        return;
+                    }
+                    else if (days == "-1") {
+                        alert('Select Days');
+                        return;
+                    }
+                    else if (leaveType == "-1") {
+                        alert('Select Leave Type');
+                        return;
+                    }
+                    else if (stayWhere == "") {
+                        alert('Enter where You will be staying.');
+                        return;
+                    }
+
+                    $j.ajax({
+                        type: "POST",
+                        url: "hrm.aspx/AddEmpLeaveInfo",
+                        data: "{fromDate:'" + fromDate + "',toDate:'" + toDate + "',days:'" + days + "',leaveType:'" + leaveType + "',stayWhere:'" + stayWhere + "',leaveYear:'" + leaveYear + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            alert(response.d);
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+                });
+
+            });
+
+
+            $j("#lnkIomApplication").click(function (e) {
+
+                $j("#dvContent").html('');
+                var tbl = "";
+                var row = "<table id='tblEmp'>" +
+                              "<thead>" +
+                                  "<tr><th>Employee ID</th><th>Employee Name</th><th>Designation</th><th>Department</th></tr></thead>";
+                var empid = "empid";
+                $j.ajax({
+                    type: "POST",
+                    url: "hrm.aspx/GetEmpInfoIom",
+                    data: "{empid:'" + empid + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    success: function (response) {
+                        var hosInfo = response.d.split(';');
+
+                        for (var i = 1; i < hosInfo.length; i = i + 4) {
+                            var empId = hosInfo[i];
+                            var empName = hosInfo[i + 1];
+                            var designation = hosInfo[i + 2];
+                            var dept = hosInfo[i + 3];
+
+                            row = row + "<tr><td>" + empId + "</td><td>" + empName + "</td><td>" + designation + "</td><td>" + dept + "</td></tr>";
+                        }
+
+                        tbl = tbl + "<tbody>" + row + "</tbody></table>";
+
+                    },
+                    failure: function (response) {
+                        alert(response.d);
+                    }
+                });
+
+
+                var tbl2 = "";
+
+                $j("#dvContent").html("<div class='card-block' style='height: 700px; box-shadow: 5px 5px 5px #888888;background-color: #fff;'>" +
+
+                                        "<div class='row row-sm stats-container' style='text-align: center;'>" +
+                                            "<div><span style=''>" +
+                                                "<img id='imgLeave' title='Leave' src='images-base/leave.png' style='height: 60px; width: 180px;' align='left' /></span></div>" +
+                                            "<div><span style='color: #4bcf99; font-size: 28px; float: left; margin-top: 4px;'>&nbsp;&nbsp;IOM Application</span></div>" +
+                                        "</div>" +
+                                        "<hr />" +
+                                        "<div class='title-block' style='text-align: center;'>" +
+                                            tbl +
+                                            "<hr />" +
+                                            "<table>" +
+                                                "<tbody>" +
+                                                    "<tr>" +
+                                                        "<td>Year: " +
+                                                            "<select id='ddlYear' style='height:32px;width:160px;border:1px solid #4bcf99;' name='ddlCountry'>" +
+                                                                "<option value='-1'>...Select...</option>" +
+                                                                "<option value='2016'>2016</option>" +
+                                                                "<option value='2017'>2017</option>" +
+                                                                "<option value='2018'>2018</option>" +
+                                                                "<option value='2019'>2019</option>" +
+                                                                "<option value='2020'>2020</option>" +
+                                                                "<option value='2022'>2022</option>" +
+                                                                "<option value='2023'>2023</option>" +
+                                                                "<option value='2024'>2024</option>" +
+                                                                "<option value='2025'>2025</option>" +
+                                                                "<option value='2026'>2026</option>" +
+                                                                "<option value='2027'>2027</option>" +
+                                                                "<option value='2028'>2028</option>" +
+                                                                "<option value='2029'>2029</option>" +
+                                                                "<option value='2030'>2030</option>" +
+                                                            "</select>" +
+                                                         "</td>" +
+                                    "<td>From Date: <input type='text' id='txtFromdate' style='height:32px;width:160px;border:1px solid #4bcf99;'/></td>" +
+                                    "<td>To Date: <input type='text' id='txtTodate' style='height:32px;width:160px;border:1px solid #4bcf99;'/></td>" +
+
+                                    "<td>Purpose: <input type='text' id='txtPurpose' style='height:32px;width:160px;border:1px solid #4bcf99;'/></td>" +
+                                    "<td><input type='button' id='btnSubmit' value='Submit' style='height:32px;width:70px;border:1px solid #4bcf99;background-color:#4bcf99;color:#fff;font-weight: bold;'/></td>" +
+                                "</tr>" +
+                            "</tbody>" +
+                        "</table>" +
+                        "<hr />" +
+                        "<br />" +
+                           tbl2 +
+                        "<hr />" +
+                       "</div>" +
+                    "</div>");
+
+                $j("#txtFromdate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+                $j("#txtTodate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+
+                $j("#btnSubmit").click(function () {
+
+                    var fromDate = $j("#txtFromdate").val();
+                    var toDate = $j("#txtTodate").val();
+                    var txtPurpose = $j("#txtPurpose").val();
+                    var leaveYear = $j("#ddlYear").val();
+
+                    if (fromDate == "") {
+                        alert('Enter From Date');
+                        return;
+                    }
+                    else if (toDate == "") {
+                        alert('Enter To Date');
+                        return;
+                    }
+                    else if (txtPurpose == "") {
+                        alert('Enter Purpose.');
+                        return;
+                    }
+
+                    $j.ajax({
+                        type: "POST",
+                        url: "hrm.aspx/AddEmpIomInfo",
+                        data: "{fromDate:'" + fromDate + "',toDate:'" + toDate + "',purpose:'" + txtPurpose + "',leaveYear:'" + leaveYear + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            alert(response.d);
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+                });
+
+            });
+
+
+            $j("#lnkFirstLeaveApproval").click(function (e) {
+
+                $j("#dvContent").html('');
+                var tbl = "";
+                var row = "<table id='tblEmp'>" +
+                              "<thead>" +
+                                  "<tr><th>Employee ID</th><th>Employee Name</th><th>Designation</th><th>Department</th><th>Allowed Leave</th><th>Taken</th><th>Balance</th></tr></thead>";
+                var empid = "empid";
+                $j.ajax({
+                    type: "POST",
+                    url: "hrm.aspx/GetEmpInfo",
+                    data: "{empid:'" + empid + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    success: function (response) {
+                        var hosInfo = response.d.split(';');
+
+                        for (var i = 1; i < hosInfo.length; i = i + 7) {
+                            var empId = hosInfo[i];
+                            var empName = hosInfo[i + 1];
+                            var designation = hosInfo[i + 2];
+                            var dept = hosInfo[i + 3];
+                            var allowedLeave = hosInfo[i + 4];
+                            var takenLeave = hosInfo[i + 5];
+                            var balanceLeave = hosInfo[i + 6];
+
+                            row = row + "<tr><td>" + empId + "</td><td>" + empName + "</td><td>" + designation + "</td><td>" + dept + "</td><td>" + allowedLeave + "</td><td>" + takenLeave + "</td><td>" + balanceLeave + "</td></tr>";
+                        }
+
+                        tbl = tbl + "<tbody>" + row + "</tbody></table>";
+
+                    },
+                    failure: function (response) {
+                        alert(response.d);
+                    }
+                });
+
+
+                var tbl2 = "";
+                var row2 = "<table id='tblEmpLeave' style='width:96%;display: inline-block;overflow-y: scroll;max-height:350px;'>" +
+                              "<thead>" +
+                                  "<tr><th>Emp ID</th><th>Employee Name</th><th>Designation</th><th>Dept</th><th>From Date</th><th>To Date</th><th>Days</th><th>Approve</th><th>Reject</th><th>Type</th><th>Day Type</th><th>Assigned Leave</th><th>Taken</th><th>Balance</th></tr></thead>";
+                var empid2 = "empid";
+                $j.ajax({
+                    type: "POST",
+                    url: "hrm.aspx/GetEmpLeave",
+                    data: "{empid:'" + empid2 + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    success: function (response) {
+                        var hosInfo = response.d.split(';');
+
+                        for (var i = 1; i < hosInfo.length; i = i + 13) {
+                            var empId = hosInfo[i];
+                            var empName = hosInfo[i + 1];
+                            var designation = hosInfo[i + 2];
+                            var dept = hosInfo[i + 3];
+                            var fromDate = hosInfo[i + 4];
+                            var toDate = hosInfo[i + 5];
+                            var days = hosInfo[i + 6];
+                            var leaveType = hosInfo[i + 7];
+                            var place = hosInfo[i + 8];
+                            var noDays = hosInfo[i + 9];
+                            var totalLeave = hosInfo[i + 10];
+                            var taken = hosInfo[i + 11];
+                            var balance = hosInfo[i + 12];
+
+                            row2 = row2 + "<tr><td>" + empId + "</td><td>" + empName + "</td><td>" + designation + "</td><td>" + dept + "</td><td>" + fromDate + "</td><td>" + toDate + "</td><td>" + noDays + "</td><td><input type='checkbox' class='theClass' name='chkLeave" + i + "' id='rcmd" + i + "'></td><td><input type='checkbox' class='theClass' name='chkLeave" + i + "' id='rjct" + i + "'></td><td>" + leaveType + "</td><td>" + days + "</td><td>" + totalLeave + "</td><td>" + taken + "</td><td>" + balance + "</td></tr>";
+                        }
+
+                        tbl2 = tbl2 + "<tbody>" + row2 + "</tbody></table>";
+                    },
+                    failure: function (response) {
+                        alert(response.d);
+                    }
+                });
+
+
+
+
+                $j("#dvContent").html("<div class='card-block' style='height: 700px; box-shadow: 5px 5px 5px #888888;background-color: #fff;'>" +
+
+                                        "<div class='row row-sm stats-container' style='text-align: center;'>" +
+                                            "<div><span style=''>" +
+                                                "<img id='imgLeave' title='Leave' src='images-base/leave.png' style='height: 60px; width: 180px;' align='left' /></span></div>" +
+                                            "<div><span style='color: #4bcf99; font-size: 28px; float: left; margin-top: 4px;'>&nbsp;&nbsp;First Leave Approval</span></div>" +
+                                        "</div>" +
+                                        "<hr />" +
+                                        "<div class='title-block' style='text-align: center;'>" +
+                                            tbl +
+                        "<br />" +
+                        "<hr />" +
+                          tbl2 +
+                        "<br />" +
+                        "<table style='width:100%'><tr><td><input type='button' id='btnSubmitok' value='Submit' style='height:32px;width:70px;border:1px solid #4bcf99;background-color:#4bcf99;color:#fff;font-weight: bold;float:right;'/></td></tr></table>" +
+                        "<hr />" +
+                       "</div>" +
+                    "</div>");
+
+                $j("#txtFromdate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+                $j("#txtTodate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+
+
+                $j('input[type="checkbox"]').on('change', function () {
+                    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
+                });
+
+                $j("#btnSubmitok").click(function () {
+                    var ids = "";
+
+
+                    $('input.theClass:checkbox:checked').each(function () {
+                        alert($(this).attr("id"));
+                    });
+
+                });
+
+            });
+
+
+        });
+
+        </script>
+
+
+
+        <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="bodywrapper">
+            <div id="header">
+                <div>
+                    <img src="images/pran-logo.png" width="80" height="25" title="Upper Sales" />
+                </div>
+            </div>
+            <div style="background: #8dc060; height: 49px;">
+
+                <ul>
+                    <li><a class="active" href="login.aspx" id="lnkHome">Home</a></li>
+                    <li><a href="#news">About Us</a></li>
+                    <li><a href="#contact">Policies</a></li>
+                    <li><a href="#contact">Staff profiles</a></li>
+                    <li><a href="#contact">Newsletters</a></li>
+                    <li><a href="#contact">Controlling body</a></li>
+                    <li style="float: right"><a href="#" id="lnkLogout">Log Out</a></li>
+                </ul>
+            </div>
+            <div id="dvContent" style="background-color: #fff;" class="card sameheight-item stats" data-exclude="xs">
+                From Date:
+                <input type='text' id='txtFromdate' style='height: 32px; width: 160px; border: 1px solid #4bcf99;' />
+            </div>
+            <div id="contentwrapper">
+                <div style="background: rgba(0,0,0,0.12); width: 100%; height: auto;">
+                    <div style="border: 1px solid #f06292; width: 200px; height: auto; float: left;">
+                        <section id="content">
+                            <ul class="rmRootGroup rmVertical">
+
+                                <li class="rmItem rmFirst active border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;"><span class="rmText">Main Menu</span></a></li>
+                                <li class="rmItem border-bottom"><a id="lnkSetup" class="rmLink rmRootLink" href="#" style="width: 176px; text-align: left;"><span class="rmText">Go to Setup</span></a></li>
+                                <%--<li class="rmItem border-bottom"><a id="lnkReports" class="rmLink rmRootLink" href="sales.aspx" style="width: 176px;text-align: left;"><span class="rmText">Go to Reports</span></a></li>--%>
+                                <li class="rmItem border-bottom"><a id="lnkReports" class="rmLink rmRootLink" href="#" style="width: 176px; text-align: left;"><span class="rmText">Go to Reports</span></a></li>
+                                <li class="rmItem rmLast"><a class="rmLink rmRootLink" href="#" style="width: 176px; text-align: left;"><span class="rmText">Sales Theory</span></a></li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div style="width: 935px; height: auto; float: right;">
+                        <div id="dvMiddleContent" style="border: 1px solid #8dc060; width: 75.2%; height: auto; float: left; padding-bottom: 10px;">
+                            <%--<img src="images/salesgrowth.png" width="96%" height="500" style="margin-left:20px;margin-top:10px;"/>--%>
+                        </div>
+                        <div style="border: 1px solid #f06292; width: 225px; height: auto; float: right;">
+                            <aside id="sidebar">
+                                <ul class="rmRootGroup rmVertical">
+
+                                    <li class="rmItem rmFirst active border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 187px;"><span class="rmText">Notice Board</span></a></li>
+                                    <li class="rmItem border-bottom">
+
+                                        <span class="rmText">
+                                            <marquee direction="up">
+                                <a class="rmLink rmRootLink" href="#" style="text-align: left;">
+                                06/02/2017</br>
+                                We want to go Apex level. 
+                                </a></br>
+                                <a class="rmLink rmRootLink" href="#" style="text-align: left;">
+                                01/01/2017</br>
+                                Salesman recruitment going on!
+                                All exam will be held on the mentioned date schedule.
+                                </a>
+                                </marquee>
+                                        </span>
+
+                                    </li>
+                                    <li class="rmItem rmLast"><a class="rmLink rmRootLink" href="#" style="width: 187px; text-align: right;"><span class="rmText">All News>></span></a></li>
+
+                                </ul>
+                            </aside>
+
+                            <aside id="sidebar">
+                                <div id="dvResult" style='height: auto; padding-bottom: 10px;'>
+                                    <ul class="rmRootGroup rmVertical">
+
+                                        <li class="rmItem rmFirst active border-bottom">
+                                            <a style="width: 187px;" href="#" class="rmLink rmRootLink"><span class="rmText"><b>Today's Sales</b><br />
+                                                Top 10 Best Sold Products </span></a>
+                                        </li>
+
+                                        <li>
+                                            <table style='color: #fff;'>
+                                                <thead>
+                                                    <tr style="background-color: #ddd;" class="border-bottom">
+                                                        <th style="padding-left: 5px; color: #4caf50;">Rank</th>
+                                                        <th style="width: 200px; padding-left: 10px; color: #4caf50;">Name</th>
+                                                        <th style="width: 58px; color: #4caf50;">Marks</th>
+                                                    </tr>
+                                                    <thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style='padding-left: 10px;'>1</td>
+                                                                <td style='width: 200px; padding-left: 10px;'>Frooto</td>
+                                                                <td style='padding-left: 10px;'>50</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style='padding-left: 10px;'>2</td>
+                                                                <td style='width: 200px; padding-left: 10px;'>Jhalmuri</td>
+                                                                <td style='padding-left: 10px;'>47</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style='padding-left: 10px;'>3</td>
+                                                                <td style='width: 200px; padding-left: 10px;'>Juce</td>
+                                                                <td style='padding-left: 10px;'>46</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style='padding-left: 10px;'>4</td>
+                                                                <td style='width: 200px; padding-left: 10px;'>Mango Pickle</td>
+                                                                <td style='padding-left: 10px;'>43</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style='padding-left: 10px;'>5</td>
+                                                                <td style='width: 200px; padding-left: 10px;'>Sundrop</td>
+                                                                <td style='padding-left: 10px;'>42</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style='padding-left: 10px;'>6</td>
+                                                                <td style='width: 200px; padding-left: 10px;'>Power Drink</td>
+                                                                <td style='padding-left: 10px;'>40</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style='padding-left: 10px;'>7</td>
+                                                                <td style='width: 200px; padding-left: 10px;'>Dairy products</td>
+                                                                <td style='padding-left: 10px;'>40</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style='padding-left: 10px;'>8</td>
+                                                                <td style='width: 200px; padding-left: 10px;'>Mango bar</td>
+                                                                <td style='padding-left: 10px;'>39</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style='padding-left: 10px;'>9</td>
+                                                                <td style='width: 200px; padding-left: 10px;'>Rice items</td>
+                                                                <td style='padding-left: 10px;'>37</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style='padding-left: 10px;'>10</td>
+                                                                <td style='width: 200px; padding-left: 10px;'>Lassi</td>
+                                                                <td style='padding-left: 10px;'>35</td>
+                                                            </tr>
+                                                        </tbody>
+                                            </table>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="clear: both"></div>
+                <div style="line-height: 14px; margin-top: 15px;">
+                </div>
+            </div>
+        </div>
+     <div id="footerwrapper">
+   <div id="footer">
+      <a href="login.aspx" style="color:white; text-decoration:none;">Home | </a><a href="" style="color:white; text-decoration:none;"> About us | </a><a href="" style="color:white; text-decoration:none;">Contact us </a>
+      <p>Telephone: (0088) 01924602673&nbsp;&nbsp;&nbsp;&nbsp;Any time: 01710649448<br />
+      Copyright &copy; 2016 Website: www.pranrflgroup.com Email: info@pranrflgroup.com   
+        <div style="text-align:right; margin-top:-14px;"><a href="http://www.pranrflgroup.com" target=_new style="color:white; text-decoration:none;">Design & Developed by Rathindra Nath</a></div>
+   </div>
+</div>
+    </form>
+</body>
+</html>

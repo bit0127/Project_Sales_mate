@@ -1,0 +1,1296 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="DistStockMasterPage.master.cs" Inherits="DistStockMasterPage" %>
+
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+      <title>Sales-Mate</title>
+    <link rel="shortcut icon" href="Nimages/logopran.gif" />
+    <link href="Ncss/jquery-ui.css" rel="stylesheet" />    
+   <%-- <link href="Ncss/bootstrap-min2.css" rel="stylesheet" type="text/css"/>--%>
+
+
+
+    <link rel="stylesheet" type="text/css" href="CSS/basic.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/Format.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/demo.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/sidemenu.css" />
+    
+    <script src="NScripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="NScripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery.min.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery-ui.js" type="text/javascript"></script>
+    <script src="NScripts/script.js" type="text/javascript"></script>    
+  
+    <!-- jQuery -->
+    <script type="text/javascript" src="JS/slide-show-google-api.js"></script>
+
+
+
+    <link href="NgridCss/dataTables.jqueryui.min.css" rel="stylesheet" />    
+    <link href="NgridCss/buttons.jqueryui.min.css" rel="stylesheet" />
+  
+    <script src="NgridJs/jquery-1.12.0.min.js" type="text/javascript"></script>  
+    <script src="NgridJs/jquery.dataTables.min.js" type="text/javascript"></script>  
+    <script src="NgridJs/dataTables.jqueryui.min.js" type="text/javascript"></script>     
+    <script src="NgridJs/dataTables.buttons.min.js" type="text/javascript"></script>     
+    <script src="NgridJs/buttons.jqueryui.min.js" type="text/javascript"></script>    
+    <script src="NgridJs/jszip.min.js" type="text/javascript"></script>    
+    <script src="NgridJs/pdfmake.min.js" type="text/javascript"></script>
+    <script src="NgridJs/vfs_fonts.js" type="text/javascript"></script>    
+    <script src="NgridJs/buttons.html5.min.js" type="text/javascript"></script>    
+    <script src="NgridJs/buttons.print.min.js" type="text/javascript"></script>
+
+
+
+    <!-- FlexSlider -->    
+    <script type="text/javascript" src="JS/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="JS/prototype.js"></script>
+    <script type="text/javascript" src="JS/lightbox.js"></script>  
+    
+   
+    <style type="text/css">
+        
+        .plc::-webkit-input-placeholder
+        {
+            color:#b2cde0;
+        }
+        
+        .btn-success {
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+            color: #fff;
+            
+        }
+        .boxbg5
+        {
+            background-color: #FFF;
+            padding: 1px;
+            height: 50px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            border-radius: 5px;
+            margin-top: -30px;
+        }
+        .btn {
+            -moz-user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857;
+            margin-bottom: 0;
+            padding: 6px 12px;
+            text-align: center;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #607d8b;
+        }
+
+        ul li {
+            float: left;
+            border-right:1px solid #bbb;
+        }
+
+        ul li:last-child {
+            border-right: none;
+        }
+
+        ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        ul li a:hover:not(.active) {
+            background-color: #8dc060;
+        }
+
+        .active {
+            background-color: #8dc060;
+        }
+        
+        #content {
+	        float: left;
+            padding-top: 10px;
+            padding-left: 5px;
+            width: 95.5%;
+        }
+
+        #middle {
+	        width: 580px; /* Account for margins + border values */
+	        float: left;
+	        padding: 5px;	        
+        }
+
+        #sidebar {
+	        width: 97%;
+	        padding-top: 10px;
+	        float: right;
+            padding-right: 5px;
+        }
+        #pagewrap {
+	        padding-top: 5px;
+	        width: 1135px;
+	        margin: -14px auto;
+        }
+        
+        .border-bottom
+        {
+            border-bottom: 1px solid #bbb;
+        }
+        
+        .title{
+            display: inline-block;
+            height: 25px;
+        }
+        
+        .txtColor
+        {
+            border:1px solid #5cb85c;       
+            height:23px;      
+        }
+        
+     </style>
+
+    <script type="text/javascript" charset="utf-8">
+        var $ = jQuery.noConflict();
+
+
+
+        $(document).ready(function () {
+            $('.flexslider').flexslider({
+                animation: "fade"
+            });
+
+            $(function () {
+                $('.show_menu').click(function () {
+                    $('.menu').fadeIn();
+                    $('.show_menu').fadeOut();
+                    $('.hide_menu').fadeIn();
+                });
+                $('.hide_menu').click(function () {
+                    $('.menu').fadeOut();
+                    $('.show_menu').fadeIn();
+                    $('.hide_menu').fadeOut();
+                });
+
+                $('marquee').mouseover(function () {
+                    $(this).attr('scrollamount', 0);
+                }).mouseout(function () {
+                    $(this).attr('scrollamount', 5);
+                });
+            });
+
+            $("#lnkStockEntry").click(function (e) {
+                e.preventDefault();
+                $("#tblData").html("");
+                $('#dvMiddleContent').html('');
+                $('#dvMiddleContent').html("<table><tr><td style='width:450px;'>" +
+                    
+                                   "<div style='float:left;width:98%;height:40px;background-color:#8dc060;text-align:center;color:#fff;font-size:25px;padding-top:10px;margin-top:10px;margin-left:2%;'><span>Main Ordered Item</span></div>" +
+                                   "<div style='width:100%;height:auto;margin-top: 2px;border:1px solid #f06292;padding-top:10px;margin-left:1%;'>" +
+
+                                      "<table style='padding-top:10px;padding-left:60px;'>" +
+                                               "<tr><td>OC No :</td><td><input type='text' id='txtOCNo' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                               "<tr><td>Dist Code :</td><td><input type='text' id='txtDistId' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                               "<tr><td>Dist Name :</td><td><input type='text' id='txtDistName' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                               "<tr><td>Warehouse Name :</td><td>" +
+                                                    "<select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlWarehouseName' name='ddlWarehouseName'>" +
+                                                    "</select></td><td></td>" +
+                                               "</tr>" +
+                                               "<tr><td>Product Group :</td><td>"+
+                                                    "<select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlItemGroup' name='ddlItemGroup'>" +
+                                                    "</select></td><td></td>"+
+                                               "</tr>" +
+                                               "<tr><td>Item Name :</td><td>" +
+                                                    "<select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlItem' name='ddlItem'>" +
+                                                    "</select></td><td></td>" +
+                                               "</tr>" +
+                                               "<tr><td>Carton :</td><td><input type='text' id='txtCarton' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                               "<tr><td>Piece :</td><td><input type='text' id='txtPiece' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                               "<tr><td>Factor :</td><td><input type='text' id='txtFactor' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                               "<tr><td>Factor Type :</td><td><input type='text' id='txtFactorType' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                               "<tr><td>Price(DP) :</td><td><input type='text' id='txtPriceDp' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                               "<tr><td>Receiving Date :</td><td><input type='text' id='txtRDate' placeholder='DD/MM/YYYY' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                               "<tr><td>Remarks :</td><td><input type='text' id='txtRemarks' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+
+                                               "<tr><td></td><td style='text-align:right;'> <button type='button' id='btnStockSave' style='background-color: #8dc060;border-color: #4cae4c;color: #fff;-moz-user-select: none;background-image: none;border: 1px solid transparent;border-radius: 4px;cursor: pointer;display: inline-block;font-size: 14px;font-weight: 400;line-height: 1.42857;margin-bottom: 0;padding: 6px 12px;text-align: center;vertical-align: middle;white-space: nowrap;'>Save</button> </td></tr>" +
+                                              "</table>" +
+
+                                    "</div></td><td></td>"+
+                                    "<td style='width:450px;'><div style='float:left;width:98%;height:40px;background-color:#8dc060;text-align:center;color:#fff;font-size:25px;padding-top:10px;margin-top:10px;margin-left:1.8%;'><span>Free Item</span></div>" +
+                                      "<div style='width:99%;height:auto;margin-top: 2px;border:1px solid #f06292;padding-top:10px;margin-left:1%;'>" +
+
+                                      "<table style='padding-top:10px;padding-left:60px;'>" +
+                                               "<tr><td>Free Item :</td><td><input type='text' id='txtFreeItem' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                               "<tr><td>Free Qty :</td><td><input type='text' id='txtQty' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                               "<tr><td></td><td style='text-align:right;'> <button type='button' id='btnAddFree' style='background-color: #8dc060;border-color: #4cae4c;color: #fff;-moz-user-select: none;background-image: none;border: 1px solid transparent;border-radius: 4px;cursor: pointer;display: inline-block;font-size: 14px;font-weight: 400;line-height: 1.42857;margin-bottom: 0;padding: 6px 12px;text-align: center;vertical-align: middle;white-space: nowrap;'>Add</button> </td></tr>" +
+
+                                              "</table>" +
+                                    "</div></div><div style='width:99%;height:auto;margin-top: 10px;border:1px solid #f06292;padding-top:10px;margin-left:1%;'>" +
+                                      "<div id='tblFreeData' style='padding-top:2px;padding-right:2px;padding-left:2px;'></div>" +
+                                    "</div></td></tr></table>");
+
+                $("#txtOCNo").focus();
+                $("#txtPiece").val('0');
+
+                var d = new Date();
+                var month = d.getMonth() + 1;
+                var day = d.getDate();
+                var dayd = d.getDate() + 2;
+                var currentDate = (day < 10 ? '0' : '') + day + '/' + (month < 10 ? '0' : '') + month + '/' + d.getFullYear();
+                var currentDated = (dayd < 10 ? '0' : '') + dayd + '/' + (month < 10 ? '0' : '') + month + '/' + d.getFullYear();
+                $("#txtRDate").val(currentDate);
+
+                $("#txtDistId").change(function (e) {
+                    var distId = $("#txtDistId").val();
+
+                    //--get distributor info-----------------------
+                    $.ajax({
+                        type: "POST",
+                        url: "diststock.aspx/GetDistName",
+                        data: "{distId:'" + distId + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+
+                            var distName = response.d;
+                            $("#txtDistName").val(distName);
+
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+
+                    //--get ware house info-------------------------
+                    $.ajax({
+                        type: "POST",
+                        url: "diststock.aspx/GetWarehouseInfo",
+                        data: "{distId:'" + distId + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+
+                            var whInfo = response.d.split(';');
+                            var opt = "<option value='-1'>...Select...</option>";
+                            for (var i = 1; i < whInfo.length; i = i + 2) {
+                                var whId = whInfo[i];
+                                var whName = whInfo[i + 1];
+                                opt = opt + "<option value='" + whId + "'>" + whName + "</option>";
+                            }
+                            $("#ddlWarehouseName").html('');
+                            $("#ddlWarehouseName").append(opt);
+
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+
+                    //--get product group info-------------------------
+                    $.ajax({
+                        type: "POST",
+                        url: "diststock.aspx/GetProductGroupInfo",
+                        data: "{distId:'" + distId + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+
+                            var whInfo = response.d.split(';');
+                            var opt = "";//"<option value='-1'>...Select...</option>";
+                            for (var i = 1; i < whInfo.length; i = i + 2) {
+                                var whId = whInfo[i];
+                                var whName = whInfo[i + 1];
+                                opt = opt + "<option value='" + whId + "'>" + whName + "</option>";
+                            }
+                            $("#ddlItemGroup").html('');
+                            $("#ddlItemGroup").append(opt);
+
+                            //$("#ddlItemGroup").change(function (e) {
+                                var groupId = $("#ddlItemGroup").val();
+
+                                $.ajax({
+                                    type: "POST",
+                                    url: "diststock.aspx/GetGroupWiseItem",
+                                    data: "{groupId:'" + groupId + "'}",
+                                    contentType: "application/json; charset=utf-8",
+                                    dataType: "json",
+                                    async: false,
+                                    success: function (response) {
+
+                                        var whInfo = response.d.split(';');
+                                        var opt = "<option value='-1'>...Select...</option>";
+                                        for (var i = 1; i < whInfo.length; i = i + 2) {
+                                            var whId = whInfo[i];
+                                            var whName = whInfo[i + 1];
+                                            opt = opt + "<option value='" + whId + "'>" + whId + ' -- ' +whName + "</option>";
+                                        }
+                                        $("#ddlItem").html('');
+                                        $("#ddlItem").append(opt);
+
+                                        $("#ddlItem").change(function (e) {
+                                            var itemId = $("#ddlItem").val();
+
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "diststock.aspx/GetItemInformation",
+                                                data: "{itemId:'" + itemId + "'}",
+                                                contentType: "application/json; charset=utf-8",
+                                                dataType: "json",
+                                                async: false,
+                                                success: function (response) {
+
+                                                    var whInfo = response.d.split(';');
+                                                     
+                                                        var factor = whInfo[1];
+                                                        var factCat = whInfo[2];
+                                                        var dp = whInfo[3];
+                                                        
+                                                        $("#txtFactor").val(factor);
+                                                        $("#txtFactorType").val(factCat);
+                                                        $("#txtPriceDp").val(dp);
+
+                                                },
+                                                failure: function (response) {
+                                                    alert(response.d);
+                                                }
+                                            });
+
+                                        });
+
+                                    },
+                                    failure: function (response) {
+                                        alert(response.d);
+                                    }
+                                });
+
+                            //});
+
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+
+                });
+
+
+                $("#txtOCNo").change(function (e) {
+                    loadDistStock();
+                    loadDistFreeStock();
+                });
+
+                $("#btnStockSave").click(function () {
+                    var opt = $("#btnStockSave").text();
+                    var ocNo = $("#txtOCNo").val();
+                    var distId = $("#txtDistId").val();
+                    var distName = $("#txtDistName").val();
+                    var whId = $("#ddlWarehouseName").val();
+                    var whName = $("#ddlWarehouseName option:selected").text();
+                    var itemGroupId = $("#ddlItemGroup").val();
+                    var itemGroupName = $("#ddlItemGroup option:selected").text();
+
+                    var itemId = $("#ddlItem").val();
+                    var itemName = $("#ddlItem option:selected").text();
+
+                    var carton = $("#txtCarton").val();
+                    var piece = $("#txtPiece").val();
+                    var factor = $("#txtFactor").val();
+
+                    var factorType = $("#txtFactorType").val();
+                    var price = $("#txtPriceDp").val();
+                    var receivingDate = $("#txtRDate").val();
+                    var remarks = $("#txtRemarks").val();
+
+                    if (ocNo == "") {
+                        alert('Enter OC Number');
+                        return;
+                    }
+                    else if (distId == "") {
+                        alert('Enter Dist Id');
+                        return;
+                    }
+                    else if (whId == "-1") {
+                        alert('Select Warehouse Id');
+                        return;
+                    }
+                    else if (itemGroupId == "-1") {
+                        alert('Select Item Group');
+                        return;
+                    }
+                    else if (itemId == "-1") {
+                        alert('Select Item');
+                        return;
+                    }
+                    else if (carton == "") {
+                        alert('Enter Item Carton Number');
+                        return;
+                    }
+                    else if (receivingDate == "") {
+                        alert('Enter Receiving Date');
+                        return;
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        url: "diststock.aspx/AddDistStock",
+                        data: "{opt:'" + opt + "',ocNo:'" + ocNo + "',distId:'" + distId + "',distName:'" + distName + "',whId:'" + whId + "',itemGroupId:'" + itemGroupId + "',itemGroupName:'" + itemGroupName + "',itemId:'" + itemId + "',itemName:'" + itemName + "',carton:'" + carton + "',piece:'" + piece + "',factor:'" + factor + "',factorType:'" + factorType + "',price:'" + price + "',receivingDate:'" + receivingDate + "',remarks:'" + remarks + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            alert(response.d);
+                            loadDistStock();
+                        },
+                        failure: function (response) {
+                            alert(response.d);                            
+                        }
+                    });
+                    
+                });
+
+                $("#btnAddFree").click(function () {
+                                        
+                    var freeItem = $("#txtFreeItem").val();
+                    var freeQty = $("#txtQty").val();
+                    var ocNos = $("#txtOCNo").val();
+                    var distId = $("#txtDistId").val();                     
+                    var whId = $("#ddlWarehouseName").val(); 
+                    var itemId = $("#ddlItem").val();
+                    var cartons = $("#txtCarton").val();
+                    var pieces = $("#txtPiece").val();
+                    var receivingDates = $("#txtRDate").val();
+
+                    if (freeItem == "") {
+                        alert('Enter Free Item');
+                        return;
+                    }
+                    else if (freeQty == "") {
+                        alert('Enter Free Qty');
+                        return;
+                    }
+                    else if (ocNos == "") {
+                        alert('Enter OC Number');
+                        return;
+                    }
+                    else if (distId == "") {
+                        alert('Enter Dist Id');
+                        return;
+                    }
+                    else if (whId == "-1") {
+                        alert('Select Warehouse Id');
+                        return;
+                    }
+                    else if (itemId == "-1") {
+                        alert('Select Item');
+                        return;
+                    }
+                    else if (cartons == "") {
+                        alert('Enter Carton');
+                        return;
+                    }
+                    else if (pieces == "") {
+                        alert('Enter Piece');
+                        return;
+                    }
+                    else if (receivingDates == "") {
+                        alert('Enter Receiving Date');
+                        return;
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        url: "diststock.aspx/AddDistStockFreeItem",
+                        data: "{freeItem:'" + freeItem + "',freeQty:'" + freeQty + "',distId:'" + distId + "',whId:'" + whId + "',itemId:'" + itemId + "',carton:'" + cartons + "',piece:'" + pieces + "',receivingDate:'" + receivingDates + "',ocNos:'" + ocNos + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            alert(response.d);
+                            loadDistFreeStock();
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+
+                });
+
+            });
+
+
+            function printDiv() {
+
+                var divToPrint = $("#dvPrintArea");
+
+                var newWin = window.open('', 'Print-Window');
+
+                newWin.document.open();
+
+                newWin.document.write('<html><body onload="window.print()">' + divToPrint.html() + '</body></html>');
+
+                newWin.document.close();
+
+                setTimeout(function () { newWin.close(); }, 10);
+
+            }
+
+
+            $("#lnkOCPrint").click(function (e) {
+
+                e.preventDefault();
+
+                $("#tblData").html("");
+                $("#dvPrintArea").html("");
+
+                //$("html, body").animate({ scrollTop: $(document).height() - 20 }, "slow");
+                $('#dvMiddleContent').html('');
+                $('#dvMiddleContent').html("<div style='width:70%;height:36px;margin-top: 5px;background-color:#8dc060;text-align:center;color:#fff;font-size:25px;padding-top:10px;margin-top:10px;margin-left:15%;'><span>Outlet Wise Order Correction</span></div>" +
+                                   "<div style='width:69.8%;height:auto;margin-top: 2px;border:1px solid #8dc060;padding-top:10px;margin-left:15%;'>"+
+                                   "<table style='padding-top:10px;padding-bottom: 10px;padding-left:28%'>" +
+                                        
+                                        "<tr><td>Order Date :</td><td><input type='text' id='txtOrderDate' placeholder='DD/MM/YYYY' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>"+
+                                        "<tr><td>SR ID :</td><td><input type='text' id='txtSRID' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                                                              
+                                        "<tr><td>Route :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlRoute' name='ddlRoute'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>"+
+                                        "<tr><td>Outlet :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlOutlet' name='ddlOutlet'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                        "<tr><td>TRAN No :</td><td><input type='text' id='txtTRANno' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                        "<tr><td>Item ID :</td><td><input type='text' id='txtItemID' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                        "<tr><td>Carton :</td><td><input type='text' id='txtCarton' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +                                        
+                                        "<tr><td>Piece :</td><td><input type='text' id='txtPiece' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+
+                                        "<tr><td></td><td style='text-align:right;'> <button type='button' id='btnSave' style='background-color: #8dc060;border-color: #4cae4c;color: #fff;-moz-user-select: none;background-image: none;border: 1px solid transparent;border-radius: 4px;cursor: pointer;display: inline-block;font-size: 14px;font-weight: 400;line-height: 1.42857;margin-bottom: 0;padding: 6px 12px;text-align: center;vertical-align: middle;white-space: nowrap;'>Save</button> </td></tr>" +
+                                     "</table></div>");                
+
+                $("#ddlCountry").focus();
+                $("#txtTRANno").attr("disabled", "disabled");
+                $("#txtItemID").attr("disabled", "disabled");
+                
+                var d = new Date();
+                var month = d.getMonth() + 1;
+                var day = d.getDate();
+                var dayd = d.getDate() + 2;
+                var currentDate = (day < 10 ? '0' : '') + day + '/' + (month < 10 ? '0' : '') + month + '/' + d.getFullYear();
+                var currentDated = (dayd < 10 ? '0' : '') + dayd + '/' + (month < 10 ? '0' : '') + month + '/' + d.getFullYear();
+                $("#txtOrderDate").val(currentDate);
+                                              
+                $("#txtSRID").change(function () {
+                    var srId = $("#txtSRID").val();
+                    var orderDate = $("#txtOrderDate").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "diststock.aspx/GetRoute",
+                        data: "{srId:'" + srId + "',orderDate:'" + orderDate + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+
+                            var routeInfo = response.d.split(';');
+                            var opt = "<option value='-1'>...Select...</option>";
+                            for (var i = 1; i < routeInfo.length; i = i + 2) {
+                                var routeId = routeInfo[i];
+                                var routeName = routeInfo[i + 1];
+                                opt = opt + "<option value='" + routeId + "'>" + routeName + "</option>";
+                            }
+                            $("#ddlRoute").html('');
+                            $("#ddlRoute").append(opt);
+
+
+                            $("#ddlRoute").change(function () {
+                                var routeId = $("#ddlRoute").val();
+
+                                $.ajax({
+                                    type: "POST",
+                                    url: "diststock.aspx/GetOutletList",
+                                    data: "{routeId:'" + routeId + "'}",
+                                    contentType: "application/json; charset=utf-8",
+                                    dataType: "json",
+                                    async: false,
+                                    success: function (response) {
+
+                                        var routeInfo = response.d.split(';');
+                                        var opt = "<option value='-1'>...Select...</option>";
+                                        for (var i = 1; i < routeInfo.length; i = i + 2) {
+                                            var routeId = routeInfo[i];
+                                            var routeName = routeInfo[i + 1];
+                                            opt = opt + "<option value='" + routeId + "'>" + routeName + "</option>";
+                                        }
+                                        $("#ddlOutlet").html('');
+                                        $("#ddlOutlet").append(opt);
+
+                                        $("#ddlOutlet").change(function () {
+                                            var outletId = $("#ddlOutlet").val();
+
+                                            $("#tblData").html("");
+                                            $("#tblData").html("<div style='width:545px;'><span id='loader' style='float:left'><img src='images/ajax-loader.gif' alt='Loading...' style='width:300px;height:17px;margin-top:10px; margin-left:40%; display:block;'/></span><span id='spPercentage' style='float:right;color:#2eaccc;display:block;margin-top:10px;'></span></div>");
+
+                                            var tbl = "<table id='example' class='display' style='color:#9C27B0' cellspacing='0' width='100%'style='padding-top:10px;'>";
+                                            var thead = "<thead><tr><th style='display:none;'>TRN</th><th>Order Date</th><th>Item ID</th><th>Item Name</th><th>Carton</th><th>Piece</th><th>Operaton</th></tr></thead>";
+
+                                            var row = "";
+
+                                            var printArea = "<div style='padding-left:300px;'><table>" +
+                                                    "<tr><td></td><td><h3>PINNACLE FOODS SDN. BHD.</h3></td><td></td></tr>" +
+                                                    "<tr><td></td><td><span>Kg. Baru, Sg. Bulow, KL, Malaysia</span></td><td></td></tr>" +
+                                                    "<tr><td></td><td><span>Phone: 06235245452</span></td><td></td></tr>" +
+                                                    "<tr><td></td><td><span>Email: pinnaclefoods@hotmail.com</span></td><td></td></tr>" +
+                                                    "<tr><td></td><td><span>Web: www.pinnaclefoods.com</span></td><td></td></tr>" +                                                     
+                                                "</table></div></br>";
+                                            printArea = printArea + "Order Date: 23/09/2016 &nbsp   Print Date: 24/09/2016<hr/></br>";
+
+
+                                            printArea = printArea + "<div style='margin-top:-25px;'><div style='float:left;'><table>" +
+                                                    "<tr><td></td><td><span style='font-weight: bold;'>Shipping Address:</span></td><td></td></tr>" +
+                                                    "<tr><td></td><td><span>Central Depot</span></td><td></td></tr>" +
+                                                    "<tr><td></td><td><span>Kg. Baru, Sg. Bulow, KL, Malaysia</span></td><td></td></tr>" +
+                                                    "<tr><td></td><td><span>Phone: 06235245452</span></td><td></td></tr>" +
+                                                    "<tr><td></td><td><span>Email: pinnaclefoods@hotmail.com</span></td><td></td></tr>" +
+                                                    "<tr><td></td><td><span>Web: www.pinnaclefoods.com</span></td><td></td></tr>" +
+                                                "</table></div>" +
+                                                "<div style='float:right;'><table>" +
+                                            "<tr><td></td><td><span style='font-weight: bold;'>Billing Address:</span></td><td></td></tr>" +
+                                            "<tr><td></td><td><span>ABC General Store</span></td><td></td></tr>" +
+                                            "<tr><td></td><td><span>China Pasar, 23/C, DR Road (5)</span></td><td></td></tr>" +
+                                            "<tr><td></td><td><span>West Lake Circus</span></td><td></td></tr>" +
+                                            "<tr><td></td><td><span>Phone: 06235245452</span></td><td></td></tr>" +
+                                            "<tr><td></td><td><span>Email: pinnaclefoods@hotmail.com</span></td><td></td></tr>" +
+                                            "<tr><td></td><td><span>Web: www.pinnaclefoods.com</span></td><td></td></tr>" +
+                                        "</table></div>"+
+                                                "</div></br><div style='clear:both;'>";
+                                            printArea = printArea + "<hr/>";
+
+                                            printArea = printArea + "<div style='margin-top:-5px;'><table>" +
+                                                    "<tr><td></td><td><span style='font-weight: bold;'>DM Name: Debit Thorman</span></td><td></td></tr>" +
+                                                    "<tr><td></td><td><span>Staff ID: 53265</span></td><td></td></tr>" +
+                                                    "<tr><td></td><td><span>Phone: 06235245452</span></td><td></td></tr>" +                                                    
+                                                "</table></div></br>";
+                                            printArea = printArea + "</br>";
+
+                                            printArea = printArea + "<div><table style='width:100%;border-collapse: collapse;border: 1px solid black;'>" +
+                                                    "<tr><td style='border: 1px solid black;'>Item Id</td><td style='border: 1px solid black;'>Item Name</td><td style='border: 1px solid black;'>Unit Price</td><td style='border: 1px solid black;'>Carton</td><td style='border: 1px solid black;'>Piece</td><td style='border: 1px solid black;'>Factor</td><td style='border: 1px solid black;'>GST</td><td style='border: 1px solid black;'>Amount</td></tr>" +
+                                                    "<tr><td style='border: 1px solid black;'>32525</td><td style='border: 1px solid black;'>Mango Pickle-250ml</td><td style='border: 1px solid black;'>50</td><td style='border: 1px solid black;'>10</td><td style='border: 1px solid black;'>6</td><td style='border: 1px solid black;'>12</td><td style='border: 1px solid black;'>6%</td><td style='border: 1px solid black;'>63100</td></tr>" +
+                                                    "<tr><td style='border: 1px solid black;'>32542</td><td style='border: 1px solid black;'>Mr. Noodles-8pc/12</td><td style='border: 1px solid black;'>100</td><td style='border: 1px solid black;'>5</td><td style='border: 1px solid black;'>0</td><td style='border: 1px solid black;'>12</td><td style='border: 1px solid black;'>6%</td style='border: 1px solid black;'><td>6000</td></tr>" +
+                                                    "<tr><td style='border: 1px solid black;'>32533</td><td style='border: 1px solid black;'>Chanachur-300gm</td><td style='border: 1px solid black;'>15</td><td style='border: 1px solid black;'>0</td><td style='border: 1px solid black;'>20</td><td style='border: 1px solid black;'>12</td><td style='border: 1px solid black;'>6%</td><td style='border: 1px solid black;'>300</td></tr>" +
+                                                    "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td style='float:right;'>Total:</td><td>67400/-</td></tr>" +
+                                                "</table></div></br>";
+
+                                            printArea = printArea + "<div><table style='width:100%;border-collapse: collapse;border: 1px solid black;'>" +
+                                                   "<tr><td style='border: 1px solid black;'>Order Item ID</td><td style='border: 1px solid black;'>Free Item</td><td style='border: 1px solid black;'>Qty</td></tr>" +
+                                                   "<tr><td style='border: 1px solid black;'>32525</td><td style='border: 1px solid black;'>Mango Pickle-250ml</td><td style='border: 1px solid black;'>5</td></tr>" +
+                                                   "<tr><td style='border: 1px solid black;'>32542</td><td style='border: 1px solid black;'>Salad Bowl</td><td style='border: 1px solid black;'>100</td></tr>" +
+                                                                                                      
+                                               "</table></div></br>";
+
+                                            printArea = printArea + "<div><div style='float:left;'><table>" +
+                                                   "<tr><td></td><td><h5>Note: This is the property of<br/> Pnnacle Foods Sdn. Bhd.</h5></td><td></td></tr>" +
+                                               "</table></div>" +                                                
+                                               "</div></br><div style='clear:both;'></br></br>";
+
+                                            printArea = printArea + "<div><div style='float:left;'><table>" +
+                                                    "<tr><td></td><td><h5>DM Signature</h5></td><td></td></tr>" +                                                   
+                                                "</table></div>" +
+                                                "<div style='float:right;'><table>" +
+                                            "<tr><td></td><td><h5>Outlet Propritor Signature</h5></td><td></td></tr>" +                                          
+                                        "</table></div>" +
+                                                "</div></br><div style='clear:both;'>";
+
+                                            printArea = printArea + "<hr/><div style='clear:both;'>";
+
+                                            printArea = printArea + "<div><div style='float:right;'><table>" +
+                                            "<tr><td></td><td><button type='button' id='btnPrint' style='background-color: #8dc060;border-color: #4cae4c;color: #fff;-moz-user-select: none;background-image: none;border: 1px solid transparent;border-radius: 4px;cursor: pointer;display: inline-block;font-size: 14px;font-weight: 400;line-height: 1.42857;margin-bottom: 0;padding: 6px 12px;text-align: center;vertical-align: middle;white-space: nowrap;'>Print</button></td><td></td></tr>" +
+                                        "</table></div>" +
+                                                "</div></br>";
+
+
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "diststock.aspx/GetOutletWiseOrder",
+                                                data: "{srId:'" + $("#txtSRID").val() + "',orderDate:'" + $("#txtOrderDate").val() + "',outletId:'" + outletId + "'}",
+                                                contentType: "application/json; charset=utf-8",
+                                                dataType: "json",
+                                                async: false,
+                                                success: function (response) {
+
+                                                    var outletOrder = response.d.split(';');
+
+                                                    for (var i = 1; i < outletOrder.length; i = i + 6) {
+                                                        var itemId = outletOrder[i];
+                                                        var itemName = outletOrder[i + 1];
+                                                        var carton = outletOrder[i + 2];
+                                                        var piece = outletOrder[i + 3];
+                                                        var orderDate = outletOrder[i + 4];
+                                                        var trn = outletOrder[i + 5];
+
+                                                        row = row + "<tr style='text-align:left'><td style='display:none;'>" + trn + "</td><td>" + orderDate + "</td><td>" + itemId + "</td><td>" + itemName + "</td><td>" + carton + "</td><td>" + piece + "</td><td><div style='float:right;'><button type='button' style='float: right; margin-top: 0px;' class='btn btn-xs btn-success edititemId' id='" + itemId + "'><span class ='glyphicon glyphicon-edit'></span>Edit</button></div></td></tr>";
+                                                    }
+
+                                                    tbl = tbl + thead + "<tbody>" + row + "</tbody></table>";
+
+                                                    //$("#loader").css("display", "none");
+                                                    $("#tblData").html("");
+                                                    $("#tblData").html(tbl);
+
+                                                    $("#dvPrintArea").html("");
+                                                    $("#dvPrintArea").html(printArea);
+
+                                                    var table = $('#example').DataTable({
+                                                        lengthChange: true,
+                                                        "scrollX": true,
+                                                        buttons: true
+                                                    });
+
+                                                    table.buttons().container().insertBefore('#example_filter');
+
+                                                },
+                                                failure: function (response) {
+                                                    alert(response.d);
+                                                }
+                                            });
+
+                                            $('#tblData').on('click', '.edititemId', function () {
+
+                                                var itemId = this.id;
+                                                var trnId = $(this).closest('tr').find('td:eq(0)').text();
+                                                var cartons = $(this).closest('tr').find('td:eq(4)').text();
+                                                var pcs = $(this).closest('tr').find('td:eq(5)').text();
+
+                                                $("#txtTRANno").val(trnId);
+                                                $("#txtItemID").val(itemId);
+                                                $("#txtCarton").val(cartons);
+                                                $("#txtPiece").val(pcs);
+
+                                            });
+
+                                            $("#btnPrint").on('click', function () {
+                                                var divToPrint = $("#dvPrintArea").html();
+
+                                                var newWin = window.open('', 'Print-Window');
+
+                                                newWin.document.open();
+
+                                                newWin.document.write('<html><body onload="window.print()">' + $("#dvPrintArea").html() + '</body></html>');
+
+                                                newWin.document.close();
+
+                                                setTimeout(function () { newWin.close(); }, 10);
+                                            });
+
+                                        });
+
+                                    },
+                                    failure: function (response) {
+                                        alert(response.d);
+                                    }
+                                });
+                            });
+
+
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+                });
+
+
+                $("#btnSave").click(function () {
+
+                    var trnId = $("#txtTRANno").val();
+                    var itemId = $("#txtItemID").val();
+                    var cartons = $("#txtCarton").val();
+                    var pcs = $("#txtPiece").val();
+
+
+                    $.ajax({
+                        type: "POST",
+                        url: "diststock.aspx/EditOrderInfo",
+                        data: "{trnId:'" + trnId + "',itemId:'" + itemId + "',cartons:'" + cartons + "',pcs:'" + pcs + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            var msg = response.d;
+                            alert(msg);
+
+                            var outletId = $("#ddlOutlet").val();
+
+                            $("#tblData").html("");
+                            $("#tblData").html("<div style='width:545px;'><span id='loader' style='float:left'><img src='images/ajax-loader.gif' alt='Loading...' style='width:300px;height:17px;margin-top:10px; margin-left:40%; display:block;'/></span><span id='spPercentage' style='float:right;color:#2eaccc;display:block;margin-top:10px;'></span></div>");
+
+                            var tbl = "<table id='example' class='display' style='color:#9C27B0' cellspacing='0' width='100%'style='padding-top:10px;'>";
+                            var thead = "<thead><tr><th style='display:none;'>TRN</th><th>Order Date</th><th>Item ID</th><th>Item Name</th><th>Carton</th><th>Piece</th><th>Operaton</th></tr></thead>";
+
+                            var row = "";
+
+                            $.ajax({
+                                type: "POST",
+                                url: "diststock.aspx/GetOutletWiseOrder",
+                                data: "{srId:'" + $("#txtSRID").val() + "',orderDate:'" + $("#txtOrderDate").val() + "',outletId:'" + outletId + "'}",
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "json",
+                                async: false,
+                                success: function (response) {
+
+                                    var outletOrder = response.d.split(';');
+
+                                    for (var i = 1; i < outletOrder.length; i = i + 6) {
+                                        var itemId = outletOrder[i];
+                                        var itemName = outletOrder[i + 1];
+                                        var carton = outletOrder[i + 2];
+                                        var piece = outletOrder[i + 3];
+                                        var orderDate = outletOrder[i + 4];
+                                        var trn = outletOrder[i + 5];
+
+                                        row = row + "<tr style='text-align:left'><td style='display:none;'>" + trn + "</td><td>" + orderDate + "</td><td>" + itemId + "</td><td>" + itemName + "</td><td>" + carton + "</td><td>" + piece + "</td><td><div style='float:right;'><button type='button' style='float: right; margin-top: 0px;' class='btn btn-xs btn-success edititemId' id='" + itemId + "'><span class ='glyphicon glyphicon-edit'></span>Edit</button></div></td></tr>";
+                                    }
+
+                                    tbl = tbl + thead + "<tbody>" + row + "</tbody></table>";
+
+                                    //$("#loader").css("display", "none");
+                                    $("#tblData").html("");
+                                    $("#tblData").html(tbl);
+
+                                    var table = $('#example').DataTable({
+                                        lengthChange: true,
+                                        "scrollX": true,
+                                        buttons: true
+                                    });
+
+                                    table.buttons().container().insertBefore('#example_filter');
+
+                                },
+                                failure: function (response) {
+                                    alert(response.d);
+                                }
+                            });
+
+                            $('#tblData').on('click', '.edititemId', function () {
+
+                                var itemId = this.id;
+                                var trnId = $(this).closest('tr').find('td:eq(0)').text();
+                                var cartons = $(this).closest('tr').find('td:eq(4)').text();
+                                var pcs = $(this).closest('tr').find('td:eq(5)').text();
+
+                                $("#txtTRANno").val(trnId);
+                                $("#txtItemID").val(itemId);
+                                $("#txtCarton").val(cartons);
+                                $("#txtPiece").val(pcs);
+
+                            });
+
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+                });
+                
+                
+                $("#btnShow").click(function () {
+
+                    var orderDate = $("#txtOrderDate").val();
+                    var outletId = $("#ddlOutlet").val();
+                    var routeId = $("#ddlRoute").val();
+                    var zoneId = $("#ddlZone").val();
+                    var divisionId = $("#ddlDivision").val();
+                    var country = $("#ddlCountry").val();
+
+                     
+                    if (orderDate == "") {
+                        alert('Enter Order Date');
+                        return;
+                    }
+                    if (country == "-1") {
+                        alert('Select Country');
+                        return;
+                    }
+                    if (divisionId == "-1") {
+                        alert('Select Division');
+                        return;
+                    }
+                    if (zoneId == "-1") {
+                        alert('Select Zone');
+                        return;
+                    }
+                    else if (routeId == "-1") {
+                        alert('Select Route');
+                        return;
+                    }
+                    else if (outletId == "-1") {
+                        alert('Select Outlet');
+                        return;
+                    }                     
+
+                    $.ajax({
+                        type: "POST",
+                        url: "diststock.aspx/OCPrintInfo",
+                        data: "{orderDate:'" + orderDate + "',outletId:'" + outletId + "',routeId:'" + routeId + "',zoneId:'" + zoneId + "',divisionId:'" + divisionId + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            var msg = response.d;
+
+                            alert(msg);
+
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+
+                });
+
+               
+            });
+
+
+            function loadDistStock() {
+                //--Load grid view---------------------
+                $("#tblData").html("");
+                $("#tblData").html("<div style='width:545px;'><span id='loader' style='float:left'><img src='images/ajax-loader.gif' alt='Loading...' style='width:300px;height:17px;margin-top:10px; margin-left:40%; display:block;'/></span><span id='spPercentage' style='float:right;color:#2eaccc;display:block;margin-top:10px;'></span></div>");
+
+                var tbl = "<table id='example' class='display' style='color:#9C27B0' cellspacing='0' width='100%'style='padding-top:10px;'>";
+                var thead = "<thead><tr><th>OC Number</th><th>Dist Id</th><th>Dist Name</th><th>WH Code</th><th>Warehouse Name</th><th>Item Code</th><th>Item Name</th><th>Carton</th><th>Price</th><th>Date</th><th>Operaton</th></tr></thead>";
+
+                var row = "";
+                var ocNum = $("#txtOCNo").val();
+                $.ajax({
+                    type: "POST",
+                    url: "diststock.aspx/GetDistStockInfo",
+                    data: "{ocNum:'" + ocNum + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    success: function (response) {
+                        var DSRInfo = response.d.split(';');
+
+                        for (var i = 1; i < DSRInfo.length; i = i + 10) {
+                            var ocNo = DSRInfo[i];
+                            var distId = DSRInfo[i + 1];
+                            var distName = DSRInfo[i + 2];
+                            var whId = DSRInfo[i + 3];
+                            var whName = DSRInfo[i + 4];
+                            var itemCode = DSRInfo[i + 5];
+                            var itemName = DSRInfo[i + 6];
+                            var carton = DSRInfo[i + 7];
+                            var piece = DSRInfo[i + 8];
+                            var recdate = DSRInfo[i + 9];
+
+
+                            row = row + "<tr style='text-align:left'><td>" + ocNo + "</td><td>" + distId + "</td><td>" + distName + "</td><td>" + whId + "</td><td>" + whName + "</td><td>" + itemCode + "</td><td>" + itemName + "</td><td>" + carton + "</td><td>" + piece + "</td><td>" + recdate + "</td><td><div style='float:right;'><button type='button' style='float: right; margin-top: 0px;' class='btn btn-xs btn-success edititemid' id='" + itemCode + "'><span class ='glyphicon glyphicon-edit'></span>Edit</button></div></td></tr>";
+                        }
+
+                        tbl = tbl + thead + "<tbody>" + row + "</tbody></table>";
+
+                        //$("#loader").css("display", "none");
+                        $("#tblData").html("");
+                        $("#tblData").html(tbl);
+
+                        var table = $('#example').DataTable({
+                            lengthChange: true,
+                            "scrollX": true,
+                            buttons: true
+                        });
+
+                        table.buttons().container().insertBefore('#example_filter');
+
+
+                    },
+                    failure: function (response) {
+                        alert(response.d);
+                    }
+                });
+
+
+                $('#tblData').on('click', '.edititemid', function () {
+
+                    $("#btnStockSave").text('Edit');
+
+                    var itemId = this.id;
+                    var ocN = $(this).closest('tr').find('td:eq(0)').text();
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: "diststock.aspx/GetDistSingleItemInfo",
+                        data: "{itemId:'" + itemId + "',ocN:'" + ocN + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            var DSRInfo = response.d.split(';');
+
+                            var ocNo = DSRInfo[1];
+                            var distId = DSRInfo[2];
+                            var distName = DSRInfo[3];
+                            var whId = DSRInfo[4];                            
+                            var itemGroupId = DSRInfo[5];
+                            var itemId = DSRInfo[6];
+                            var carton = DSRInfo[7];
+                            var piece = DSRInfo[8];
+                            var dpPrice = DSRInfo[9];
+                            var factor = DSRInfo[10];
+                            var factorType = DSRInfo[11];
+                            var recdate = DSRInfo[12];
+                            var remarks = DSRInfo[13];
+
+
+                            $("#txtOCNo").val(ocNo);
+                            $("#txtDistId").val(distId);
+                            $("#txtDistName").val(distName);
+                            $("#ddlWarehouseName").val(whId);
+                             
+                            $("#ddlItemGroup").val(itemGroupId);                             
+
+                            $("#ddlItem").val(itemId);                            
+
+                            $("#txtCarton").val(carton);
+                            $("#txtPiece").val(piece);
+                            $("#txtFactor").val(factor);
+
+                            $("#txtFactorType").val(factorType);
+                            $("#txtPriceDp").val(dpPrice);
+                            $("#txtRDate").val(recdate);
+                            $("#txtRemarks").val(remarks);
+
+
+                            //var table = $('#example').DataTable({
+                            //    lengthChange: true,
+                            //    "scrollX": true,
+                            //    buttons: true
+                            //});
+
+                            //table.buttons().container().insertBefore('#example_filter');
+
+
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+
+                });
+
+                //--end grid view panel---------------------------------------------------
+            }
+
+            function loadDistFreeStock() {
+                //--Load grid view---------------------
+                $("#tblFreeData").html("");
+                //$("#tblFreeData").html("<div style='width:240px;'><span id='loader' style='float:left'><img src='images/ajax-loader.gif' alt='Loading...' style='width:300px;height:17px;margin-top:10px; margin-left:40%; display:block;'/></span><span id='spPercentage' style='float:right;color:#2eaccc;display:block;margin-top:10px;'></span></div>");
+
+                //var tbl = "<table id='example' class='display' style='color:#9C27B0' cellspacing='0' width='100%'style='padding-top:10px;'>";
+                //var thead = "<thead><tr><th>OC Number</th><th>Item Code</th><th>Free Item</th><th>Free Qty</th><th>Operaton</th></tr></thead>";
+
+                var thead = "<table style='border-collapse: collapse; border-spacing: 0; font-family: 'Trebuchet MS',Arial,Helvetica,sans-serif; font-size: 16px;width: 200px; padding-left:5px;'>" +
+                "<tbody><tr><th style='background-color: #4caf50;color: white;padding-bottom: 11px;padding-top: 11px;border: 1px solid #ddd;padding: 8px;text-align: left;'>OC Number</th>" +
+                "<th style='background-color: #4caf50;color: white;padding-bottom: 11px;padding-top: 11px;border: 1px solid #ddd;padding: 8px;text-align: left;'>Item Code</th>" +
+                "<th style='background-color: #4caf50;color: white;padding-bottom: 11px;padding-top: 11px;border: 1px solid #ddd;padding: 8px;text-align: left;'>Free Item</th>" +
+                "<th style='background-color: #4caf50;color: white;padding-bottom: 11px;padding-top: 11px;border: 1px solid #ddd;padding: 8px;text-align: left;'>Free Qty</th>" +
+                "<th style='background-color: #4caf50;color: white;padding-bottom: 11px;padding-top: 11px;border: 1px solid #ddd;padding: 8px;text-align: left;'>Operaton</th>" +
+                "</tr>" ;
+                var row = "";
+                var ocNumber = $("#txtOCNo").val();
+                 
+                $.ajax({
+                    type: "POST",
+                    url: "diststock.aspx/GetDistFreeStockInfo",
+                    data: "{ocNumber:'" + ocNumber + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    success: function (response) {
+                        var DSRInfo = response.d.split(';');
+
+                        for (var i = 1; i < DSRInfo.length; i = i + 4) {
+                            var ocN = DSRInfo[i];
+                            var itemCode = DSRInfo[i + 1];
+                            var freeItem = DSRInfo[i + 2];
+                            var qty = DSRInfo[i + 3];  
+
+                            row = row + "<tr>" +
+                                        "<td style='border: 1px solid #ddd;padding: 8px;text-align: left;'>" + ocN + "</td>" +
+                                        "<td style='border: 1px solid #ddd;padding: 8px;text-align: left;'>" + itemCode + "</td>" +
+                                        "<td style='border: 1px solid #ddd;padding: 8px;text-align: left;'>" + freeItem + "</td>" +
+                                        "<td style='border: 1px solid #ddd;padding: 8px;text-align: left;'>" + qty + "</td>" +
+                                        "<td style='border: 1px solid #ddd;padding: 8px;text-align: left;'><div style='float:right;'><button type='button' style='float: right; margin-top: 0px;' class='btn btn-xs btn-success edititemCode' id='" + itemCode + "'><span class ='glyphicon glyphicon-edit'></span>Del</button></div></td>" +
+                                    "</tr>"
+                        }
+
+                        thead = thead + row + "</tbody></table>";
+                                                 
+                        $("#tblFreeData").html("");
+                        $("#tblFreeData").html(thead);
+
+
+                    },
+                    failure: function (response) {
+                        alert(response.d);
+                    }
+                });
+
+
+                $('#tblFreeData').on('click', '.edititemCode', function () {
+                                       
+
+                    var itemId = this.id;
+                    var ocN = $(this).closest('tr').find('td:eq(0)').text();
+                    var free = $(this).closest('tr').find('td:eq(2)').text();
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: "diststock.aspx/DelDistFreeItemInfo",
+                        data: "{itemId:'" + itemId + "',ocN:'" + ocN + "',free:'" + free + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            alert(response.d);
+                            
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+
+                    $(this).closest('tr').remove();
+
+                });
+
+                //--end grid view panel---------------------------------------------------
+            }
+
+            $("#lnkLogout").click(function (e) {
+                e.preventDefault();
+                window.location = "login.aspx";
+            });
+
+        });
+
+</script>
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+     <div id="bodywrapper">
+   <div id="header">
+      <div><img src="images/pran-logo.png" width="80" height="25" title="Upper Sales"/></div>
+      <div style="padding-top:0px;width:100%;height:300px;background-color:#eeccff">
+           <div class="slider_container">
+		<div class="flexslider">
+	      <ul class="slides">
+          <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/sales0.gif" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Clear Understanding</h2><p>Should be know about the Market of PRAN-RFL Products.</p></div>
+                </div>
+	    	</li>
+            <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/sales2.gif" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Team Work</h2><p>Must be Setup Mind to Work as a Team Member.</p></div>
+                </div>
+	    	</li>
+            <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/sales3.gif" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Sales Growth</h2><p>Need to be acheive continiously Sales Growth.</p></div>
+                </div>
+	    	</li>
+           <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/sales4.gif" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Success</h2><p>Success is nothing without Hard Work.</p></div>
+                </div>
+	    	</li>
+	    	<li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/sales5.gif" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Sales Step</h2><p>Should be follow the Sales Process Step.</p></div>
+                </div>
+	    	</li>   
+	    	 
+	    </ul>
+	  </div>
+   </div>
+      </div>
+   </div>
+   <div style="background:#8dc060; height:49px;">
+    
+        <ul>
+          <li><a class="active" href="login.aspx" id="lnkHome">Home</a></li>
+          <li><a href="#news">About Us</a></li>
+          <li><a href="#contact">Policies</a></li>           
+          <li><a href="#contact">Staff profiles</a></li>           
+          <li style="float:right"><a href="#" id="lnkLogout">Log Out</a></li>
+        </ul>
+   </div>
+   <div id="contentwrapper">
+       <div style="background:rgba(0,0,0,0.12);width:100%; height:auto;">
+          <div style="border:1px solid #f06292;width:200px; height:auto;float:left;">
+              <section id="content">		                 
+		                 <ul class="rmRootGroup rmVertical">
+                         
+		                    <li class="rmItem rmFirst active border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;"><span class="rmText">Main Menu</span></a></li>
+                            <li class="rmItem border-bottom"><a id="lnkStockEntry" class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Stock Entry</span></a></li>                             
+                            <li class="rmItem border-bottom"><a id="lnkReports" class="rmLink rmRootLink" href="sales.aspx" style="width: 176px;text-align: left;"><span class="rmText">Reports</span></a></li>
+                            <li class="rmItem rmLast"><a id="lnkOCPrint" target="_blank" class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">OC Print</span></a></li>
+                             
+	                    </ul>
+	                </section>
+          </div>
+           <div style="width:935px; height:auto;float:right;">
+               <div id="dvMiddleContent" style="border:1px solid #8dc060;width:99.2%; height:auto;float:left;padding-bottom:10px;margin-bottom:10px;">
+                   <img src="images/salesgrowth.png" width="96%" height="500" style="margin-left:20px;margin-top:10px;"/>
+               </div>
+               <div id="tblData" style='padding-top:10px;padding-right:6px;'></div>               
+               
+               <div id="dvPrintArea" style='padding-top:10px;padding-right:6px;margin-top:10px;'></div>
+
+           </div>
+       </div>
+     
+          <div style="clear:both"></div>
+         <div style="line-height:14px; margin-top:15px;">
+         </div>
+      </div>
+   </div>
+
+<div id="footerwrapper">
+   <div id="footer">
+      <a href="login.aspx" style="color:white; text-decoration:none;">Home | </a><a href="" style="color:white; text-decoration:none;"> About us | </a><a href="" style="color:white; text-decoration:none;">Contact us </a>
+      <p>Telephone: (02) 4961 0777&nbsp;&nbsp;&nbsp;&nbsp;Any time: 01710649448<br />
+      Copyright &copy; 2016 Website: www.pranrflgroup.com Email: info@pranrflgroup.com   
+        <div style="text-align:right; margin-top:-14px;"><a href="http://www.pranrflgroup.com" target=_new style="color:white; text-decoration:none;">Design & Developed by Rathindra Nath</a></div>
+   </div>
+</div>
+    </form>
+</body>
+</html>

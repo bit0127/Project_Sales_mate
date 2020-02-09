@@ -1,0 +1,960 @@
+﻿
+ 
+.PopupBody {
+    background-color: #fff !important;
+    background-image: none;
+    padding: 0 10px 10px;
+}
+ 
+.FloatLeft {
+    float: left;
+}
+.FloatRight {
+    float: right;
+}
+.MainContainer {
+    background-color: #ffffff;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.HeaderContainer {
+    background-color: #003366;
+    color: #ffffff;
+    float: left;
+    font-weight: normal;
+    height: 85px;
+    position: relative;
+    width: 100%;
+}
+.HeaderContainer img {
+    margin: 0;
+}
+.HeaderTitle {
+    font-size: 220%;
+    font-weight: bold;
+    line-height: 1.5em;
+    position: absolute;
+    right: 15px;
+    top: 8px;
+}
+.HeaderMenu {
+    position: absolute;
+    right: 120px;
+    top: 46px;
+}
+.HeaderMenu a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.HeaderMenu a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+.MainMenuContainer {
+    background-color: #eff0f1;
+    border: 1px solid #cccccc;
+    float: left;
+    overflow: hidden;
+    width: 100%;
+}
+.MainBodyContainer {
+    float: left;
+    padding: 0 1% 20px;
+    position: relative;
+    width: 98%;
+}
+.MainBodyLeftContainer {
+    float: left;
+    overflow: hidden;
+    padding: 20px 1%;
+    width: 63%;
+}
+.MainBodyRightContainer {
+    float: right;
+    overflow: hidden;
+    padding: 40px 0 0;
+    width: 30%;
+}
+.BackToMainMenu {
+    border-top: 1px dotted #444444;
+    float: left;
+    margin: 10px 0 0;
+    padding: 10px 0 0;
+    width: 100%;
+}
+.PreviewYourWebsite {
+    position: absolute;
+    right: 20px;
+    top: 50px;
+    z-index: 90000;
+}
+.PreviewYourWebsite *:hover {
+    cursor: pointer;
+}
+.FooterContainer {
+    background-color: #003366;
+    bottom: 0;
+    color: #ffffff;
+    float: left;
+    font-size: 80%;
+    font-weight: bold;
+    height: 20px;
+    overflow: hidden;
+    padding: 5px 0.5%;
+    width: 99%;
+}
+.FooterContainer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.DashBoard {
+    margin: 0 auto;
+    width: 750px;
+}
+.DashBoard a, .DashBoard a:hover, .DashBoard a:visited {
+    color: #000099;
+}
+.DashboardElement {
+    background-color: #efefef;
+    background-position: left center;
+    background-repeat: no-repeat;
+    border: 3px solid #dddddd;
+    display: block;
+    float: left;
+    font-size: 140%;
+    height: 95px;
+    margin: 10px;
+    padding: 50px 0 0 128px;
+    width: 82px;
+}
+.DashboardElement {
+    text-decoration: none;
+}
+.DashboardElement:hover {
+    background-color: #ffffff;
+    text-decoration: underline;
+}
+.SchoolImage {
+    background-image: url("../Images/Icons/SchoolImage.png");
+}
+.Design {
+    background-image: url("../Images/Icons/DesignWebsite.png");
+}
+.News {
+    background-image: url("../Images/Icons/News.png");
+}
+.Pages {
+    background-image: url("../Images/Icons/Pages.png");
+}
+.Policies {
+    background-image: url("../Images/Icons/Policies.png");
+}
+.StaffProfile {
+    background-image: url("../Images/Icons/StaffProfiles.png");
+}
+.SchoolDetails {
+    background-image: url("../Images/Icons/SchoolDetails.png");
+}
+.Gallery {
+    background-image: url("../Images/Icons/Gallery.png");
+}
+.Publish {
+    background-image: url("../Images/Icons/PublishWebsite.png");
+}
+.Games {
+    background-image: url("../Images/Icons/Games.png");
+}
+.Twitter {
+    background-image: url("../Images/Icons/Twitter.png");
+}
+.GoogleAnalytics {
+    background-image: url("../Images/Icons/GoogleAnalytics.png");
+}
+.Logout {
+    background-image: url("../Images/Icons/Logout.png");
+}
+.GettingStarted {
+    float: left;
+    font-size: 110%;
+    padding: 15px;
+    width: 185px;
+}
+.GettingStartedHeader {
+    font-size: 130%;
+    font-weight: bold;
+    margin: 0 0 20px;
+}
+.Multipage {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #999999 #999999 -moz-use-text-color;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    float: left;
+    padding: 2%;
+    width: 100%;
+}
+.PageView {
+    float: left;
+    margin: 20px 0;
+}
+.DesignerContainer {
+    margin: 0 auto -10px;
+    overflow: hidden;
+    width: 950px;
+}
+.Tabs {
+    float: left;
+    width: 475px;
+}
+.PageTabs {
+    float: left;
+    width: 60%;
+}
+.SaveCancel {
+    float: right;
+    text-align: right;
+    width: 475px;
+}
+.SaveCancel a, .AddNewPage {
+    margin: 0 10px;
+}
+.AddNewPage {
+    float: right;
+    text-align: right;
+    width: 30%;
+}
+.MainButtons {
+    background-color: #ffffff;
+    border: 1px solid #999999;
+    font-weight: bold;
+    height: 52px;
+    margin: 2px;
+    overflow: hidden;
+    padding: 8px;
+    position: absolute;
+    right: 0;
+    top: 28px;
+    width: 130px;
+}
+.DesignWebsiteOptions {
+    background-color: #ffffff;
+    background-image: url("../Images/Admin/PageSettingsBG.jpg");
+    background-position: left bottom;
+    background-repeat: repeat-x;
+    border-bottom: 1px solid #999999;
+    float: left;
+    margin-bottom: 20px;
+    position: inherit;
+    width: 100%;
+}
+.DesignWebsiteOptionsGroup {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #ffffff;
+    border-color: #999999 #999999 -moz-use-text-color;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    float: left;
+    font-weight: bold;
+    padding: 5px;
+    width: 938px;
+}
+.DesignWebsiteOptionContainer {
+    float: left;
+    font-size: 90%;
+    font-weight: bold;
+    margin-right: 30px;
+    position: inherit;
+}
+.PageButtonContainer {
+    float: left;
+    margin-top: 10px;
+    position: inherit;
+    vertical-align: baseline;
+}
+.PageButtons {
+    float: left;
+    margin-right: 10px;
+    position: inherit;
+    text-align: center;
+    vertical-align: bottom;
+    width: 100px;
+}
+.HomepageTitle {
+    display: block;
+    overflow: hidden;
+}
+.HomepageTitle h1 {
+    margin: -14px 0 -8px;
+}
+.HomepageText {
+    float: left;
+    margin: 20px 0 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index: 5000;
+}
+.PageTitle, .SubPageTitle {
+    float: left;
+    margin: 0;
+    overflow: hidden;
+    width: 430px;
+}
+.SubPageTitle {
+    margin: 8px 0 0;
+    width: 100%;
+}
+.PageTitle h1, .SubPageTitle h1 {
+    margin: 0 0 15px;
+}
+.EditPage {
+    float: right;
+    overflow: hidden;
+    position: inherit;
+    width: 9.5%;
+}
+.UploadImageContainer {
+    float: left;
+    margin: 20px 0 0 20px;
+    position: relative;
+    width: 150px;
+}
+div.RadMenu .rmItem a.rmLink:hover {
+    cursor: pointer !important;
+}
+.TopRightButtons {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.PreviewContainer {
+    clear: both;
+    float: left;
+    margin: 10px 0 0;
+    width: 100%;
+}
+.MainSiteContainer {
+    background-color: #ffffff;
+    border: 5px solid #000099;
+    margin: 20px auto;
+    overflow: hidden;
+    width: 950px;
+}
+.Header {
+    background: #0066cc none repeat scroll 0 0;
+    float: left;
+    margin-bottom: 1px;
+    padding: 0 15px 15px;
+    position: relative;
+    width: 920px;
+}
+.HeaderText {
+    color: #ffffff;
+    float: left;
+    font-size: 340%;
+    margin: 0;
+    position: inherit;
+    width: 100%;
+}
+.HeaderMissionStatement {
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    margin: 0 0 0 20px;
+    padding: 0;
+    position: inherit;
+    width: 900px;
+}
+.HeaderMissionStatement span {
+    font-size: 13pt;
+    font-style: italic;
+    font-weight: normal;
+}
+.HeaderMissionStatement input[type="text"] {
+    background-color: #fff;
+    border: medium none;
+    color: #999999;
+    font-size: 14pt;
+    font-style: italic;
+}
+.MainImageContainer {
+    background: rgba(0, 0, 0, 0) url("/Images/Schools/1/SchoolImage/SchoolImage___Selected.jpg") no-repeat scroll left top;
+    border-bottom: 5px solid #0066cc;
+    float: left;
+    height: 250px;
+    margin-bottom: 1px;
+    padding: 0 0 1px;
+    position: relative;
+    width: 100%;
+}
+.MainSiteMenuContainer {
+    float: left;
+    width: 100%;
+}
+.SiteSubMenu {
+    float: left;
+    margin: 25px 0 5px;
+    width: 200px;
+}
+.SiteMainContent {
+    float: left;
+    height: auto !important;
+    min-height: 500px;
+    overflow: hidden;
+    padding: 5px 20px;
+    width: 710px;
+}
+.SiteMainContent img {
+    margin: 0 20px 20px;
+}
+.SiteFooter {
+    background-color: #0066cc;
+    float: left;
+    padding: 0 0 6px;
+    width: 950px;
+}
+.SiteFooterLeft {
+    float: left;
+}
+.SiteFooterRight {
+    float: right;
+}
+.SiteFooter a, .SiteFooter span, .SiteFooter label {
+    color: #ffffff;
+    display: block;
+    float: left;
+    font-size: 80%;
+    font-weight: bold;
+    margin: 5px 0 5px 5px;
+    padding-right: 10px;
+    text-decoration: none;
+}
+.SiteFooter a:hover {
+    text-decoration: underline;
+}
+.FooterEasySchoolWebsiteLink {
+    float: right;
+}
+.NewsTickerContainer {
+    background-color: #efefef;
+    border: 1px dotted #444444;
+    float: right;
+    font-size: 120%;
+    font-weight: bold;
+    height: 240px;
+    line-height: 15px;
+    margin: 0 0 20px 20px;
+    padding: 10px;
+    width: 230px;
+}
+.ViewAllNews {
+    float: right;
+    font-size: 12px;
+    margin: 10px 0 0;
+    text-decoration: none;
+}
+.ViewAllNews:hover {
+    text-decoration: underline;
+}
+.NewsHeadline {
+    float: left;
+    width: 100%;
+}
+.NewsHeadline h2 {
+    margin: 15px 0 10px;
+}
+.NewsDetails {
+    border-bottom: 1px dotted #444444;
+    float: left;
+    line-height: 15px;
+    padding: 0 0 15px;
+    width: 100%;
+}
+.TwitterContainer {
+    background-color: #efefef;
+    border: 1px dotted #444444;
+    clear: both;
+    float: right;
+    line-height: 15px;
+    margin: 0 0 20px 20px;
+    min-height: 250px;
+    overflow: hidden;
+    padding: 10px;
+    width: 252px;
+}
+.Preview {
+    float: left !important;
+    margin: 0 5px 0 0;
+    width: 90% !important;
+}
+.Live {
+    background-color: #ffffff;
+    border: medium none !important;
+    padding: 0 !important;
+}
+.TwitterHeading {
+    background: rgba(0, 0, 0, 0) url("/Images/Icons/Twitter_Small.png") no-repeat scroll left top;
+    border-bottom: 1px dotted #444444;
+    float: left;
+    font-size: 120%;
+    font-weight: bold;
+    height: 20px;
+    margin: 0 0 10px;
+    padding: 10px 0 0 35px;
+    width: 245px;
+}
+.TwitterHeadingPreview {
+    background: rgba(0, 0, 0, 0) url("/Images/Icons/Twitter_Small.png") no-repeat scroll left top;
+    border-bottom: 1px dotted #444444;
+    float: left;
+    height: 20px;
+    margin: 0 0 10px;
+    padding: 10px 0 0 35px;
+    width: 215px;
+}
+.Headline {
+    float: left;
+    font-size: 80%;
+    font-weight: bold;
+    width: 220px;
+}
+.Date {
+    border-top: 1px dotted #444444;
+    float: left;
+    font-size: 75%;
+    padding: 5px 0 0;
+    width: 220px;
+}
+.TickerDivider {
+    border-top: 1px dotted #444444;
+    float: left;
+    font-size: 0;
+    height: 1px;
+    margin: 10px 0;
+    width: 240px;
+}
+.Details {
+    float: left;
+    font-size: 75%;
+    font-weight: normal;
+    width: 220px;
+}
+.PolicyList {
+    float: left;
+    margin: 10px 0 0;
+    width: 100%;
+}
+.PolicyList img {
+    margin: 0;
+}
+.PolicyList a {
+    background: rgba(0, 0, 0, 0) url("/Images/Icons/PDF.png") no-repeat scroll left center;
+    border-bottom: 1px dotted #444444;
+    display: block;
+    float: left;
+    height: 40px;
+    margin: 0 0 10px;
+    padding: 25px 0 0 65px;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 600px;
+}
+.PolicyList a:hover {
+    text-decoration: underline;
+}
+.StaffProfiles {
+    float: left;
+    width: 100%;
+}
+.StaffContainer {
+    border-bottom: 1px dotted #444444;
+    float: left;
+    margin: 0 0 20px;
+    padding: 0 0 20px;
+    width: 100%;
+}
+.StaffPhoto {
+    border: 1px solid #444444;
+    float: left;
+    height: 160px;
+    margin: 0 20px 20px 0;
+    padding: 0;
+    width: 120px;
+}
+.StaffPhoto img {
+    margin: 0;
+}
+.StaffName {
+    float: left;
+    font-weight: bold;
+    width: 500px;
+}
+.StaffPosition {
+    float: left;
+    font-size: 90%;
+    margin: 5px 0 15px;
+    width: 500px;
+}
+.StaffDetails {
+    float: left;
+    padding: 0 0 20px;
+    width: 500px;
+}
+.PasswordSubmit {
+    float: left;
+    margin: 5px 0 0 !important;
+}
+.PasswordError {
+    color: Red;
+    float: left;
+    margin: 15px 0 0;
+    width: 100%;
+}
+.FormContainer {
+    background: #e9edf0 url("/Images/FormBG.jpg") repeat-x scroll left top;
+    border: 1px dotted #444444;
+    float: left;
+    overflow: hidden;
+    padding: 3%;
+    position: relative;
+    width: 94%;
+}
+.Narrow {
+    float: none;
+    margin: 0 auto;
+    width: 70%;
+}
+.FormContainer label, .FormContainer .ManualLabel, .FormContainer .LabelSpacer {
+    clear: both;
+    color: #006699;
+    float: left;
+    font-family: Tahoma;
+    font-weight: bold;
+    margin: 5px 0;
+    overflow: hidden;
+    text-align: right;
+    width: 30%;
+}
+.FormContainer .ManualLabel {
+    float: left;
+    margin: 5px 0;
+    text-align: left;
+    width: auto;
+}
+.FormContainer .PageLabel, .FormContainer .PageControl {
+    text-align: left;
+}
+.FormContainer .Control {
+    float: left;
+    margin: 5px 0;
+    overflow: hidden;
+    padding: 0 0 0 2%;
+    width: 68%;
+}
+.FormContainer .PageControl {
+    float: left;
+    margin: 5px 0;
+    overflow: hidden;
+    padding: 0 0 0 2%;
+    width: 68%;
+}
+.FormContainer .ScrollableControl {
+    float: left;
+    height: 230px;
+    margin: 5px 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0 0 0 2%;
+    width: 68%;
+}
+.FormContainer .AJAXValidated {
+    width: 50%;
+}
+.AJAXValidator {
+    float: right;
+    margin: 5px 0;
+    overflow: hidden;
+    width: 18%;
+}
+.RegisterTerms {
+    float: left;
+    font-family: Courier New,Arial;
+    font-size: 11px;
+    height: 150px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0 30px 0 0;
+}
+.PageBreak {
+    border-top: 1px dotted #aaaaaa;
+    clear: both;
+    display: inline-block;
+    float: left;
+    font-size: 0;
+    height: 1px;
+    margin: 5px 0;
+    position: inherit;
+    width: 950px;
+}
+.ToolTip {
+    padding: 10px;
+    text-align: left;
+    width: 200px;
+}
+.ToolTipNarrow {
+    padding: 10px;
+    text-align: left;
+    width: 150px;
+}
+.ToolTipWide {
+    padding: 10px;
+    text-align: left;
+    width: 300px;
+}
+
+.ErrorSummary {
+    background-color: #ffffff;
+    border: 1px dotted #999999;
+    float: left;
+    font-size: 90%;
+    margin: 0 0 20px;
+    padding: 1%;
+    width: 98%;
+}
+.ClearBoth {
+    clear: both;
+}
+.PageImageHelp {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #ffffcc;
+    background-image: url("/Images/Icons/Alert.png");
+    background-origin: padding-box;
+    background-position: 2px center, 2px center;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    border: 1px dotted #999999;
+    font-size: 11px;
+    padding: 10px 10px 10px 15px;
+    position: absolute;
+    right: 20px;
+    text-align: center;
+    top: 30px;
+    width: 150px;
+}
+.PairsOptionLabel {
+    color: #006699;
+    float: left;
+    font-family: Tahoma;
+    font-weight: bold;
+    margin: 5px 0;
+    overflow: hidden;
+    text-align: right;
+    width: 6%;
+}
+.PairsOptionTextBoxContainer {
+    color: #006699;
+    float: left;
+    font-family: Tahoma;
+    font-weight: bold;
+    margin: 5px 0;
+    overflow: hidden;
+    padding: 0 0 0 2%;
+    text-align: center;
+    width: 47%;
+}
+.Tweet {
+    float: left;
+    font-size: 90%;
+    font-weight: normal;
+    padding-bottom: 5px;
+    position: inherit;
+    width: 95%;
+}
+.TweetInfo {
+    font-size: 90%;
+    font-weight: bold;
+}
+.TweetStatus {
+    border-bottom: 1px dotted #999999;
+    float: left;
+    font-size: 90%;
+    font-weight: normal;
+    margin: 5px 0 10px;
+    padding-bottom: 10px;
+    width: 95%;
+}
+.Suspended {
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+#ulGalleryViewAlbumContainer {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.GalleryViewAlbum {
+    float: left;
+    height: 200px;
+    margin: 10px 10px 10px 0;
+    width: 200px;
+}
+.AlbumPreview, .ImagePreview {
+    background-color: #fff;
+    border: 1px solid #444;
+    float: left;
+    height: 200px;
+    margin: 10px;
+    padding: 5px;
+    position: relative;
+    vertical-align: middle;
+    width: 200px;
+}
+.ImagePreview {
+    height: 150px;
+}
+.AlbumPreview:hover, .ImagePreview:hover {
+    border: 1px dotted #444444;
+    cursor: pointer;
+}
+.AlbumOptions, .ImageOptions {
+    background-color: #fff;
+    border-top: 1px dotted #444444;
+    bottom: 0;
+    display: none;
+    height: 30px;
+    opacity: 0.7;
+    padding: 10px;
+    position: absolute;
+    right: 5px;
+    z-index: 4000;
+}
+.AlbumPreview img, .ImagePreview img {
+    margin: 0 !important;
+}
+.ImageThumbnail {
+    margin: 0 !important;
+}
+.AlbumOptions {
+    bottom: 55px;
+}
+.ImageOptions {
+    height: 50px;
+    text-align: right;
+}
+.ImageOptions .DeleteImage {
+    float: left;
+    font-weight: bold;
+    text-align: right;
+    width: 100%;
+}
+.AlbumPreview:hover .AlbumOptions, .ImagePreview:hover .ImageOptions {
+    display: block;
+}
+.AlbumLabel {
+    background-color: #fff;
+    border-top: 1px solid #444444;
+    float: left;
+    font-weight: bold;
+    height: 40px;
+    margin: 0 0 5px;
+    padding: 5px;
+    width: 190px;
+}
+.AlbumPreview:hover .AlbumLabel {
+    background-color: #444;
+    color: #fff;
+}
+.EditAlbum, .GalleryInsertionOptions, .RenewalSummary {
+    background-color: #efefef;
+    border: 1px solid #999999;
+    float: right;
+    margin: 10px 100px 0 0;
+    padding: 10px;
+}
+.RenewalSummary {
+    text-align: center;
+    width: 250px;
+}
+.PopUpMessage {
+    float: left;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+    width: 280px;
+}
+.PopUpMessage img {
+    border: 1px solid #999999;
+}
+.AlbumSelectionContainer {
+    border-bottom: 1px solid #dddddd;
+    float: left;
+    padding: 10px 0 0;
+    width: 100%;
+}
+.AlbumSelectionContainer:hover {
+    background-color: #efefef;
+    cursor: pointer;
+}
+.AlbumSelectionThumbnail {
+    display: inline !important;
+    float: left;
+}
+.AlbumSelectionLabel {
+    display: inline !important;
+    float: left;
+    padding: 20px 0 0;
+}
+.PaymentOption, .PaymentOptionInvoice {
+    background: #ffffff url("/Images/PayPalOptions.png") no-repeat scroll left bottom;
+    border: 1px solid #444444;
+    float: left;
+    height: 250px;
+    margin-right: 15px;
+    padding: 1%;
+    position: relative;
+    width: 45%;
+}
+.PaymentOptionInvoice {
+    background: #ffffff none repeat scroll 0 0;
+}
+.PaymentOption .Button, .PaymentOptionInvoice .Button {
+    bottom: 15px;
+    position: absolute;
+    right: 15px;
+}
+.PaymantDetailsTable {
+    border: 1px solid #999999;
+    float: left;
+    padding: 1%;
+    width: 98%;
+}
+.GoogleAnalyticsGuide {
+    background: rgba(0, 0, 0, 0) url("/Images/Icons/GoogleAnalyticsGuide.png") no-repeat scroll left bottom;
+    float: left;
+    font-size: 170%;
+    height: 96px;
+    line-height: 1.1em;
+    padding: 35px 80px 5px 120px;
+    position: absolute;
+    right: 20px;
+    text-align: center;
+    text-decoration: none;
+    top: 20px;
+    width: 170px;
+}
+.GoogleAnalyticsGuide:hover {
+    text-decoration: underline;
+}

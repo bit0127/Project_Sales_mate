@@ -1,0 +1,482 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="DashboardMasterPage.master.cs" Inherits="DashboardMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+      <title>Sales-Mate</title>
+    <link rel="shortcut icon" href="Nimages/logopran.gif" />
+    <link href="Ncss/jquery-ui.css" rel="stylesheet" />    
+   <%-- <link href="Ncss/bootstrap-min2.css" rel="stylesheet" type="text/css"/>--%>
+
+
+
+    <link rel="stylesheet" type="text/css" href="CSS/basic.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/Format.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/demo.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/sidemenu.css" />
+    
+    <script src="NScripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="NScripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery.min.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery-ui.js" type="text/javascript"></script>
+    <script src="NScripts/script.js" type="text/javascript"></script>    
+  
+    <!-- jQuery -->
+    <script type="text/javascript" src="JS/slide-show-google-api.js"></script>
+
+
+
+    <link href="NgridCss/dataTables.jqueryui.min.css" rel="stylesheet" />    
+    <link href="NgridCss/buttons.jqueryui.min.css" rel="stylesheet" />
+  
+    <script src="NgridJs/jquery-1.12.0.min.js" type="text/javascript"></script>  
+    <script src="NgridJs/jquery.dataTables.min.js" type="text/javascript"></script>  
+    <script src="NgridJs/dataTables.jqueryui.min.js" type="text/javascript"></script>     
+    <script src="NgridJs/dataTables.buttons.min.js" type="text/javascript"></script>     
+    <script src="NgridJs/buttons.jqueryui.min.js" type="text/javascript"></script>    
+    <script src="NgridJs/jszip.min.js" type="text/javascript"></script>    
+    <script src="NgridJs/pdfmake.min.js" type="text/javascript"></script>
+    <script src="NgridJs/vfs_fonts.js" type="text/javascript"></script>    
+    <script src="NgridJs/buttons.html5.min.js" type="text/javascript"></script>    
+    <script src="NgridJs/buttons.print.min.js" type="text/javascript"></script>
+
+
+
+    <!-- FlexSlider -->    
+    <script type="text/javascript" src="JS/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="JS/prototype.js"></script>
+    <script type="text/javascript" src="JS/lightbox.js"></script>  
+    
+    <link rel="stylesheet" href="CSS/date-picker-css.css" />
+    <script src="JSfordate/jquery-1.10.2.js"></script>
+    <script src="JSfordate/jquery-ui.js"></script>
+
+    <style>
+        .ui-datepicker {
+            width: 17em;
+            padding: .2em .2em 0;
+            display: none;
+            background: #846733;
+        }
+
+            .ui-datepicker .ui-datepicker-title {
+                margin: 0 2.3em;
+                line-height: 1.8em;
+                text-align: center;
+                color: #FFFFFF;
+                background: #846733;
+            }
+
+            .ui-datepicker table {
+                width: 100%;
+                font-size: .7em;
+                border-collapse: collapse;
+                font-family: verdana;
+                margin: 0 0 .4em;
+                color: #000000;
+                background: #FDF8E4;
+            }
+
+            .ui-datepicker td {
+                border: 0;
+                padding: 1px;
+            }
+
+                .ui-datepicker td span, .ui-datepicker td a {
+                    display: block;
+                    padding: .8em;
+                    text-align: right;
+                    text-decoration: none;
+                }
+    </style>
+   
+
+
+    <style type="text/css">
+        
+        .plc::-webkit-input-placeholder
+        {
+            color:#b2cde0;
+        }
+        
+        .btn-success {
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+            color: #fff;
+            
+        }
+        .boxbg5
+        {
+            background-color: #FFF;
+            padding: 1px;
+            height: 50px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            border-radius: 5px;
+            margin-top: -30px;
+        }
+        .btn {
+            -moz-user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857;
+            margin-bottom: 0;
+            padding: 6px 12px;
+            text-align: center;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #607d8b;
+        }
+
+        ul li {
+            float: left;
+            border-right:1px solid #bbb;
+        }
+
+        ul li:last-child {
+            border-right: none;
+        }
+
+        ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 10px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        ul li a:hover:not(.active) {
+            background-color: #8dc060;
+        }
+
+        .active {
+            background-color: #8dc060;
+        }
+        
+        #content {
+	        float: left;
+            padding-top: 10px;
+            padding-left: 5px;
+            width: 95.5%;
+        }
+
+        #middle {
+	        width: 580px; /* Account for margins + border values */
+	        float: left;
+	        padding: 5px;	        
+        }
+
+        #sidebar {
+	        width: 97%;
+	        padding-top: 10px;
+	        float: right;
+            padding-right: 5px;
+        }
+        #pagewrap {
+	        padding-top: 5px;
+	        width: 1135px;
+	        margin: -14px auto;
+        }
+        
+        .border-bottom
+        {
+            border-bottom: 1px solid #bbb;
+        }
+        
+        .title{
+            display: inline-block;
+            height: 25px;
+        }
+        
+        .txtColor
+        {
+            border:1px solid #5cb85c;       
+            height:23px;      
+        }
+        
+     </style>
+
+    <script type="text/javascript" charset="utf-8">
+        var $j = jQuery.noConflict();
+        
+        $j(document).ready(function () {
+
+            $j('#dvMiddleContent').html('');
+            $j('#dvMiddleContent').html("<div style='width:60%;height:36px;margin-top: 5px;background-color:#8dc060;text-align:center;color:#fff;font-size:25px;padding-top:10px;margin-top:10px;margin-left:19%;'><span>Base Selection</span></div>" +
+                               "<div style='width:59.8%;height:auto;margin-top: 2px;border:1px solid #8dc060;padding-top:10px;margin-left:19%;'>" +
+                                  "<table style='padding-top:10px;padding-bottom: 10px;padding-left:16%'>" +
+                                    "<tr><td>Date :</td><td><input type='text' id='txtDate' placeholder='DD/MM/YYYY' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td></td></tr>" +
+                                    //"<tr><td>Country Name :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlCountry' name='ddlCountry'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                    "<tr><td>Company Name :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlOwnCompany' name='ddlOwnCompany'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                  "</table>" +
+                                "</div>");
+
+
+            var d = new Date();
+            var month = d.getMonth() + 1;
+            var day = d.getDate();
+            var currentDate = (day < 10 ? '0' : '') + day + '/' + (month < 10 ? '0' : '') + month + '/' + d.getFullYear();
+            $j("#txtDate").val(currentDate);
+            $j("#txtDate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+
+            $j.getScript("JS/loadCountry.js");
+
+            //$j("#ddlCountry").change(function (e) {
+            var countryName = "Bangladesh";$j("#ddlCountry option:selected").text();
+                $j.ajax({
+                    type: "POST",
+                    url: "operation.aspx/GetCompanyByCountry",
+                    data: "{countryName:'" + countryName + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    success: function (response) {
+
+                        var companyInfo = response.d.split(';');
+                        var opt = "<option value='-1'>...Select...</option>";
+                        //opt = opt + "<option value='All'>All Company</option>";
+                        for (var i = 1; i < companyInfo.length; i = i + 2) {
+                            var comId = companyInfo[i];
+                            var comName = companyInfo[i + 1];
+                            opt = opt + "<option value='" + comId + "'>" + comName + "</option>";
+                        }
+                        $j("#ddlOwnCompany").html('');
+                        $j("#ddlOwnCompany").append(opt);
+
+                    },
+                    failure: function (response) {
+                        alert(response.d);
+                    }
+                });
+            //});
+             
+
+            $j("#lnkSetup").click(function (e) {
+                e.preventDefault();
+                 
+                var country = $j("#ddlCountry").val();
+                var company = $j("#ddlOwnCompany").val();
+
+                //if (country == "-1") {
+                //    alert('Select Country');
+                //    return;
+                //}
+                if (company == "-1") {
+                    alert('Select Company');
+                    return;
+                }
+
+                window.location = "operation.aspx?company=" + company;
+
+               // window.location = "operation.aspx?country=" + country + "&company=" + company;
+
+
+            });
+
+            $j("#lnkReports").click(function (e) {
+                e.preventDefault();
+
+                var todaysDate = $j("#txtDate").val();
+                var country = 1;
+                var company = $j("#ddlOwnCompany").val();
+
+                if (todaysDate == "") {
+                    alert('Enter Date');
+                    return;
+                }
+                else if (todaysDate.length < 10) {
+                    alert('Date Format wrong! actual format is DD/MM/YYYY');
+                    return;
+                }
+                //else if (country == "-1") {
+                //    alert('Select Country');
+                //    return;
+                //}
+                else if (company == "-1") {
+                    alert('Select Company');
+                    return;
+                }
+
+                //window.location = "sales.aspx?company=" + company + "&todaysDate=" + todaysDate;
+
+               window.location = "sales.aspx?country=" + country + "&company=" + company + "&todaysDate=" + todaysDate;
+
+            });
+
+
+            $j("#lnkLogout").click(function (e) {
+                e.preventDefault();
+                window.location = "login.aspx";
+            });
+
+            var topsr = "sr";
+            $j.ajax({
+                type: "POST",
+                url: "pmdashboard.aspx/CheckUserName",
+                data: "{uid:'" + topsr + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                success: function (response) {
+
+                    $j("#logeduser").html("Welcome " + response.d);
+                },
+                failure: function (response) {
+                    alert(response.d);
+                }
+            });
+
+        });
+
+</script>
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+     <div id="bodywrapper">
+   <div id="header">
+      <div><img src="images/pran-logo.png" width="80" height="25" title="Upper Sales"/></div>
+     
+   </div>
+   <div style="background:#8dc060; height:49px;">
+    
+        <ul>
+          <li><a class="active" href="login.aspx" id="lnkHome">Home</a></li>
+          <li><a href="#news">About Us</a></li>
+          <li><a href="#contact">Policies</a></li>           
+          <li><a href="#contact">Staff profiles</a></li>
+          <li><a href="#contact">Newsletters</a></li>           
+          <li><a href="#contact">Controlling body</a></li>
+          <li style="float:right;"><a href="#"><span id="logeduser" style="color:#ff9800;"></span></a></li>
+          <li style="float:right"><a href="#" id="lnkLogout">Log Out</a></li>
+        </ul>
+   </div>
+   <div id="contentwrapper">
+       <div style="background:rgba(0,0,0,0.12);width:100%; height:auto;">
+          <div style="border:1px solid #f06292;width:20%; height:auto;float:left;padding-bottom:5px;">
+             <%-- <section id="content">		                 
+		                 <ul class="rmRootGroup rmVertical">
+                         
+		                    <li class="rmItem rmFirst active border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;"><span class="rmText">Main Menu</span></a></li>
+                            <li class="rmItem rmFirst active border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 187px;"><span class="rmText">Notice Board</span></a></li>
+                            
+                            <li class="rmItem border-bottom"><a id="lnkSetup" class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Go to Setup</span></a></li>                             
+                             
+                             <li class="rmItem border-bottom"><a id="lnkReports" class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Go to Reports</span></a></li>
+                            <li class="rmItem rmLast"><a class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Sales Theory</span></a></li>
+	                    </ul>
+	                </section>--%>
+               <aside id="sidebar">
+		                <ul class="rmRootGroup rmVertical">
+                         
+		                    <li class="rmItem rmFirst active border-bottom" style="width:100%;"><a class="rmLink rmRootLink" href="#"><span class="rmText">Main Menu</span></a></li>
+                            <li class="rmItem border-bottom" style="width:100%;text-align: left;"><a href="#" id="lnkSetup" class="rmLink rmRootLink" style="text-align: left;"><span class="rmText">Go to Setup</span></a></li>                             
+                            <%--<li class="rmItem border-bottom"><a id="lnkReports" class="rmLink rmRootLink" href="sales.aspx" style="width: 176px;text-align: left;"><span class="rmText">Go to Reports</span></a></li>--%>
+                             <li class="rmItem border-bottom" style="width:100%;text-align: left;"><a href="#" id="lnkReports" class="rmLink rmRootLink" style="text-align: left;"><span class="rmText">Go to Reports</span></a></li>
+                            <li class="rmItem rmLast" style="width:100%;text-align: left;"><a href="#" class="rmLink rmRootLink" style="text-align: left;"><span class="rmText">Sales Theory</span></a></li>
+	                                           
+                         </ul>	                
+                     </aside>
+          </div>
+           <div style="width:79%; height:auto;float:right;">
+               <div id="dvMiddleContent" style="border:1px solid #8dc060;width:75%; height:auto;float:left;padding-bottom:25px;">
+                   <%--<img src="images/salesgrowth.png" width="96%" height="500" style="margin-left:20px;margin-top:10px;"/>--%>
+               </div>
+               <div style="border:1px solid #f06292;width:24%; height:auto;float:right;">
+                   <aside id="sidebar">
+		                <ul class="rmRootGroup rmVertical">
+                         
+		                    <li class="rmItem rmFirst active border-bottom" style="width:100%;"><a class="rmLink rmRootLink" href="#"><span class="rmText">Notice Board</span></a></li>
+                            <li class="rmItem border-bottom">
+                             
+                              <span class="rmText"> 
+                                <marquee direction="up">
+                                <a class="rmLink rmRootLink" href="#" style="text-align: left;">
+                                06/02/2017</br>
+                                We want to go Apex level. 
+                                </a></br>
+                                <a class="rmLink rmRootLink" href="#" style="text-align: left;">
+                                01/01/2017</br>
+                                Salesman recruitment going on!
+                                All exam will be held on the mentioned date schedule.
+                                </a>
+                                </marquee>
+                              </span>
+                            
+                            </li>
+                            <li class="rmItem rmLast"><a class="rmLink rmRootLink" href="#" style="width: 187px;text-align: right;"><span class="rmText">All News>></span></a></li>
+	                                           
+                         </ul>	                
+                     </aside>
+
+                   <aside id="sidebar">
+                      <div id="dvResult" style='height:auto;padding-bottom:10px;'>
+		                <ul class="rmRootGroup rmVertical">
+                         
+		                    <li class="rmItem rmFirst active border-bottom" style="width:100%;">
+                                <a href="#" class="rmLink rmRootLink"><span class="rmText"><b>Today's Sales</b><br/>Top 10 Best Sold Products </span></a>
+                             </li>
+                            
+                              <li>
+                                <table style='color:#fff;'><thead>
+                                <tr style="background-color:#ddd;" class="border-bottom"><th style="padding-left:5px;color:#4caf50;">Rank</th><th style="width:200px;padding-left:10px;color:#4caf50;">Name</th><th style="width:58px;color:#4caf50;">Marks</th></tr>
+                                <thead>
+                                  <tbody>
+                                    <tr><td style='padding-left:10px;'>1</td><td style='width:200px;padding-left:10px;'>Frooto</td><td style='padding-left:10px;'>50</td></tr>
+                                     <tr><td style='padding-left:10px;'>2</td><td style='width:200px;padding-left:10px;'>Jhalmuri</td><td style='padding-left:10px;'>47</td></tr>
+                                     <tr><td style='padding-left:10px;'>3</td><td style='width:200px;padding-left:10px;'>Juce</td><td style='padding-left:10px;'>46</td></tr>
+                                     <tr><td style='padding-left:10px;'>4</td><td style='width:200px;padding-left:10px;'>Mango Pickle</td><td style='padding-left:10px;'>43</td></tr>
+                                     <tr><td style='padding-left:10px;'>5</td><td style='width:200px;padding-left:10px;'>Sundrop</td><td style='padding-left:10px;'>42</td></tr>
+                                     <tr><td style='padding-left:10px;'>6</td><td style='width:200px;padding-left:10px;'>Power Drink</td><td style='padding-left:10px;'>40</td></tr>
+                                     <tr><td style='padding-left:10px;'>7</td><td style='width:200px;padding-left:10px;'>Dairy products</td><td style='padding-left:10px;'>40</td></tr>
+                                     <tr><td style='padding-left:10px;'>8</td><td style='width:200px;padding-left:10px;'>Mango bar</td><td style='padding-left:10px;'>39</td></tr>
+                                     <tr><td style='padding-left:10px;'>9</td><td style='width:200px;padding-left:10px;'>Rice items</td><td style='padding-left:10px;'>37</td></tr>
+                                     <tr><td style='padding-left:10px;'>10</td><td style='width:200px;padding-left:10px;'>Lassi</td><td style='padding-left:10px;'>35</td></tr>
+                                  </tbody>
+                                  </table>
+                              </li>     
+	                                           
+                         </ul>	                
+                        </div>
+                     </aside>
+               </div>
+           </div>
+       </div>
+     
+          <div style="clear:both"></div>
+         <div style="line-height:14px; margin-top:15px;">
+         </div>
+      </div>
+   </div>
+
+<div id="footerwrapper">
+   <div id="footer">
+      <a href="login.aspx" style="color:white; text-decoration:none;">Home | </a><a href="" style="color:white; text-decoration:none;"> About us | </a><a href="" style="color:white; text-decoration:none;">Contact us </a>
+      <p>Telephone: (0088) 01924602673&nbsp;&nbsp;&nbsp;&nbsp;Any time: 01710649448<br />
+      Copyright &copy; 2016 Website: www.pranrflgroup.com Email: info@pranrflgroup.com   
+        <div style="text-align:right; margin-top:-14px;"><a href="http://www.pranrflgroup.com" target=_new style="color:white; text-decoration:none;">Design & Developed by Rathindra Nath</a></div>
+   </div>
+</div>
+    </form>
+</body>
+</html>

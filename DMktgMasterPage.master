@@ -1,0 +1,1097 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="DMktgMasterPage.master.cs" Inherits="DMktgMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Sales-Mate</title>
+    <link rel="shortcut icon" href="Nimages/logopran.gif" />
+    <link href="Ncss/jquery-ui.css" rel="stylesheet" />    
+   <%-- <link href="Ncss/bootstrap-min2.css" rel="stylesheet" type="text/css"/>--%>
+
+
+
+    <link rel="stylesheet" type="text/css" href="CSS/basic.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/Format.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/demo.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/sidemenu.css" />
+    
+    <script src="NScripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="NScripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery.min.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery-ui.js" type="text/javascript"></script>
+    <script src="NScripts/script.js" type="text/javascript"></script>    
+  
+    <!-- jQuery -->
+    <script type="text/javascript" src="JS/slide-show-google-api.js"></script>
+
+
+
+    <link href="NgridCss/dataTables.jqueryui.min.css" rel="stylesheet" />    
+    <link href="NgridCss/buttons.jqueryui.min.css" rel="stylesheet" />
+  
+    <script src="NgridJs/jquery-1.12.0.min.js" type="text/javascript"></script>  
+    <script src="NgridJs/jquery.dataTables.min.js" type="text/javascript"></script>  
+    <script src="NgridJs/dataTables.jqueryui.min.js" type="text/javascript"></script>     
+    <script src="NgridJs/dataTables.buttons.min.js" type="text/javascript"></script>     
+    <script src="NgridJs/buttons.jqueryui.min.js" type="text/javascript"></script>    
+    <script src="NgridJs/jszip.min.js" type="text/javascript"></script>    
+    <script src="NgridJs/pdfmake.min.js" type="text/javascript"></script>
+    <script src="NgridJs/vfs_fonts.js" type="text/javascript"></script>    
+    <script src="NgridJs/buttons.html5.min.js" type="text/javascript"></script>    
+    <script src="NgridJs/buttons.print.min.js" type="text/javascript"></script>
+
+
+
+    <!-- FlexSlider -->    
+    <script type="text/javascript" src="JS/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="JS/prototype.js"></script>
+    <script type="text/javascript" src="JS/lightbox.js"></script>  
+    
+   
+    <link rel="stylesheet" href="CSS/date-picker-css.css" />
+  <%-- <script type="text/javascript" src="JSfordate/jquery-1.10.2.js"></script>--%>
+    <script type="text/javascript" src="JSfordate/jquery-ui.js"></script>
+   
+    <style type="text/css">
+        
+        .plc::-webkit-input-placeholder
+        {
+            color:#b2cde0;
+        }
+        
+        .btn-success {
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+            color: #fff;
+            
+        }
+        .boxbg5
+        {
+            background-color: #FFF;
+            padding: 1px;
+            height: 50px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            border-radius: 5px;
+            margin-top: -30px;
+        }
+        .btn {
+            -moz-user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857;
+            margin-bottom: 0;
+            padding: 6px 12px;
+            text-align: center;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #607d8b;
+        }
+
+        ul li {
+            float: left;
+            border-right:1px solid #bbb;
+        }
+
+        ul li:last-child {
+            border-right: none;
+        }
+
+        ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        ul li a:hover:not(.active) {
+            background-color: #8dc060;
+        }
+
+        .active {
+            background-color: #8dc060;
+        }
+        
+        #content {
+	        float: left;
+            padding-top: 10px;
+            padding-left: 5px;
+            width: 95.5%;
+        }
+
+        #middle {
+	        width: 580px; /* Account for margins + border values */
+	        float: left;
+	        padding: 5px;	        
+        }
+
+        #sidebar {
+	        width: 97%;
+	        padding-top: 10px;
+	        float: right;
+            padding-right: 5px;
+        }
+        #pagewrap {
+	        padding-top: 5px;
+	        width: 1135px;
+	        margin: -14px auto;
+        }
+        
+        .border-bottom
+        {
+            border-bottom: 1px solid #bbb;
+        }
+        
+        .title{
+            display: inline-block;
+            height: 25px;
+        }
+        
+        .txtColor
+        {
+            border:1px solid #5cb85c;       
+            height:23px;      
+        }
+        
+     </style>
+
+    <script type="text/javascript" charset="utf-8">
+        var $j = jQuery.noConflict();
+
+
+
+        $j(document).ready(function () {
+            $j('.flexslider').flexslider({
+                animation: "fade"
+            });
+
+            $j(function () {
+                $j('.show_menu').click(function () {
+                    $j('.menu').fadeIn();
+                    $j('.show_menu').fadeOut();
+                    $j('.hide_menu').fadeIn();
+                });
+                $j('.hide_menu').click(function () {
+                    $j('.menu').fadeOut();
+                    $j('.show_menu').fadeIn();
+                    $j('.hide_menu').fadeOut();
+                });
+
+                $j('marquee').mouseover(function () {
+                    $j(this).attr('scrollamount', 0);
+                }).mouseout(function () {
+                    $j(this).attr('scrollamount', 5);
+                });
+            });
+
+            $j("#lnkLogout").click(function (e) {
+                e.preventDefault();
+                window.location = "login.aspx";
+            });
+
+
+            //--functional report---------------------------------------------
+            $j("#lnkFunctionalReport").on('click', function (e) {
+                e.preventDefault();
+                $j("#tblData").html("");
+                //$j.getScript("JS/srMktgTarget.js");
+
+                //$j("html, body").animate({ scrollTop: $j(document).height() - 20 }, "slow");
+                $j('#dvMiddleContent').html('');
+                $j('#dvMiddleContent').html("<div style='width:70%;height:36px;margin-top: 5px;background-color:#8dc060;text-align:center;color:#fff;font-size:25px;padding-top:10px;margin-top:10px;margin-left:15%;'><span>Functional Report</span></div>" +
+                                   "<div style='width:69.8%;height:auto;margin-top: 2px;border:1px solid #8dc060;padding-top:10px;margin-left:15%;'>" +
+                                   "<table style='padding-top:10px;padding-bottom: 10px;padding-left:25%'>" +
+                                   "<tr><td>Group :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlGroup' name='ddlGroup'>" +
+                                                "<option value='AllGroup'>All Group</option>" +
+                                                "<option value='PRAN-CS-Others'>PRAN-CS-Others</option>" +
+                                                "<option value='Fridge'>Fridge</option>" +
+                                                "<option value='RFL'>RFL</option></select>" +
+                                            "</td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+
+                                   "<tr><td>Country Name :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlCountry' name='ddlCountry'>" +
+                                   "<option value='-1'>...Select...</option><option value='Bangladesh'>Bangladesh</option><option value='India'>India</option><option value='Nepal'>Nepal</option><option value='Malaysia'>Malaysia</option><option value='Oman'>Oman</option><option value='UAE'>UAE</option></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                   "<tr><td>Division Name :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlDivision' name='ddlDivision'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                   "<tr><td>Region/Zone :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlZone' name='ddlZone'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                   "<tr><td>Route :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlRoute' name='ddlRoute'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+
+                                   "<tr><td>Operation Mngr. :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlOperationMngr' name='ddlOperationMngr'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                   "<tr><td>Area Mngr. :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlAreaMngr' name='ddlAreaMngr'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                   "<tr><td>Supervisor :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlSupervisor' name='ddlSupervisor'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                   "<tr><td>Merchandiser :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlMerchandiser' name='ddlMerchandiser'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+
+                                   "<tr><td>Product Name :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlProductName' name='ddlProductName'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+
+                                  "<tr><td>From Date :</td><td><input type='text' id='txtFromDate' placeholder='DD/MM/YYYY' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td></td></tr>" +
+                                  "<tr><td>To Date :</td><td><input type='text' id='txtToDate' placeholder='DD/MM/YYYY' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td></td></tr>" +
+
+                                  "<tr><td></td><td style='text-align:right;'> <button type='button' id='btnShow' style='background-color: #8dc060;border-color: #4cae4c;color: #fff;-moz-user-select: none;background-image: none;border: 1px solid transparent;border-radius: 4px;cursor: pointer;display: inline-block;font-size: 14px;font-weight: 400;line-height: 1.42857;margin-bottom: 0;padding: 6px 12px;text-align: center;vertical-align: middle;white-space: nowrap;'>Show</button></td></tr></table></div>");
+
+                $j("#txtSRId").focus();
+
+                var d = new Date();
+                var month = d.getMonth() + 1;
+                var day = d.getDate();
+                var currentDate = (day < 10 ? '0' : '') + day + '/' + (month < 10 ? '0' : '') + month + '/' + d.getFullYear();
+                $j("#txtFromDate").val(currentDate);
+                $j("#txtToDate").val(currentDate);
+                $j("#txtFromDate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+                $j("#txtToDate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+
+
+                $j.getScript("JS/loadMktgDivision.js");
+                //loadZone();
+                $j.getScript("JS/loadMktgZone.js");
+
+                $j.getScript("JS/loadMktgOperationMngr.js");
+
+                $j.getScript("JS/loadMktgGroupWiseItem.js");
+
+                $j("#ddlGroup").change(function () {
+                    $j.getScript("JS/loadMktgGroupWiseItem.js");
+                });
+
+                $j("#btnShow").click(function () {
+
+
+                    var group = $j("#ddlGroup").val();
+
+                    var country = $j("#ddlCountry").val();
+                    var division = $j("#ddlDivision").val();
+                    var zone = $j("#ddlZone").val();
+
+                    var fromDate = $j("#txtFromDate").val();
+                    var toDate = $j("#txtToDate").val();
+
+
+                    if (country == "-1") {
+                        alert('Select Country');
+                        return;
+                    }
+                    else if (division == "-1") {
+                        alert('Select Division');
+                        return;
+                    }
+                    else if (zone == "-1") {
+                        alert('Select Zone');
+                        return;
+                    }
+                    else if (fromDate == "") {
+                        alert('Enter From Date');
+                        return;
+                    }
+                    else if (toDate == "") {
+                        alert('Enter To Date');
+                        return;
+                    }
+
+                    $j("#tblData").html("");
+                    $j("#tblData").html("<div style='width:545px;'><span id='loader' style='float:left'><img src='Nimages/ajax-loader.gif' alt='Loading...' style='width:300px;height:17px;margin-top:10px; margin-left:40%; display:block;'/></span><span id='spPercentage' style='float:right;color:#2eaccc;display:block;margin-top:10px;'></span></div>");
+
+                    var tbl = "<table id='example' class='display' style='color:#9C27B0' cellspacing='0' width='100%'>";
+                    var thead = "<thead><tr><th>Company</th><th>Group</th><th>Division</th><th>Zone</th><th>Area</th><th>Outlet Name</th><th>Item Name</th><th>Amount</th></tr></thead>";
+                    var row = "";
+                    var fdate = $j("#txtFromDate").val();
+                    var tdate = $j("#txtToDate").val();
+
+
+                    $j.ajax({
+                        type: "POST",
+                        url: "trademktg.aspx/GetOutletWiseSummMktg",
+                        data: "{group:'" + group + "',fdate:'" + fromDate + "',tdate:'" + toDate + "',country:'" + country + "',division:'" + division + "',zone:'" + zone + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            var salesData = response.d.split(';');
+                            for (var i = 1; i < salesData.length; i = i + 8) {
+                                var division = salesData[i];
+                                var region = salesData[i + 1];
+                                var zone = salesData[i + 2];
+                                var outlet = salesData[i + 3];
+                                var item = salesData[i + 4];
+                                var totalAmount = salesData[i + 5];
+                                var company = salesData[i + 6];
+                                var group = salesData[i + 7];
+                                row = row + "<tr style='text-align:left'><td>" + company + "</td><td>" + group + "</td><td>" + division + "</td><td>" + region + "</td><td>" + zone + "</td><td>" + outlet + "</td><td>" + item + "</td><td>" + totalAmount + "</td></tr>";
+                            }
+
+                            tbl = tbl + thead + "<tbody>" + row + "</tbody></table>";
+
+                            $j("#loader").css("display", "none");
+                            $j("#spPercentage").css("display", "none");
+                            $j("#tblData").html("");
+                            $j("#tblData").html(tbl);
+
+                            var table = $j('#example').DataTable({
+                                lengthChange: true,
+                                buttons: true
+                            });
+
+                            table.buttons().container().insertBefore('#example_filter');
+
+                        },
+                        failure: function (response) {
+                            $j("#spTotalAmt").text(response.d);
+                        }
+                    });
+                });
+            });
+
+
+            function loadDivistionInfo() {
+                //--Load grid view---------------------
+                $j("#tblData").html("");
+                $j("#tblData").html("<div style='width:545px;'><span id='loader' style='float:left'><img src='images/ajax-loader.gif' alt='Loading...' style='width:300px;height:17px;margin-top:10px; margin-left:40%; display:block;'/></span><span id='spPercentage' style='float:right;color:#2eaccc;display:block;margin-top:10px;'></span></div>");
+
+                var tbl = "<table id='example' class='display' style='color:#9C27B0' cellspacing='0' width='100%'style='padding-top:10px;'>";
+                var thead = "<thead><tr><th>Division ID</th><th>Division Name</th><th>Country Name</th><th>Status</th><th>Operaton</th></tr></thead>";
+
+                var row = "";
+                var division = "division";
+                $j.ajax({
+                    type: "POST",
+                    url: "trademktg.aspx/GetDivisionInfo",
+                    data: "{division:'" + division + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    success: function (response) {
+                        var divisionInfo = response.d.split(';');
+
+                        for (var i = 1; i < divisionInfo.length; i = i + 4) {
+                            var divId = divisionInfo[i];
+                            var divName = divisionInfo[i + 1];
+                            var country = divisionInfo[i + 2];
+                            var status = divisionInfo[i + 3];
+
+                            row = row + "<tr style='text-align:left'><td>" + divId + "</td><td>" + divName + "</td><td>" + country + "</td><td>" + status + "</td><td><div style='float:right;'><button type='button' style='float: right; margin-top: 0px;' class='btn btn-xs btn-success editdivid' id='" + divId + "'><span class ='glyphicon glyphicon-edit'></span>Edit</button></div></td></tr>";
+                        }
+
+                        tbl = tbl + thead + "<tbody>" + row + "</tbody></table>";
+
+                        //$j("#loader").css("display", "none");
+                        $j("#tblData").html("");
+                        $j("#tblData").html(tbl);
+
+                        var table = $j('#example').DataTable({
+                            lengthChange: true,
+                            "scrollX": true,
+                            buttons: true
+                        });
+
+                        table.buttons().container().insertBefore('#example_filter');
+
+
+                    },
+                    failure: function (response) {
+                        alert(response.d);
+                    }
+                });
+
+
+                $j('#tblData').on('click', '.editdivid', function () {
+
+                    var division = this.id;
+                    //alert(srID);
+
+                    $j.ajax({
+                        type: "POST",
+                        url: "trademktg.aspx/GetDivisionInfo",
+                        data: "{division:'" + division + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            var divisionInfo = response.d.split(';');
+
+                            var divId = divisionInfo[1];
+                            var divName = divisionInfo[2];
+                            var country = divisionInfo[3];
+                            var status = divisionInfo[4];
+
+
+                            $j("#txtDivisionId").val(divId);
+                            $j("#txtDivisionName").val(divName);
+                            $j("#ddlCountry").val(country);
+                            $j("#ddlDivisionActive").val(status);
+
+                            //var table = $j('#example').DataTable({
+                            //    lengthChange: true,
+                            //    "scrollX": true,
+                            //    buttons: true
+                            //});
+
+                            //table.buttons().container().insertBefore('#example_filter');
+
+
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+
+                });
+
+                //--end grid view panel---------------------------------------------------
+            }
+
+
+             
+            function loadZoneInfo() {
+                //--Load grid view---------------------
+                $j("#tblData").html("");
+                $j("#tblData").html("<div style='width:545px;'><span id='loader' style='float:left'><img src='images/ajax-loader.gif' alt='Loading...' style='width:300px;height:17px;margin-top:10px; margin-left:40%; display:block;'/></span><span id='spPercentage' style='float:right;color:#2eaccc;display:block;margin-top:10px;'></span></div>");
+
+                var tbl = "<table id='example' class='display' style='color:#9C27B0' cellspacing='0' width='100%'style='padding-top:10px;'>";
+                var thead = "<thead><tr><th>Zone ID</th><th>Zone Name</th><th>Division ID</th><th>Division Name</th><th>Country Name</th><th>Status</th><th>Operaton</th></tr></thead>";
+
+                var row = "";
+                var zoneId = "zoneId";
+                $j.ajax({
+                    type: "POST",
+                    url: "trademktg.aspx/GetZone",
+                    data: "{zoneId:'" + zoneId + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    success: function (response) {
+                        var divisionInfo = response.d.split(';');
+
+                        for (var i = 1; i < divisionInfo.length; i = i + 6) {
+                            var zoneId = divisionInfo[i];
+                            var zoneName = divisionInfo[i + 1];
+                            var divisionId = divisionInfo[i + 2];
+                            var divisionName = divisionInfo[i + 3];
+                            var country = divisionInfo[i + 4];
+                            var status = divisionInfo[i + 5];
+
+                            row = row + "<tr style='text-align:left'><td>" + zoneId + "</td><td>" + zoneName + "</td><td>" + divisionId + "</td><td>" + divisionName + "</td><td>" + country + "</td><td>" + status + "</td><td><div style='float:right;'><button type='button' style='float: right; margin-top: 0px;' class='btn btn-xs btn-success editzoneid' id='" + zoneId + "'><span class ='glyphicon glyphicon-edit'></span>Edit</button></div></td></tr>";
+                        }
+
+                        tbl = tbl + thead + "<tbody>" + row + "</tbody></table>";
+
+                        //$j("#loader").css("display", "none");
+                        $j("#tblData").html("");
+                        $j("#tblData").html(tbl);
+
+                        var table = $j('#example').DataTable({
+                            lengthChange: true,
+                            "scrollX": true,
+                            buttons: true
+                        });
+
+                        table.buttons().container().insertBefore('#example_filter');
+
+
+                    },
+                    failure: function (response) {
+                        alert(response.d);
+                    }
+                });
+
+
+                $j('#tblData').on('click', '.editzoneid', function () {
+
+                    var zoneId = this.id;
+                    //alert(srID);
+
+                    $j.ajax({
+                        type: "POST",
+                        url: "trademktg.aspx/GetZone",
+                        data: "{zoneId:'" + zoneId + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            var divisionInfo = response.d.split(';');
+
+                            var zoneId = divisionInfo[1];
+                            var zoneName = divisionInfo[2];
+                            var divisionId = divisionInfo[3];
+                            var divisionName = divisionInfo[4];
+                            var country = divisionInfo[5];
+                            var status = divisionInfo[6];
+
+
+                            $j("#txtZoneId").val(zoneId);
+                            $j("#txtZoneName").val(zoneName);
+                            $j("#ddlCountry").val(country);
+
+                            $j("#ddlZoneActive").val(status);
+
+
+                            var countryName = $j("#ddlCountry option:selected").text();
+                            $j.ajax({
+                                type: "POST",
+                                url: "trademktg.aspx/GetDivision",
+                                data: "{countryName:'" + countryName + "'}",
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "json",
+                                async: false,
+                                success: function (response) {
+
+                                    var companyInfo = response.d.split(';');
+                                    var opt = "<option value='-1'>...Select...</option>";
+                                    for (var i = 1; i < companyInfo.length; i = i + 2) {
+                                        var groupId = companyInfo[i];
+                                        var groupName = companyInfo[i + 1];
+                                        opt = opt + "<option value='" + groupId + "'>" + groupName + "</option>";
+                                    }
+                                    $j("#ddlDivision").html('');
+                                    $j("#ddlDivision").append(opt);
+
+                                },
+                                failure: function (response) {
+                                    alert(response.d);
+                                }
+                            });
+
+                            $j("#ddlDivision").val(divisionId);
+
+                            //var table = $j('#example').DataTable({
+                            //    lengthChange: true,
+                            //    "scrollX": true,
+                            //    buttons: true
+                            //});
+
+                            //table.buttons().container().insertBefore('#example_filter');
+
+
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+
+                });
+
+                //--end grid view panel---------------------------------------------------
+            }
+
+ 
+            $j("#lnkMonitoringReport").click(function (e) {
+                e.preventDefault();
+
+                $j("#tblData").html("");
+                //$j("html, body").animate({ scrollTop: $j(document).height() - 20 }, "slow");
+                $j('#dvMiddleContent').html('');
+                $j('#dvMiddleContent').html("<div style='width:70%;height:36px;margin-top: 5px;background-color:#8dc060;text-align:center;color:#fff;font-size:25px;padding-top:10px;margin-top:10px;margin-left:15%;'><span>HR Monitoring Report</span></div>" +
+                                   "<div style='width:69.8%;height:auto;margin-top: 2px;border:1px solid #8dc060;padding-top:10px;margin-left:15%;'>" +
+                                   "<table style='padding-top:10px;padding-bottom: 10px;padding-left:25%'>" +
+                                  "<tr><td>Group :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlGroupName' name='ddlGroupName'></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+
+                                   "<tr><td>Country Name :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlCountry' name='ddlCountry'>" +
+                                   "<option value='-1'>...Select...</option><option value='Bangladesh'>Bangladesh</option><option value='India'>India</option><option value='Nepal'>Nepal</option><option value='Malaysia'>Malaysia</option><option value='Oman'>Oman</option><option value='UAE'>UAE</option></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                   "<tr><td>Division Name :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlDivision' name='ddlDivision'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                   "<tr><td>Region/Zone :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlZone' name='ddlZone'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+
+                                  "<tr><td>From Date :</td><td><input type='text' id='txtFromDate' placeholder='DD/MM/YYYY' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td></td></tr>" +
+                                  "<tr><td>To Date :</td><td><input type='text' id='txtToDate' placeholder='DD/MM/YYYY' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td></td></tr>" +
+
+                                  "<tr><td></td><td style='text-align:right;'> <button type='button' id='btnShow' style='background-color: #8dc060;border-color: #4cae4c;color: #fff;-moz-user-select: none;background-image: none;border: 1px solid transparent;border-radius: 4px;cursor: pointer;display: inline-block;font-size: 14px;font-weight: 400;line-height: 1.42857;margin-bottom: 0;padding: 6px 12px;text-align: center;vertical-align: middle;white-space: nowrap;'>Show</button></td></tr></table></div>");
+
+                $j("#txtSRId").focus();
+
+                var d = new Date();
+                var month = d.getMonth() + 1;
+                var day = d.getDate();
+                var currentDate = (day < 10 ? '0' : '') + day + '/' + (month < 10 ? '0' : '') + month + '/' + d.getFullYear();
+                $j("#txtFromDate").val(currentDate);
+                $j("#txtToDate").val(currentDate);
+                $j("#txtFromDate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+                $j("#txtToDate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+
+
+                $j.getScript("JS/loadMktgDivision.js");
+                //loadZone();
+                $j.getScript("JS/loadMktgZone.js");
+                $j.getScript("JS/loadMKTGallGroup.js");
+
+                $j("#btnShow").click(function () {
+
+
+                    var group = $j("#ddlGroupName").val();
+                    var groupName = $j("#ddlGroupName option:selected").text();
+
+                    var country = $j("#ddlCountry").val();
+                    var division = $j("#ddlDivision").val();
+                    var zone = $j("#ddlZone").val();
+
+                    var fromDate = $j("#txtFromDate").val();
+                    var toDate = $j("#txtToDate").val();
+
+
+                    if (country == "-1") {
+                        alert('Select Country');
+                        return;
+                    }
+                    else if (division == "-1") {
+                        alert('Select Division');
+                        return;
+                    }
+                    else if (zone == "-1") {
+                        alert('Select Zone');
+                        return;
+                    }
+                    else if (fromDate == "") {
+                        alert('Enter From Date');
+                        return;
+                    }
+                    else if (toDate == "") {
+                        alert('Enter To Date');
+                        return;
+                    }
+
+                    $j("#tblData").html("");
+                    $j("#tblData").html("<div style='width:545px;'><span id='loader' style='float:left'><img src='Nimages/ajax-loader.gif' alt='Loading...' style='width:300px;height:17px;margin-top:10px; margin-left:40%; display:block;'/></span><span id='spPercentage' style='float:right;color:#2eaccc;display:block;margin-top:10px;'></span></div>");
+
+                    var tbl = "<table id='example' class='display' style='color:#9C27B0' cellspacing='0' width='100%'>";
+                    var thead = "<thead><tr><th>SR ID</th><th>SR Name</th><th>Mobile Number</th><th>Route Name</th><th>Group Name</th><th>Visited Outlet</th><th>Total Outlet</th><th>Avg. Visit</th><th>In Time</th><th>Out Time</th></tr></thead>";
+                    var row = "";
+
+
+                    var company = "a";//$j("#ddlCompany").val();
+                    var count = "0";
+
+                    $j.ajax({
+                        type: "POST",
+                        url: "trademktg.aspx/ShowHRMonitoringReport",
+                        data: "{group:'" + group + "',groupName:'" + groupName + "',country:'" + country + "',division:'" + division + "',zone:'" + zone + "',fromDate:'" + fromDate + "',toDate:'" + toDate + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            var salesData = response.d.split(';');
+                            for (var i = 1; i < salesData.length; i = i + 10) {
+                                var srId = salesData[i];
+                                var srName = salesData[i + 1];
+                                var mobile = salesData[i + 2];
+                                var group = salesData[i + 3];
+                                var intime = salesData[i + 4];
+                                var outtime = salesData[i + 5];
+                                var visited = salesData[i + 6];
+                                var total = salesData[i + 7];
+                                var avgVisit = salesData[i + 8];
+                                var routeName = salesData[i + 9];
+
+                                row = row + "<tr style='text-align:left'><td>" + srId + "</td><td>" + srName + "</td><td>" + mobile + "</td><td>" + routeName + "</td><td>" + group + "</td><td>" + visited + "</td><td>" + total + "</td><td>" + avgVisit + "</td><td>" + intime + "</td><td>" + outtime + "</td></tr>";
+                            }
+
+                            tbl = tbl + thead + "<tbody>" + row + "</tbody></table>";
+
+
+                            $j("#tblData").html("");
+                            $j("#tblData").html(tbl);
+
+                            var table = $j('#example').DataTable({
+                                lengthChange: true,
+                                buttons: true
+                            });
+
+                            table.buttons().container().insertBefore('#example_filter');
+
+                        },
+                        failure: function (response) {
+                            $j("#spTotalAmt").text(response.d);
+                        }
+                    });
+
+
+                });
+            });
+
+
+            //--product wise summ
+            $j("#lnkProductWiseSummaryReport").click(function (e) {
+                e.preventDefault();
+                $j("#tblData").html("");
+                //$j.getScript("JS/srMktgTarget.js");
+
+                //$j("html, body").animate({ scrollTop: $j(document).height() - 20 }, "slow");
+                $j('#dvMiddleContent').html('');
+                $j('#dvMiddleContent').html("<div style='width:70%;height:36px;margin-top: 5px;background-color:#8dc060;text-align:center;color:#fff;font-size:25px;padding-top:10px;margin-top:10px;margin-left:15%;'><span>Product Wise Summary Report</span></div>" +
+                                   "<div style='width:69.8%;height:auto;margin-top: 2px;border:1px solid #8dc060;padding-top:10px;margin-left:15%;'>" +
+                                   "<table style='padding-top:10px;padding-bottom: 10px;padding-left:25%'>" +
+                                   "<tr><td>Group :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlGroupName' name='ddlGroupName'></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+
+                                   "<tr><td>Country Name :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlCountry' name='ddlCountry'>" +
+                                   "<option value='-1'>...Select...</option><option value='Bangladesh'>Bangladesh</option><option value='India'>India</option><option value='Nepal'>Nepal</option><option value='Malaysia'>Malaysia</option><option value='Oman'>Oman</option><option value='UAE'>UAE</option></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                   "<tr><td>Division Name :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlDivision' name='ddlDivision'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                   "<tr><td>Region/Zone :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlZone' name='ddlZone'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+
+                                  "<tr><td>From Date :</td><td><input type='text' id='txtFromDate' placeholder='DD/MM/YYYY' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td></td></tr>" +
+                                  "<tr><td>To Date :</td><td><input type='text' id='txtToDate' placeholder='DD/MM/YYYY' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td></td></tr>" +
+
+                                  "<tr><td></td><td style='text-align:right;'> <button type='button' id='btnShow' style='background-color: #8dc060;border-color: #4cae4c;color: #fff;-moz-user-select: none;background-image: none;border: 1px solid transparent;border-radius: 4px;cursor: pointer;display: inline-block;font-size: 14px;font-weight: 400;line-height: 1.42857;margin-bottom: 0;padding: 6px 12px;text-align: center;vertical-align: middle;white-space: nowrap;'>Show</button></td></tr></table></div>");
+
+                $j("#txtSRId").focus();
+
+                var d = new Date();
+                var month = d.getMonth() + 1;
+                var day = d.getDate();
+                var currentDate = (day < 10 ? '0' : '') + day + '/' + (month < 10 ? '0' : '') + month + '/' + d.getFullYear();
+                $j("#txtFromDate").val(currentDate);
+                $j("#txtToDate").val(currentDate);
+                $j("#txtFromDate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+                $j("#txtToDate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+
+
+                $j.getScript("JS/loadMktgDivision.js");
+                //loadZone();
+                $j.getScript("JS/loadMktgZone.js");
+                $j.getScript("JS/loadMKTGallGroup.js");
+
+
+                $j("#btnShow").click(function () {
+
+                    var group = $j("#ddlGroupName").val();
+                    var groupName = $j("#ddlGroupName option:selected").text();
+
+                    var country = $j("#ddlCountry").val();
+                    var division = $j("#ddlDivision").val();
+                    var zone = $j("#ddlZone").val();
+
+                    var fromDate = $j("#txtFromDate").val();
+                    var toDate = $j("#txtToDate").val();
+
+
+                    if (country == "-1") {
+                        alert('Select Country');
+                        return;
+                    }
+                    else if (division == "-1") {
+                        alert('Select Division');
+                        return;
+                    }
+                    else if (zone == "-1") {
+                        alert('Select Zone');
+                        return;
+                    }
+                    else if (fromDate == "") {
+                        alert('Enter From Date');
+                        return;
+                    }
+                    else if (toDate == "") {
+                        alert('Enter To Date');
+                        return;
+                    }
+
+                    $j("#tblData").html("");
+                    $j("#tblData").html("<div style='width:545px;'><span id='loader' style='float:left'><img src='Nimages/ajax-loader.gif' alt='Loading...' style='width:300px;height:17px;margin-top:10px; margin-left:40%; display:block;'/></span><span id='spPercentage' style='float:right;color:#2eaccc;display:block;margin-top:10px;'></span></div>");
+
+                    var tbl = "<table id='example' class='display' style='color:#9C27B0' cellspacing='0' width='100%'>";
+                    var thead = "<thead><tr><th>Company</th><th>Group</th><th>Division</th><th>Zone</th><th>Area</th><th>Item Name</th><th>Total Block</th><th>Block Size</th><th>Service Cost</th><th>Sales Amount</th></tr></thead>";
+                    var row = "";
+
+
+                    $j.ajax({
+                        type: "POST",
+                        url: "trademktg.aspx/GetProductWiseSummMktg",
+                        data: "{group:'" + group + "',groupName:'" + groupName + "',fdate:'" + fromDate + "',tdate:'" + toDate + "',country:'" + country + "',division:'" + division + "',zone:'" + zone + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            var salesData = response.d.split(';');
+                            for (var i = 1; i < salesData.length; i = i + 10) {
+                                var company = salesData[i];
+                                var groupName = salesData[i + 1];
+                                var division = salesData[i + 2];
+                                var zone = salesData[i + 3];
+                                var routeName = salesData[i + 4];
+                                var itemName = salesData[i + 5];
+                                var totalBlock = salesData[i + 6];
+                                var blockSize = salesData[i + 7];
+                                var serviceCost = salesData[i + 8];
+                                var salesAmt = salesData[i + 9];
+                                row = row + "<tr style='text-align:left'><td>" + company + "</td><td>" + groupName + "</td><td>" + division + "</td><td>" + zone + "</td><td>" + routeName + "</td><td>" + itemName + "</td><td>" + totalBlock + "</td><td>" + blockSize + "</td><td>" + serviceCost + "</td><td>" + salesAmt + "</td></tr>";
+                            }
+
+                            tbl = tbl + thead + "<tbody>" + row + "</tbody></table>";
+
+
+                            $j("#tblData").html("");
+                            $j("#tblData").html(tbl);
+
+                            var table = $j('#example').DataTable({
+                                lengthChange: true,
+                                buttons: true
+                            });
+
+                            table.buttons().container().insertBefore('#example_filter');
+
+                        },
+                        failure: function (response) {
+                            $j("#spTotalAmt").text(response.d);
+                        }
+                    });
+
+
+
+
+                });
+            });
+
+            
+
+            //--outlet wise summ
+            $j("#lnkOutletSummary").on('click', function (e) {
+                e.preventDefault();
+                $j("#tblData").html("");
+                //$j.getScript("JS/srMktgTarget.js");
+
+                //$j("html, body").animate({ scrollTop: $j(document).height() - 20 }, "slow");
+                $j('#dvMiddleContent').html('');
+                $j('#dvMiddleContent').html("<div style='width:70%;height:36px;margin-top: 5px;background-color:#8dc060;text-align:center;color:#fff;font-size:25px;padding-top:10px;margin-top:10px;margin-left:15%;'><span>Outlet Wise Summary Report</span></div>" +
+                                   "<div style='width:69.8%;height:auto;margin-top: 2px;border:1px solid #8dc060;padding-top:10px;margin-left:15%;'>" +
+                                   "<table style='padding-top:10px;padding-bottom: 10px;padding-left:25%'>" +
+                                   "<tr><td>Group :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlGroupName' name='ddlGroupName'></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+
+                                   "<tr><td>Country Name :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlCountry' name='ddlCountry'>" +
+                                   "<option value='-1'>...Select...</option><option value='Bangladesh'>Bangladesh</option><option value='India'>India</option><option value='Nepal'>Nepal</option><option value='Malaysia'>Malaysia</option><option value='Oman'>Oman</option><option value='UAE'>UAE</option></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                   "<tr><td>Division Name :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlDivision' name='ddlDivision'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                   "<tr><td>Region/Zone :</td><td><select style='height:28px;width:204px;border:1px solid #8dc060;' id='ddlZone' name='ddlZone'></select></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+
+                                  "<tr><td>From Date :</td><td><input type='text' id='txtFromDate' placeholder='DD/MM/YYYY' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td></td></tr>" +
+                                  "<tr><td>To Date :</td><td><input type='text' id='txtToDate' placeholder='DD/MM/YYYY' style='border:1px solid #8dc060;width:200px;height:25px;'/></td><td></td></tr>" +
+
+                                  "<tr><td></td><td style='text-align:right;'> <button type='button' id='btnShow' style='background-color: #8dc060;border-color: #4cae4c;color: #fff;-moz-user-select: none;background-image: none;border: 1px solid transparent;border-radius: 4px;cursor: pointer;display: inline-block;font-size: 14px;font-weight: 400;line-height: 1.42857;margin-bottom: 0;padding: 6px 12px;text-align: center;vertical-align: middle;white-space: nowrap;'>Show</button></td></tr></table></div>");
+
+                $j("#txtSRId").focus();
+
+                var d = new Date();
+                var month = d.getMonth() + 1;
+                var day = d.getDate();
+                var currentDate = (day < 10 ? '0' : '') + day + '/' + (month < 10 ? '0' : '') + month + '/' + d.getFullYear();
+                $j("#txtFromDate").val(currentDate);
+                $j("#txtToDate").val(currentDate);
+                $j("#txtFromDate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+                $j("#txtToDate").datepicker({ showAnim: "fold", dateFormat: "dd/mm/yy" });
+
+
+                $j.getScript("JS/loadMktgDivision.js");
+                //loadZone();
+                $j.getScript("JS/loadMktgZone.js");
+                $j.getScript("JS/loadMKTGallGroup.js");
+
+                $j("#btnShow").click(function () {
+
+
+                    var group = $j("#ddlGroupName").val();
+                    var groupName = $j("#ddlGroupName option:selected").text();
+
+                    var country = $j("#ddlCountry").val();
+                    var division = $j("#ddlDivision").val();
+                    var zone = $j("#ddlZone").val();
+
+                    var fromDate = $j("#txtFromDate").val();
+                    var toDate = $j("#txtToDate").val();
+
+
+                    if (country == "-1") {
+                        alert('Select Country');
+                        return;
+                    }
+                    else if (division == "-1") {
+                        alert('Select Division');
+                        return;
+                    }
+                    else if (zone == "-1") {
+                        alert('Select Zone');
+                        return;
+                    }
+                    else if (fromDate == "") {
+                        alert('Enter From Date');
+                        return;
+                    }
+                    else if (toDate == "") {
+                        alert('Enter To Date');
+                        return;
+                    }
+
+                    $j("#tblData").html("");
+                    $j("#tblData").html("<div style='width:545px;'><span id='loader' style='float:left'><img src='Nimages/ajax-loader.gif' alt='Loading...' style='width:300px;height:17px;margin-top:10px; margin-left:40%; display:block;'/></span><span id='spPercentage' style='float:right;color:#2eaccc;display:block;margin-top:10px;'></span></div>");
+
+                    var tbl = "<table id='example' class='display' style='color:#9C27B0' cellspacing='0' width='100%'>";
+                    var thead = "<thead><tr><th>Company</th><th>Group</th><th>Division</th><th>Zone</th><th>Area</th><th>Outlet Name</th><th>Item Name</th><th>Amount</th></tr></thead>";
+                    var row = "";
+                    var fdate = $j("#txtFromDate").val();
+                    var tdate = $j("#txtToDate").val();
+
+
+                    $j.ajax({
+                        type: "POST",
+                        url: "trademktg.aspx/GetOutletWiseSummMktg",
+                        data: "{group:'" + group + "',groupName:'" + groupName + "',fdate:'" + fromDate + "',tdate:'" + toDate + "',country:'" + country + "',division:'" + division + "',zone:'" + zone + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            var salesData = response.d.split(';');
+                            for (var i = 1; i < salesData.length; i = i + 8) {
+                                var division = salesData[i];
+                                var region = salesData[i + 1];
+                                var zone = salesData[i + 2];
+                                var outlet = salesData[i + 3];
+                                var item = salesData[i + 4];
+                                var totalAmount = salesData[i + 5];
+                                var company = salesData[i + 6];
+                                var group = salesData[i + 7];
+                                row = row + "<tr style='text-align:left'><td>" + company + "</td><td>" + group + "</td><td>" + division + "</td><td>" + region + "</td><td>" + zone + "</td><td>" + outlet + "</td><td>" + item + "</td><td>" + totalAmount + "</td></tr>";
+                            }
+
+                            tbl = tbl + thead + "<tbody>" + row + "</tbody></table>";
+
+                            $j("#loader").css("display", "none");
+                            $j("#spPercentage").css("display", "none");
+                            $j("#tblData").html("");
+                            $j("#tblData").html(tbl);
+
+                            var table = $j('#example').DataTable({
+                                lengthChange: true,
+                                buttons: true
+                            });
+
+                            table.buttons().container().insertBefore('#example_filter');
+
+                        },
+                        failure: function (response) {
+                            $j("#spTotalAmt").text(response.d);
+                        }
+                    });
+                });
+            });
+
+
+
+            $j("#lnkInformationReports").click(function (e) {
+                e.preventDefault();
+                window.location = "inforeports.aspx";
+            });
+
+
+        });
+
+
+    </script>
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+ <form runat="server">
+
+ <div id="bodywrapper">
+   <div id="header">
+      <div><img src="images/pran-logo.png" width="80" height="25" title="Upper Sales"/></div>
+      <div style="padding-top:0px;width:100%;height:100px;background-color:#eeccff">
+           <div class="slider_container">
+		<div class="flexslider">
+	      <ul class="slides">
+          <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/sales0.gif" height="80" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Clear Understanding</h2><p>Should be know about the Market of PRAN-RFL Products.</p></div>
+                </div>
+	    	</li>
+            <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/sales2.gif" height="80" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Team Work</h2><p>Must be Setup Mind to Work as a Team Member.</p></div>
+                </div>
+	    	</li>
+            <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/sales3.gif" height="80" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Sales Growth</h2><p>Need to be acheive continiously Sales Growth.</p></div>
+                </div>
+	    	</li>
+           <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/sales4.gif" height="80" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Success</h2><p>Success is nothing without Hard Work.</p></div>
+                </div>
+	    	</li>
+	    	<li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/sales5.gif" height="80" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Sales Step</h2><p>Should be follow the Sales Process Step.</p></div>
+                </div>
+	    	</li>   
+	    	 
+	    </ul>
+	  </div>
+   </div>
+      </div>
+   </div>
+   <div style="background:#8dc060; height:49px;">
+    
+        <ul>
+          <li><a class="active" href="login.aspx" id="lnkHome">Home</a></li>
+          <li><a href="#news">About Us</a></li>
+          <li><a href="#contact">Policies</a></li>           
+          <li><a href="OutletReport.aspx" target="_blank">Outlet Pictures</a></li>
+          <li style="float:right"><a href="#" id="lnkLogout">Log Out</a></li>
+        </ul>
+   </div>
+   <div id="contentwrapper">
+       <div style="background:rgba(0,0,0,0.12);width:100%; height:auto;">
+          <div style="border:1px solid #f06292;width:200px; height:auto;float:left;">
+              <section id="content">		                 
+		                 <ul class="rmRootGroup rmVertical">
+                         
+		                    <li class="rmItem rmFirst active border-bottom"><a class="rmLink rmRootLink" href="#" style="width: 176px;"><span class="rmText">Main Menu</span></a></li>                            
+                            
+                             <li class="rmItem border-bottom"><a id="lnkProductWiseSummaryReport" class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Product Wise Summary Report</span></a></li>
+                             <li class="rmItem border-bottom"><a id="lnkOutletSummary" class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Outlet Wise Summary Report</span></a></li>
+                             <li class="rmItem border-bottom"><a id="lnkFunctionalReport" class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">Functional Report</span></a></li>
+                             <li class="rmItem rmLast"><a id="lnkMonitoringReport" class="rmLink rmRootLink" href="#" style="width: 176px;text-align: left;"><span class="rmText">HR Monitoring Report</span></a></li>                             
+                              
+	                    </ul>
+	                </section>
+          </div>
+           <div style="width:88%; height:auto;float:right;">
+               <div id="dvMiddleContent" style="border:1px solid #8dc060;width:99.2%; height:auto;float:left;padding-bottom:15px;margin-bottom:10px;">
+                   <img src="images/sc.jpeg" width="97%" height="500" style="margin-left:20px;margin-top:10px;"/>
+               </div>
+               <div id="tblData" style='padding-top:10px;padding-right:6px;'>
+               </div> 
+           </div>
+       </div>
+    
+          <div style="clear:both"></div>
+         <div style="line-height:14px; margin-top:15px;">
+         </div>
+      </div>
+   </div>
+
+<div id="footerwrapper">
+   <div id="footer">
+      <a href="login.aspx" style="color:white; text-decoration:none;">Home | </a><a href="" style="color:white; text-decoration:none;"> About us | </a><a href="" style="color:white; text-decoration:none;">Contact us </a>
+      <p>Telephone: (02) 4961 0777&nbsp;&nbsp;&nbsp;&nbsp;Any time: 01710649448<br />
+      Copyright &copy; 2016 Website: www.pranrflgroup.com Email: info@pranrflgroup.com   
+        <div style="text-align:right; margin-top:-14px;"><a href="http://www.pranrflgroup.com" target=_new style="color:white; text-decoration:none;">Design & Developed by Rathindra Nath</a></div>
+   </div>
+</div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,365 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="LoginMasterPage.master.cs" Inherits="LoginMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Sales-Mate</title>
+    <link rel="shortcut icon" href="Nimages/logopran.gif" />
+    <link href="Ncss/jquery-ui.css" rel="stylesheet" />    
+    <link href="NgridCss/dataTables.jqueryui.min.css" rel="stylesheet" />    
+    <link href="NgridCss/buttons.jqueryui.min.css" rel="stylesheet" />
+  
+    <script src="NgridJs/jquery-1.12.0.min.js" type="text/javascript"></script>  
+    <script src="NgridJs/jquery.dataTables.min.js" type="text/javascript"></script>  
+    <script src="NgridJs/dataTables.jqueryui.min.js" type="text/javascript"></script>     
+    <script src="NgridJs/dataTables.buttons.min.js" type="text/javascript"></script>     
+    <script src="NgridJs/buttons.jqueryui.min.js" type="text/javascript"></script>    
+    <script src="NgridJs/jszip.min.js" type="text/javascript"></script>    
+    <script src="NgridJs/pdfmake.min.js" type="text/javascript"></script>
+    <script src="NgridJs/vfs_fonts.js" type="text/javascript"></script>    
+    <script src="NgridJs/buttons.html5.min.js" type="text/javascript"></script>    
+    <script src="NgridJs/buttons.print.min.js" type="text/javascript"></script>
+
+
+
+    <link rel="stylesheet" type="text/css" href="CSS/basic.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/Format.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/demo.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/sidemenu.css" />
+    
+    <script src="NScripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="NScripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery.min.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="NJavaScript/jquery-ui.js" type="text/javascript"></script>
+    <script src="NScripts/script.js" type="text/javascript"></script>    
+  
+    <!-- jQuery -->
+    <script type="text/javascript" src="JS/slide-show-google-api.js"></script>
+    <!-- FlexSlider -->    
+    <script type="text/javascript" src="JS/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="JS/prototype.js"></script>
+    <script type="text/javascript" src="JS/lightbox.js"></script>  
+    
+   
+   
+    <style type="text/css">
+        
+        .plc::-webkit-input-placeholder
+        {
+            color:#b2cde0;
+        }
+        
+        .btn-success {
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+            color: #fff;
+            
+        }
+        .boxbg5
+        {
+            background-color: #FFF;
+            padding: 1px;
+            height: 50px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            border-radius: 5px;
+            margin-top: -30px;
+        }
+        .btn {
+            -moz-user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857;
+            margin-bottom: 0;
+            padding: 6px 12px;
+            text-align: center;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #607d8b;
+        }
+
+        ul li {
+            float: left;
+            border-right:1px solid #bbb;
+        }
+
+        ul li:last-child {
+            border-right: none;
+        }
+
+        ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        ul li a:hover:not(.active) {
+            background-color: #8dc060;
+        }
+
+        .active {
+            background-color: #8dc060;
+        }
+        
+        #content {
+	        float: left;
+            padding-top: 10px;
+            padding-left: 5px;
+            width: 95.5%;
+        }
+
+        #middle {
+	        width: 580px; /* Account for margins + border values */
+	        float: left;
+	        padding: 5px;	        
+        }
+
+        #sidebar {
+	        width: 97%;
+	        padding-top: 10px;
+	        float: right;
+            padding-right: 5px;
+        }
+        #pagewrap {
+	        padding-top: 5px;
+	        width: 1135px;
+	        margin: -14px auto;
+        }
+        
+        .border-bottom
+        {
+            border-bottom: 1px solid #bbb;
+        }
+        
+        .title{
+            display: inline-block;
+            height: 25px;
+        }
+        
+        .txtColor
+        {
+            border:1px solid #5cb85c;       
+            height:23px;      
+        }
+        
+     </style>
+
+    <script type="text/javascript" charset="utf-8">
+        var $ = jQuery.noConflict();
+        $(document).ready(function () {
+            $('.flexslider').flexslider({
+                animation: "fade"
+            });
+
+            $(function () {
+                $('.show_menu').click(function () {
+                    $('.menu').fadeIn();
+                    $('.show_menu').fadeOut();
+                    $('.hide_menu').fadeIn();
+                });
+                $('.hide_menu').click(function () {
+                    $('.menu').fadeOut();
+                    $('.show_menu').fadeIn();
+                    $('.hide_menu').fadeOut();
+                });
+
+                $('marquee').mouseover(function () {
+                    $(this).attr('scrollamount', 0);
+                }).mouseout(function () {
+                    $(this).attr('scrollamount', 5);
+                });
+            });
+
+
+
+            
+                $('#dvMiddleContent').html('');
+                $('#dvMiddleContent').html("<div style='width:70%;height:40px;margin-top: 5px;background-color:#8dc060;text-align:center;color:#fff;font-size:25px;padding-top:10px;margin-top:10px;margin-left:15%;'><span>Login panel</span></div>" +
+                                   "<div style='width:69.8%;height:190px;margin-top: 2px;border:1px solid #f06292;padding-top:10px;margin-left:15%;'>" +
+                                      "<table style='padding-top:40px;padding-left:22%'>" +
+                                        "<tr><td>Usser ID :</td><td><input type='text' id='txtUserId' style='border:1px solid #8dc060;width:99%;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                        "<tr><td>Password :</td><td><input type='password' id='txtPassword' style='border:1px solid #8dc060;width:99%;height:25px;'/></td><td><span style='color:#ec407a;'>*</span></td></tr>" +
+                                        "<tr><td></td><td style='text-align:right;'> <button type='button' id='btnSignIn' style='background-color: #8dc060;border-color: #4cae4c;color: #fff;-moz-user-select: none;background-image: none;border: 1px solid transparent;border-radius: 4px;cursor: pointer;display: inline-block;font-size: 14px;font-weight: 400;line-height: 1.42857;margin-bottom: 0;padding: 6px 12px;text-align: center;vertical-align: middle;white-space: nowrap;'>Log In</button> </td></tr>" +
+                                      "</table>" +
+                                    "</div>");
+
+                $("#txtUserId").focus();
+
+                $("#btnSignIn").click(function () {
+
+                    var uid = $("#txtUserId").val();
+                    var pwd = $("#txtPassword").val();
+                    if (uid == "") {
+                        //$('input').addClass('plc');
+                        alert('Enter User Id');
+                        return;
+                    }
+                    else if (pwd == "") {
+                        alert('Enter password');
+                        return;
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        url: "login.aspx/CheckUserData",
+                        data: "{uid:'" + uid + "',pwd:'" + pwd + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (response) {
+                            var msg = response.d;
+                            if (msg == "admin" || msg == "pm") {
+                                window.location = "dashboard.aspx";
+                            }                            
+                            else if (msg == "Dist") {
+                                window.location = "diststock.aspx";
+                            }
+                            else if (msg == "Digital") {
+                                window.location = "moderntrade.aspx";
+                            }
+                            else if (msg == "mktg") {
+                                window.location = "trademktg.aspx";
+                            }
+                            else if (msg == "mktgopt") {
+                                window.location = "optmktg.aspx";
+                            }
+                            else if (msg == "mktgmngr") {
+                                window.location = "mktgmngr.aspx";
+                            }
+                            else if (msg == "mktgsuper") {
+                                window.location = "mktgsuper.aspx";
+                            }
+                            else if (msg == "dmktg" || msg == "ctm") {
+                                window.location = "dmktg.aspx";
+                            }
+                            else {
+                                window.location = "login.aspx";
+                                alert(msg);
+                                $("#txtUserId").val('');
+                                $("#txtPassword").val('')
+                            }
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+
+
+                });
+            
+
+
+             
+
+        });
+
+
+    </script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="bodywrapper">
+   <div id="header">
+      <div><img src="images/pran-logo.png" width="80" height="25" title="Upper Sales"/></div>
+     <%-- <div style="padding-top:0px;width:100%;height:300px;background-color:#eeccff">
+           <div class="slider_container">
+		<div class="flexslider">
+	      <ul class="slides">
+          <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/sales0.gif" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Clear Understanding</h2><p>Should be know about the Market of PRAN-RFL Products.</p></div>
+                </div>
+	    	</li>
+            <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/sales2.gif" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Team Work</h2><p>Must be Setup Mind to Work as a Team Member.</p></div>
+                </div>
+	    	</li>
+            <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/sales3.gif" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Sales Growth</h2><p>Need to be acheive continiously Sales Growth.</p></div>
+                </div>
+	    	</li>
+           <li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/sales4.gif" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Success</h2><p>Success is nothing without Hard Work.</p></div>
+                </div>
+	    	</li>
+	    	<li>
+	    		<a href="http://www.rflbd.com" style="padding:0px;"><img src="images/slider/sales5.gif" height="280" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Sales Step</h2><p>Should be follow the Sales Process Step.</p></div>
+                </div>
+	    	</li>   
+	    	 
+	    </ul>
+	  </div>
+   </div>
+      </div>--%>
+   </div>
+   <div style="background:#8dc060; height:49px;">
+    
+        <ul>
+          <li><a class="active" href="login.aspx" id="lnkHome">Home</a></li>
+          <li><a href="#news">About Us</a></li>
+          <li><a href="#contact">Policies</a></li>           
+          <li><a href="#contact">Staff profiles</a></li>
+          <li><a href="#contact">Newsletters</a></li>           
+          <li><a href="#contact">Controlling body</a></li>
+          <%--<li style="float:right"><a href="#" id="lnkLogin">Log In</a></li>--%>
+        </ul>
+   </div>
+   <div id="contentwrapper">
+       <div style="background:rgba(0,0,0,0.12);width:100%; height:auto;">
+           
+           <div style="width:99%; height:350px;float:left;margin-top:15px;">
+               <div id="dvMiddleContent" style="border:1px solid #8dc060;width:45%; height:auto;float:left;padding-bottom:10px;margin-left:27%;">
+                    
+               </div>
+                
+           </div>
+       </div>
+     
+          <div style="clear:both"></div>
+         <div style="line-height:14px; margin-top:15px;">
+         </div>
+      </div>
+   </div>
+
+<div id="footerwrapper">
+   <div id="footer">
+      <a href="login.aspx" style="color:white; text-decoration:none;">Home | </a><a href="" style="color:white; text-decoration:none;"> About us | </a><a href="" style="color:white; text-decoration:none;">Contact us </a>
+      <p>Telephone: (02) 4961 0777&nbsp;&nbsp;&nbsp;&nbsp;Any time: pran672@prangroup.com <br />
+      Copyright &copy; 2016 Website: www.pranrflgroup.com Email: info@pranrflgroup.com or pran672@prangroup.com  
+        <div style="text-align:right; margin-top:-14px;"><a href="http://www.pranrflgroup.com" target=_new style="color:white; text-decoration:none;">Design & Developed by PRAN-RFL Group</a></div>
+   </div>
+</div>
+    </form>
+</body>
+</html>
